@@ -38,19 +38,6 @@ public class Undead : MonoBehaviour
         _animator = GetComponent<Animator>();
         Eye = transform.GetComponentInChildren<Camera>();
 
-        /*
-        SphereCollider[] sphereColliders = GetComponentsInChildren<SphereCollider>();
-
-        foreach(var sphereCollider in sphereColliders)
-        {
-            if (sphereCollider.name == "WeaponCollider")
-            {
-                weaponCollider = sphereCollider.gameObject;
-                break;
-            }
-        }
-        weaponCollider.SetActive(false);
-        */
         ChangeState(EnemyState.Idle);
     }
 
@@ -61,7 +48,6 @@ public class Undead : MonoBehaviour
             case EnemyState.Idle: UpdateIdle(); break;
             case EnemyState.Walk: UpdateWalk(); break;
             case EnemyState.Run: UpdateRun(); break;
-            //case EnemyState.Attack: UpdateAttack(); break;
         }
     }
 
@@ -69,7 +55,11 @@ public class Undead : MonoBehaviour
     // 매 프레임마다 수행해야 하는 동작 (상태가 바뀔 때 마다)
     void UpdateIdle()
     {
-
+        if (IsFindEnemy())
+        {
+            ChangeState(EnemyState.Run);
+            return;
+        }
     }
     
     void UpdateWalk()
@@ -98,26 +88,12 @@ public class Undead : MonoBehaviour
     {
         // 목적지까지 이동하는 코드
         Vector3 dir = targetPos - transform.position;
-        //Debug.Log("타겟거리 : " + dir.magnitude);
-        /*
-        if (dir.magnitude <= 2.0f)
-        {
-            ChangeState(EnemyState.Attack);
-            return;
-        }
-        */
 
         var targetRotation = Quaternion.LookRotation(targetPos - transform.position, Vector3.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * 2f * Time.deltaTime);
 
         transform.position += transform.forward * moveSpeed * 2f * Time.deltaTime;
     }
-    /*
-    void UpdateAttack()
-    {
-
-    }
-    */
     #endregion
 
 
@@ -154,30 +130,17 @@ public class Undead : MonoBehaviour
     IEnumerator CoroutineRun()
     {
         // 한번만 수행해야 하는 동작 (상태가 바뀔 때 마다)
-        Debug.Log("추적 상태 시작");
         _animator.SetBool("isRun", true);
         targetPos = Target.transform.position;
+        Debug.Log($"추적 상태 시작, 타겟 위치 : {targetPos}");
+
 
         while (true)
         {
             yield return new WaitForSeconds(5f);
             // 시간마다 수행해야 하는 동작 (상태가 바뀔 때 마다)
-
         }
     }
-
-
-    /*
-    IEnumerator CoroutineAttack()
-    {
-        // 한번만 수행해야 하는 동작 (상태가 바뀔 때 마다)
-        _animator.SetTrigger("isAttack");
-
-        yield return new WaitForSeconds(1f);
-        ChangeState(EnemyState.Idle);
-        yield break;
-    }
-    */
 
     #endregion
 
@@ -192,40 +155,37 @@ public class Undead : MonoBehaviour
         _animator.SetBool("isIdle", false);
         _animator.SetBool("isWalk", false);
         _animator.SetBool("isRun", false);
-        //_animator.SetBool("isAttack", false);
 
         switch (state)
         {
             case EnemyState.Idle: StartCoroutine(CoroutineIdle()); break;
             case EnemyState.Walk: StartCoroutine(CoroutineWalk()); break;
             case EnemyState.Run: StartCoroutine(CoroutineRun()); break;
-            //case EnemyState.Attack: StartCoroutine(CoroutineAttack()); break;
         }
     }
 
     bool IsFindEnemy()
     {
+        // 오브젝트가 활성화되어있지 않다면 false 반환
         if (!Target.activeSelf) return false;
 
-        Bounds targetBounds = Target.GetComponentInChildren<SkinnedMeshRenderer>().bounds;
+        // 타겟 경계를 생성
+        // 여기서 널 레퍼런스가 뜸 >> 해결
+        //Debug.Log($"target : {Target}");
+        Bounds targetBounds = Target.GetComponentInChildren<MeshRenderer>().bounds;
+        //Debug.Log($"Bound : {targetBounds}");
+
+        // 카메라에서 프러스텀 평면 생성
+        // 각 평면은 프러스텀의 벽 한 면을 나타내는 것
         eyePlanes = GeometryUtility.CalculateFrustumPlanes(Eye);
+        // 프러스텀 평면 안에 해당 오브젝으가 있는지 검사
         _isFindEnemy = GeometryUtility.TestPlanesAABB(eyePlanes, targetBounds);
+        
+        /*
+        if (_isFindEnemy)
+            Debug.Log("플레이어 찾음");
+        */
 
         return _isFindEnemy;
     }
-
-    /*
-    void OnAttack(AnimationEvent animationEvent)
-    {
-        Debug.Log("OnAttack() : " + animationEvent.intParameter);  
-        if (animationEvent.intParameter == 1)
-        {
-            weaponCollider.SetActive(true);
-        }
-        else
-        {
-            weaponCollider.SetActive(false);
-        }
-    }
-    */
 }

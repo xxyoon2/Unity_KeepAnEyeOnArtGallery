@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] 
     public float MoveSpeed = 5f;    // 이동 속도
     private PlayerController _controller;
-    public Rigidbody _rigidbody;
+    private Rigidbody _rigidbody;
 
     void Start()
     {

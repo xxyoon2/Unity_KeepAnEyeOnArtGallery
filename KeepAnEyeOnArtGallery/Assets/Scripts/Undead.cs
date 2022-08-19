@@ -20,8 +20,8 @@ public class Undead : MonoBehaviour
 
     // 이동관련
     Vector3 targetPos;
-    float moveSpeed = 1f;
-    float rotationSpeed = 1f;
+    float moveSpeed = 2f;
+    float rotationSpeed = 2f;
 
     // 적 탐지 관련
     public GameObject Target;
@@ -48,6 +48,7 @@ public class Undead : MonoBehaviour
             case EnemyState.Idle: UpdateIdle(); break;
             case EnemyState.Walk: UpdateWalk(); break;
             case EnemyState.Run: UpdateRun(); break;
+            case EnemyState.Attack: UpdateAttack(); break;
         }
     }
 
@@ -58,7 +59,13 @@ public class Undead : MonoBehaviour
         if (IsFindEnemy())
         {
             ChangeState(EnemyState.Run);
+            Debug.Log("발견했습니당^^!");
             return;
+        }
+        else
+        {
+            ChangeState(EnemyState.Walk);
+
         }
     }
     
@@ -67,11 +74,13 @@ public class Undead : MonoBehaviour
         if (IsFindEnemy())
         {
             ChangeState(EnemyState.Run);
+            Debug.Log("발견했습니당^^!");
             return;
         }
 
         // 목적지까지 이동하는 코드
         Vector3 dir = targetPos - transform.position;
+        dir.y = 0f;
         if (dir.sqrMagnitude <= 0.2f)
         {
             ChangeState(EnemyState.Idle);
@@ -88,12 +97,29 @@ public class Undead : MonoBehaviour
     {
         // 목적지까지 이동하는 코드
         Vector3 dir = targetPos - transform.position;
+        if (dir.magnitude <= 3.0f)
+        {
+            ChangeState(EnemyState.Attack);
+            return;
+        }
 
         var targetRotation = Quaternion.LookRotation(targetPos - transform.position, Vector3.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * 2f * Time.deltaTime);
 
         transform.position += transform.forward * moveSpeed * 2f * Time.deltaTime;
     }
+
+    void UpdateAttack()
+    {
+        /*
+        targetPos = Target.transform.position;
+        targetPos.y = 0f;
+        Vector3 dir = targetPos - transform.position;
+        */
+        ChangeState(EnemyState.Idle);
+        Debug.Log("공듀공격합니다><");
+    }
+
     #endregion
 
 
@@ -103,10 +129,10 @@ public class Undead : MonoBehaviour
         // 한번만 수행해야 하는 동작 (상태가 바뀔 때 마다)
         Debug.Log("대기 상태 시작");
         _animator.SetBool("isIdle", true);
-
+        
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             // 시간마다 수행해야 하는 동작 (상태가 바뀔 때 마다)
             yield break;            
         }
@@ -132,8 +158,7 @@ public class Undead : MonoBehaviour
         // 한번만 수행해야 하는 동작 (상태가 바뀔 때 마다)
         _animator.SetBool("isRun", true);
         targetPos = Target.transform.position;
-        Debug.Log($"추적 상태 시작, 타겟 위치 : {targetPos}");
-
+        targetPos.y = 0f;
 
         while (true)
         {
@@ -142,25 +167,38 @@ public class Undead : MonoBehaviour
         }
     }
 
+    IEnumerator CoroutineAttack()
+    {
+        _animator.SetBool("isAttack", true);
+        
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+        }
+    }
+
     #endregion
 
     void ChangeState(EnemyState nextState)
     {
-        if (prevState == nextState) return;
-
+        if (state == nextState) return;
+        
         StopAllCoroutines();
 
         prevState = state;
         state = nextState;
+
         _animator.SetBool("isIdle", false);
         _animator.SetBool("isWalk", false);
         _animator.SetBool("isRun", false);
+        _animator.SetBool("isAttack", false);
 
         switch (state)
         {
             case EnemyState.Idle: StartCoroutine(CoroutineIdle()); break;
             case EnemyState.Walk: StartCoroutine(CoroutineWalk()); break;
             case EnemyState.Run: StartCoroutine(CoroutineRun()); break;
+            case EnemyState.Attack: StartCoroutine(CoroutineAttack()); break;
         }
     }
 
@@ -171,20 +209,13 @@ public class Undead : MonoBehaviour
 
         // 타겟 경계를 생성
         // 여기서 널 레퍼런스가 뜸 >> 해결
-        //Debug.Log($"target : {Target}");
         Bounds targetBounds = Target.GetComponentInChildren<MeshRenderer>().bounds;
-        //Debug.Log($"Bound : {targetBounds}");
 
         // 카메라에서 프러스텀 평면 생성
         // 각 평면은 프러스텀의 벽 한 면을 나타내는 것
         eyePlanes = GeometryUtility.CalculateFrustumPlanes(Eye);
         // 프러스텀 평면 안에 해당 오브젝으가 있는지 검사
         _isFindEnemy = GeometryUtility.TestPlanesAABB(eyePlanes, targetBounds);
-        
-        /*
-        if (_isFindEnemy)
-            Debug.Log("플레이어 찾음");
-        */
 
         return _isFindEnemy;
     }

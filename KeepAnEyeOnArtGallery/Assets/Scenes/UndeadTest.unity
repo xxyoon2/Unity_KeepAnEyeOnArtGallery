@@ -224,6 +224,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8441118382702228817, guid: 54e9298d8c311f044b3582769b33dbbb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8441118382702228818, guid: 54e9298d8c311f044b3582769b33dbbb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -234,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8441118382702228828, guid: 54e9298d8c311f044b3582769b33dbbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.59
+      value: 9.2
       objectReference: {fileID: 0}
     - target: {fileID: 8441118382702228828, guid: 54e9298d8c311f044b3582769b33dbbb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -330,6 +334,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 1
   prevState: 1
+  targetPos: {x: 0, y: 0, z: 0}
+  moveSpeed: 2
+  rotationSpeed: 2
   Target: {fileID: 731590530}
   Eye: {fileID: 1570334765}
 --- !u!195 &397966754

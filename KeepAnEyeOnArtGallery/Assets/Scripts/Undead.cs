@@ -13,15 +13,15 @@ public enum EnemyState
 
 public class Undead : MonoBehaviour
 {
-    public EnemyState state;
+    public EnemyState state = EnemyState.Idle;
     public EnemyState prevState = EnemyState.None;
 
     Animator _animator;
 
     // 이동관련
-    Vector3 targetPos;
-    float moveSpeed = 2f;
-    float rotationSpeed = 2f;
+    public Vector3 targetPos;
+    public float moveSpeed = 2f;
+    public float rotationSpeed = 2f;
 
     // 적 탐지 관련
     public GameObject Target;
@@ -45,8 +45,8 @@ public class Undead : MonoBehaviour
     {
         switch(state)
         {
-            case EnemyState.Idle: UpdateIdle(); break;
-            case EnemyState.Walk: UpdateWalk(); break;
+            //case EnemyState.Idle: UpdateIdle(); break;
+            //case EnemyState.Walk: UpdateWalk(); break;
             case EnemyState.Run: UpdateRun(); break;
             case EnemyState.Attack: UpdateAttack(); break;
         }
@@ -54,21 +54,14 @@ public class Undead : MonoBehaviour
 
     #region UpdateDetail
     // 매 프레임마다 수행해야 하는 동작 (상태가 바뀔 때 마다)
+
+    /*
     void UpdateIdle()
     {
-        if (IsFindEnemy())
-        {
-            ChangeState(EnemyState.Run);
-            Debug.Log("발견했습니당^^!");
-            return;
-        }
-        else
-        {
-            ChangeState(EnemyState.Walk);
 
-        }
     }
-    
+    */
+    /*
     void UpdateWalk()
     {
         if (IsFindEnemy())
@@ -92,7 +85,7 @@ public class Undead : MonoBehaviour
 
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
     }
-
+    */
     void UpdateRun()
     {
         // 목적지까지 이동하는 코드
@@ -111,12 +104,6 @@ public class Undead : MonoBehaviour
 
     void UpdateAttack()
     {
-        /*
-        targetPos = Target.transform.position;
-        targetPos.y = 0f;
-        Vector3 dir = targetPos - transform.position;
-        */
-        ChangeState(EnemyState.Idle);
         Debug.Log("공듀공격합니다><");
     }
 
@@ -124,6 +111,8 @@ public class Undead : MonoBehaviour
 
 
     #region CoroutineDetail
+   
+   /*
     IEnumerator CoroutineIdle()
     {
         // 한번만 수행해야 하는 동작 (상태가 바뀔 때 마다)
@@ -134,9 +123,11 @@ public class Undead : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
             // 시간마다 수행해야 하는 동작 (상태가 바뀔 때 마다)
+            ChangeState(EnemyState.Walk);
             yield break;            
         }
     }
+    */
     IEnumerator CoroutineWalk()
     {
         // 한번만 수행해야 하는 동작 (상태가 바뀔 때 마다)
@@ -144,13 +135,13 @@ public class Undead : MonoBehaviour
         _animator.SetBool("isWalk", true);
 
         // 목적지 설정
-        targetPos = transform.position + new Vector3(Random.Range(-7f, 7f), 0f, Random.Range(-7f, 7f));
+        //targetPos = transform.position + new Vector3(Random.Range(-7f, 7f), 0f, Random.Range(-7f, 7f));
 
         while (true)
         {
             yield return new WaitForSeconds(10f);
             // 시간마다 수행해야 하는 동작 (상태가 바뀔 때 마다)
-            ChangeState(EnemyState.Idle);
+            //ChangeState(EnemyState.Idle);
         }
     }
     IEnumerator CoroutineRun()
@@ -173,13 +164,14 @@ public class Undead : MonoBehaviour
         
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
+            ChangeState(EnemyState.Idle);
         }
     }
 
     #endregion
 
-    void ChangeState(EnemyState nextState)
+    public void ChangeState(EnemyState nextState)
     {
         if (state == nextState) return;
         
@@ -195,14 +187,14 @@ public class Undead : MonoBehaviour
 
         switch (state)
         {
-            case EnemyState.Idle: StartCoroutine(CoroutineIdle()); break;
+            //case EnemyState.Idle: StartCoroutine(CoroutineIdle()); break;
             case EnemyState.Walk: StartCoroutine(CoroutineWalk()); break;
             case EnemyState.Run: StartCoroutine(CoroutineRun()); break;
             case EnemyState.Attack: StartCoroutine(CoroutineAttack()); break;
         }
     }
 
-    bool IsFindEnemy()
+    public bool IsFindEnemy()
     {
         // 오브젝트가 활성화되어있지 않다면 false 반환
         if (!Target.activeSelf) return false;

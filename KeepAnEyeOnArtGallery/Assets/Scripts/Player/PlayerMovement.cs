@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
         dir.y = 0f;
         dir.Normalize();
 
-        Debug.Log($"{dir}");
 
         _rigidbody.MovePosition(transform.position + dir * MoveSpeed * Time.deltaTime);
     }

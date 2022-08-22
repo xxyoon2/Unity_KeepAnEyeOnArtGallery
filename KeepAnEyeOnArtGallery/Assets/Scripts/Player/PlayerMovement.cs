@@ -27,12 +27,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        
         Vector3 dir = Vector3.right * _controller.X + Vector3.forward * _controller.Z;
 
         dir = Camera.main.transform.TransformDirection(dir);
         dir.y = 0f;
         dir.Normalize();
+
+        Debug.Log($"{dir}");
 
         _rigidbody.MovePosition(transform.position + dir * MoveSpeed * Time.deltaTime);
     }

@@ -1040,6 +1040,7 @@ MonoBehaviour:
   rotationSpeed: 2
   Target: {fileID: 0}
   Eye: {fileID: 8009668392619953459}
+  SafeZone: {fileID: 0}
 --- !u!195 &397966754
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2720,12 +2721,12 @@ GameObject:
   - component: {fileID: 630523216769975956}
   - component: {fileID: 2413665893238354062}
   m_Layer: 0
-  m_Name: CognitiveRange
-  m_TagString: Untagged
+  m_Name: AttackRange
+  m_TagString: Dead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &630523216769975956
 Transform:
   m_ObjectHideFlags: 0
@@ -2752,5 +2753,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 3}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 2, z: 2}

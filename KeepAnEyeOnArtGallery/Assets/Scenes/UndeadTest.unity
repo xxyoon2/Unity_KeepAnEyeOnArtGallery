@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 29037d6773180ee4198c688f2a5df106, type: 2}
+--- !u!1 &224844214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 229590236871249822, guid: 034b94fc9e0237b4f9925de43147ff97, type: 3}
+  m_PrefabInstance: {fileID: 7543958489058904046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &224844217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224844214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21c47b6e667d044585735df91e1f3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UndeadEye: {fileID: 927487878}
+  isPlayerInHere: 0
 --- !u!1001 &320327979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,6 +196,10 @@ PrefabInstance:
     - target: {fileID: 8441118382702228831, guid: 54e9298d8c311f044b3582769b33dbbb, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8441118382702228831, guid: 54e9298d8c311f044b3582769b33dbbb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54e9298d8c311f044b3582769b33dbbb, type: 3}
@@ -242,6 +265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b597114aa217a364b9deb77b8695edc3, type: 3}
+--- !u!1 &927487878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 613088410276587071, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
+  m_PrefabInstance: {fileID: 1110297201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1110297201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,6 +281,10 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 507353617}
+    - target: {fileID: 397966751, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
+      propertyPath: SafeZone
+      value: 
+      objectReference: {fileID: 224844214}
     - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: m_Name
       value: Undead

@@ -11,6 +11,7 @@ public class CameraManager : MonoBehaviour
     private int _cameraIndex = 4;
     private bool _isPlayerEnter = false;
     private bool _isCCTVOn = false;
+    private PlayerMovement _movement;
 
 
     void Start()
@@ -48,12 +49,14 @@ public class CameraManager : MonoBehaviour
         else
         {
             PlayerCamera.enabled = true;
+            _movement.MoveSpeed = 15;
         }
     }
 
     public void ShowCCTV()
     {
         PlayerCamera.enabled = false;
+        _movement.MoveSpeed = 0;
         for (int i = 0; i < _cameraIndex; ++i)
         {
             _cameras[i].enabled = false;
@@ -66,6 +69,7 @@ public class CameraManager : MonoBehaviour
         if(other.tag == "Player")
         {
             _isPlayerEnter = true;
+            _movement = other.GetComponent<PlayerMovement>();
         }
     }
     private void OnTriggerExit(Collider other)

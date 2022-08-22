@@ -939,6 +939,7 @@ GameObject:
   - component: {fileID: 397966748}
   - component: {fileID: 397966751}
   - component: {fileID: 397966754}
+  - component: {fileID: 988262174}
   m_Layer: 0
   m_Name: Undead
   m_TagString: Untagged
@@ -1034,8 +1035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11860c493402fb49856b0d194b08753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
-  prevState: 1
   targetPos: {x: 0, y: 0, z: 0}
   moveSpeed: 2
   rotationSpeed: 2
@@ -1063,6 +1062,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &988262174
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309486516299566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 2, z: 2}
 --- !u!1 &1312574273513674
 GameObject:
   m_ObjectHideFlags: 0

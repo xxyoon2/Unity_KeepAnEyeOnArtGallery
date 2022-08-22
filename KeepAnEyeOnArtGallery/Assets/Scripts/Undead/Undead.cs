@@ -17,6 +17,8 @@ public class Undead : MonoBehaviour
     bool _isFindEnemy = false;
     Plane[] eyePlanes;
 
+    public GameObject SafeZone;
+
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -41,6 +43,7 @@ public class Undead : MonoBehaviour
     {
         // 오브젝트가 활성화되어있지 않다면 false 반환
         if (!Target.activeSelf) return false;
+        if (SafeZone.GetComponent<SafeZone>().isPlayerInHere) return false;
 
         // 타겟 경계를 생성
         // 여기서 널 레퍼런스가 뜸 >> 해결

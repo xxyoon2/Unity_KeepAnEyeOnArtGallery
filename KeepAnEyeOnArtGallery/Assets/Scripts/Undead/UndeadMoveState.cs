@@ -18,6 +18,7 @@ public class UndeadMoveState : StateMachineBehaviour
     {
         if (Undead.IsFindEnemy())
         {
+            Debug.Log("찾았당^^");
             animator.SetBool(AnimID.FindEnemy, true);
             targetPos = Undead.Target.transform.position;
             targetPos.y = 0f;
@@ -25,6 +26,7 @@ public class UndeadMoveState : StateMachineBehaviour
         }
         else
         {
+            Debug.Log("우잉ㅇㅅㅇ");
             animator.SetBool(AnimID.FindEnemy, false);
             targetPos = UndeadTransform.position + new Vector3(Random.Range(-5f, 6f), 0f, Random.Range(-2f, 5f));
         }

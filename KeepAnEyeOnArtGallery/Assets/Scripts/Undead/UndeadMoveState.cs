@@ -20,7 +20,7 @@ public class UndeadMoveState : StateMachineBehaviour
         //navMeshAgent.destination = target.position;
         navMeshAgent.isStopped = false;
 
-        
+        UndeadTransform = animator.transform;
         Undead.StartCoroutine(UpdateDestination());
     }
 

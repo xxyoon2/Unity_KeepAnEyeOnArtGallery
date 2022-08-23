@@ -14,19 +14,13 @@ public class UndeadIdleState : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Undead.IsFindEnemy())
-        {
-            animator.SetBool(AnimID.FindEnemy, true);
-        }
+        // if (Undead.IsFindEnemy())
+        // {
+        //     animator.SetBool(AnimID.FindEnemy, true);
+        // }
         
         animator.SetTrigger(AnimID.Move);
     }
 
-/*
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        //Undead.state = EnemyState.Walk;
-        Debug.Log("끝");
-    }
-    */
+    
 }

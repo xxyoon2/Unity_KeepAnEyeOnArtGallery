@@ -14,10 +14,7 @@ public class Undead : MonoBehaviour
     // 적 탐지 관련
     public GameObject Target;
     public Camera Eye;
-    bool _isFindEnemy = false;
     Plane[] eyePlanes;
-
-    public GameObject SafeZone;
 
     void Start()
     {
@@ -39,22 +36,5 @@ public class Undead : MonoBehaviour
 
     #region CoroutineDetail
     #endregion
-    public bool IsFindEnemy()
-    {
-        // 오브젝트가 활성화되어있지 않다면 false 반환
-        if (!Target.activeSelf) return false;
-        if (SafeZone.GetComponent<SafeZone>().isPlayerInHere) return false;
 
-        // 타겟 경계를 생성
-        // 여기서 널 레퍼런스가 뜸 >> 해결
-        Bounds targetBounds = Target.GetComponentInChildren<MeshRenderer>().bounds;
-
-        // 카메라에서 프러스텀 평면 생성
-        // 각 평면은 프러스텀의 벽 한 면을 나타내는 것
-        eyePlanes = GeometryUtility.CalculateFrustumPlanes(Eye);
-        // 프러스텀 평면 안에 해당 오브젝으가 있는지 검사
-        _isFindEnemy = GeometryUtility.TestPlanesAABB(eyePlanes, targetBounds);
-
-        return _isFindEnemy;
-    }
 }

@@ -19,16 +19,17 @@ public class UndeadMoveState : StateMachineBehaviour
         navMeshAgent = animator.GetComponent<NavMeshAgent>();
         //navMeshAgent.destination = target.position;
         navMeshAgent.isStopped = false;
-        Undead.StartCoroutine("IsFindEnemy");
+
+        
+        Undead.StartCoroutine(UpdateDestination());
     }
 
-    public IEnumerator IsFindEnemy()
+    IEnumerator UpdateDestination()
     {
         while(true)
         {
             // 오브젝트가 활성화되어있지 않다면 false 반환
             //if (!Target.activeSelf) _isFindEnemy = false;
-
             // 타겟 경계를 생성
             // 여기서 널 레퍼런스가 뜸 >> 해결
             Bounds targetBounds = Undead.Target.GetComponentInChildren<MeshRenderer>().bounds;
@@ -36,15 +37,24 @@ public class UndeadMoveState : StateMachineBehaviour
             // 카메라에서 프러스텀 평면 생성
             // 각 평면은 프러스텀의 벽 한 면을 나타내는 것
             Plane[] eyePlanes = GeometryUtility.CalculateFrustumPlanes(Undead.Eye);
-            // 프러스텀 평면 안에 해당 오브젝으가 있는지 검사
+            // 프러스텀 평면 안에 해당 오브젝트가 있는지 검사
             _isFindEnemy = GeometryUtility.TestPlanesAABB(eyePlanes, targetBounds);
 
-            //yield return _isFindEnemy;
+            if (_isFindEnemy)
+            {
+                navMeshAgent.destination = Undead.Target.transform.position;
+                Undead.GetComponent<Animator>().SetBool(AnimID.FindEnemy, true);
+            }
+            else
+            {
+                navMeshAgent.destination = UndeadTransform.position + new Vector3(Random.Range(-5f, 6f), 0f, Random.Range(-2f, 5f));
+                Undead.GetComponent<Animator>().SetBool(AnimID.FindEnemy, false);
+            }
+
             yield return new WaitForSeconds(3f);
         }
         
     }
-
     /*
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

@@ -36,4 +36,5 @@ public class Undead : MonoBehaviour
 
     #region CoroutineDetail
     #endregion
+
 }

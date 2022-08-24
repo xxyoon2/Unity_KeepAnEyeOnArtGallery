@@ -10,7 +10,7 @@ public class PlayerRotate : MonoBehaviour
 
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -20,9 +20,6 @@ public class PlayerRotate : MonoBehaviour
 
         rotationX += rotSpeed * y * Time.deltaTime;
         rotationY += rotSpeed * x * Time.deltaTime;
-
-        //rotationY = transform.eulerAngles.y + rotationY;
-        //rotationX += rotationX;
 
         rotationX = Mathf.Clamp(rotationX, -30f, 30f);
 

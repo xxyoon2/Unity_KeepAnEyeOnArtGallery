@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         _elapsedTime += Time.deltaTime;
-        if( _elapsedTime > 30f)
+        if( _elapsedTime > 20f)
         {
             _elapsedTime = 0f;
-            Debug.Log("30초 지남. 변경사항 생김");
+            Debug.Log("20초 지남. 변경사항 생김");
         }
     }
 }

@@ -49,14 +49,14 @@ public class CameraManager : MonoBehaviour
         else
         {
             PlayerCamera.enabled = true;
-            _movement.MoveSpeed = 15;
+            if(_movement != null) _movement.MoveSpeed = 15;
         }
     }
 
     public void ShowCCTV()
     {
         PlayerCamera.enabled = false;
-        _movement.MoveSpeed = 0;
+        if (_movement != null) _movement.MoveSpeed = 0;
         for (int i = 0; i < _cameraIndex; ++i)
         {
             _cameras[i].enabled = false;

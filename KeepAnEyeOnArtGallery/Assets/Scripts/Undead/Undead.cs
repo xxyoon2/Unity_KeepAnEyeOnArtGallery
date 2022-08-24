@@ -8,7 +8,7 @@ public class Undead : MonoBehaviour
 
     // 이동관련
     public Vector3 targetPos;
-    public float moveSpeed = 2f;
+    public float _pState = 2f;
     public float rotationSpeed = 2f;
 
     // 적 탐지 관련

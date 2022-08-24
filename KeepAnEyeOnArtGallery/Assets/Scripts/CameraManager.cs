@@ -11,7 +11,7 @@ public class CameraManager : MonoBehaviour
     private int _cameraIndex = 4;
     private bool _isPlayerEnter = false;
     private bool _isCCTVOn = false;
-    private PlayerMovement _movement;
+    private PlayerMovement _player;
 
 
     void Start()
@@ -28,10 +28,10 @@ public class CameraManager : MonoBehaviour
         if(_isPlayerEnter && Input.GetKeyDown(KeyCode.E))
         {
             _isCCTVOn = !_isCCTVOn;
-            Debug.Log("CCTV 상태변함");
         }
         if(_isCCTVOn)
         {
+            _player.ChangePlayerState(PlayerState.IDLE);
             if(Input.GetKeyDown(KeyCode.A))
             {
                 _cameraEnabled = (_cameraEnabled - 1) % _cameraIndex;
@@ -49,14 +49,13 @@ public class CameraManager : MonoBehaviour
         else
         {
             PlayerCamera.enabled = true;
-            _movement.MoveSpeed = 15;
+            _player.ChangePlayerState(PlayerState.MOVE);
         }
     }
 
     public void ShowCCTV()
     {
         PlayerCamera.enabled = false;
-        _movement.MoveSpeed = 0;
         for (int i = 0; i < _cameraIndex; ++i)
         {
             _cameras[i].enabled = false;
@@ -69,7 +68,7 @@ public class CameraManager : MonoBehaviour
         if(other.tag == "Player")
         {
             _isPlayerEnter = true;
-            _movement = other.GetComponent<PlayerMovement>();
+            _player = other.GetComponent<PlayerMovement>();
         }
     }
     private void OnTriggerExit(Collider other)

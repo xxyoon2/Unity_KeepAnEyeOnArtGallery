@@ -6,7 +6,7 @@ public class PlayerRotate : MonoBehaviour
 {
     float rotationX;
     float rotationY;
-    public float rotSpeed = 400f;
+    public float rotSpeed = 200f;
 
     void Start()
     {

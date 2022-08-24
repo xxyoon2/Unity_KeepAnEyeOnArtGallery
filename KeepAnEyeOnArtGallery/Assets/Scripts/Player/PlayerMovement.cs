@@ -2,15 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState
+{
+    IDLE,
+    MOVE,
+    DIE
+}
+
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] 
-    public float MoveSpeed = 5f;    // 이동 속도
+    [SerializeField] private PlayerState _pState;
+    [SerializeField] private float _moveSpeed = 5f;    // 이동 속도
     private PlayerController _controller;
     private Rigidbody _rigidbody;
 
     void Start()
     {
+        _pState = PlayerState.MOVE;
+
         _controller = GetComponent<PlayerController>();
         _rigidbody = GetComponent<Rigidbody>();
     }
@@ -18,11 +27,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {    
         Move();
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log($"{collision}");
     }
 
     private void Move()
@@ -34,6 +38,23 @@ public class PlayerMovement : MonoBehaviour
         dir.Normalize();
 
 
-        _rigidbody.MovePosition(transform.position + dir * MoveSpeed * Time.deltaTime);
+        _rigidbody.MovePosition(transform.position + dir * _moveSpeed * Time.deltaTime);
+    }
+
+    public void ChangePlayerState(PlayerState state)
+    {
+        _pState = state;
+        switch (state)
+        {
+            case PlayerState.IDLE : 
+                _moveSpeed = 0f;
+                break;
+            case PlayerState.MOVE : 
+                _moveSpeed = 5f;
+                break;
+            case PlayerState.DIE : 
+                _moveSpeed = 0f;
+                break; 
+        }
     }
 }

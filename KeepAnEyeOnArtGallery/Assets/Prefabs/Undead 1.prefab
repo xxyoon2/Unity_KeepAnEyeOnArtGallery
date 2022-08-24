@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 397966754}
   - component: {fileID: 988262174}
   m_Layer: 0
-  m_Name: Undead
+  m_Name: Undead 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -965,6 +965,7 @@ Transform:
   - {fileID: 4106753120879232}
   - {fileID: 4321781794078794}
   - {fileID: 630523216769975956}
+  - {fileID: 3627774584162807792}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1036,7 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPos: {x: 0, y: 0, z: 0}
-  moveSpeed: 2
+  _pState: 2
   rotationSpeed: 2
   Target: {fileID: 0}
   Eye: {fileID: 8009668392619953459}
@@ -1548,7 +1549,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4219721143711250}
-  - {fileID: 3627774584162807792}
   m_Father: {fileID: 4747738370259854}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 22.169333, y: -90.74537, z: 68.171005}
@@ -2658,13 +2658,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613088410276587071}
-  m_LocalRotation: {x: 0.010021954, y: -0.13438936, z: 0.51526636, w: -0.84636855}
-  m_LocalPosition: {x: 0.258, y: -0.103, z: -0.094}
+  m_LocalRotation: {x: 0.21105006, y: -0.29709932, z: 0.051013675, w: 0.929832}
+  m_LocalPosition: {x: 0.00036239624, y: 3.2298822, z: 1.1613102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4256849742946796}
-  m_RootOrder: 1
+  m_Father: {fileID: 4467757482891228}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 6.98, y: 13.862, z: -61.816}
 --- !u!20 &8009668392619953459
 Camera:

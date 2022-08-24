@@ -25,31 +25,35 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        if (_isPlayerEnter && Input.GetKeyDown(KeyCode.E))
+        if(_isPlayerEnter)
         {
-            _isCCTVOn = !_isCCTVOn;
-        }
-        if (_isCCTVOn)
-        {
-            _player.ChangePlayerState(PlayerState.IDLE);
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                _cameraEnabled = (_cameraEnabled - 1) % _cameraIndex;
-                if (_cameraEnabled < 0)
+                _isCCTVOn = !_isCCTVOn;
+            }
+
+            if (_isCCTVOn)
+            {
+                _player.ChangePlayerState(PlayerState.IDLE);
+                if (Input.GetKeyDown(KeyCode.A))
                 {
-                    _cameraEnabled = _cameraIndex - 1;
+                    _cameraEnabled = (_cameraEnabled - 1) % _cameraIndex;
+                    if (_cameraEnabled < 0)
+                    {
+                        _cameraEnabled = _cameraIndex - 1;
+                    }
                 }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    _cameraEnabled = (_cameraEnabled + 1) % _cameraIndex;
+                }
+                ShowCCTV();
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            else
             {
-                _cameraEnabled = (_cameraEnabled + 1) % _cameraIndex;
+                PlayerCamera.enabled = true;
+                _player.ChangePlayerState(PlayerState.MOVE);
             }
-            ShowCCTV();
-        }
-        else
-        {
-            PlayerCamera.enabled = true;
-            _player.ChangePlayerState(PlayerState.MOVE);
         }
     }
 

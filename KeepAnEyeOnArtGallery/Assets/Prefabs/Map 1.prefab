@@ -9902,9 +9902,10 @@ GameObject:
   - component: {fileID: 1040705549247164184}
   - component: {fileID: 8298536050207790382}
   - component: {fileID: 2312277328587352535}
+  - component: {fileID: 1318973368}
   m_Layer: 0
   m_Name: Carpet 10
-  m_TagString: Untagged
+  m_TagString: SafeZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9974,6 +9975,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1318973368
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4047062565580266763}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2050643, y: 0.01485648, z: 1.9849026}
+  m_Center: {x: -0.00026779535, y: 0.00485648, z: -0.0007366242}
 --- !u!1 &4047062565695005759
 GameObject:
   m_ObjectHideFlags: 0
@@ -24914,7 +24928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5407663031604828038}
   m_Layer: 0
-  m_Name: Map
+  m_Name: Map 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

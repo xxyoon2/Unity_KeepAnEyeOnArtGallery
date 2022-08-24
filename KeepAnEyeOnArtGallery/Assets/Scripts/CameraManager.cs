@@ -17,7 +17,7 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         _cameras = new Camera[_cameraIndex];
-        for(int i = 0; i < _cameraIndex; ++i)
+        for (int i = 0; i < _cameraIndex; ++i)
         {
             _cameras[i] = transform.GetChild(i).GetComponent<Camera>();
         }
@@ -25,14 +25,14 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        if(_isPlayerEnter && Input.GetKeyDown(KeyCode.E))
+        if (_isPlayerEnter && Input.GetKeyDown(KeyCode.E))
         {
             _isCCTVOn = !_isCCTVOn;
         }
-        if(_isCCTVOn)
+        if (_isCCTVOn)
         {
             _player.ChangePlayerState(PlayerState.IDLE);
-            if(Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 _cameraEnabled = (_cameraEnabled - 1) % _cameraIndex;
                 if (_cameraEnabled < 0)
@@ -40,7 +40,7 @@ public class CameraManager : MonoBehaviour
                     _cameraEnabled = _cameraIndex - 1;
                 }
             }
-            if(Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D))
             {
                 _cameraEnabled = (_cameraEnabled + 1) % _cameraIndex;
             }
@@ -65,7 +65,7 @@ public class CameraManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             _isPlayerEnter = true;
             _player = other.GetComponent<PlayerMovement>();

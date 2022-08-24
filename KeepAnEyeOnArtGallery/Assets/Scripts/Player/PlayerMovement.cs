@@ -12,9 +12,13 @@ public enum PlayerState
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerState _pState;
-    [SerializeField] private float _moveSpeed = 5f;    // 이동 속도
+    [SerializeField] private float _moveSpeed = 5f;
+    
+    public bool _isPlayerInSaveZone = true;
+
     private PlayerController _controller;
     private Rigidbody _rigidbody;
+
 
     void Start()
     {
@@ -27,6 +31,22 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {    
         Move();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "SafeZone")
+        {
+            _isPlayerInSaveZone = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "SafeZone")
+        {
+            _isPlayerInSaveZone = false;
+        }
     }
 
     private void Move()

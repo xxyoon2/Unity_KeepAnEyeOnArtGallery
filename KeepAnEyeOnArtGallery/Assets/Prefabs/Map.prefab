@@ -9883,8 +9883,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4047062565580266763}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.06, y: 0, z: 10.55}
-  m_LocalScale: {x: 11.3, y: 10, z: 5.87}
+  m_LocalPosition: {x: 0.06, y: 0, z: 10.4}
+  m_LocalScale: {x: 11.95916, y: 10, z: 5.87}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5407663032341277392}
@@ -23807,8 +23807,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407663031107997998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6, y: 0, z: 11.85}
-  m_LocalScale: {x: 1.1924, y: 1, z: 3.8052835}
+  m_LocalPosition: {x: -3.6, y: 3.3226217e-16, z: 19.06}
+  m_LocalScale: {x: 1.1924, y: 1, z: 2.3660233}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5407663031535392769}
@@ -24881,7 +24881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5407663031604828038}
   m_Layer: 0
-  m_Name: MapWithCamera
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25378,8 +25378,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407663031997218527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.64, y: 0, z: 8.67}
-  m_LocalScale: {x: 1.8183857, y: 1.9927515, z: 2.1708536}
+  m_LocalPosition: {x: -18.64, y: 0, z: 10.16}
+  m_LocalScale: {x: 1.8183857, y: 1.9927515, z: 1.9440219}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5407663031535392769}

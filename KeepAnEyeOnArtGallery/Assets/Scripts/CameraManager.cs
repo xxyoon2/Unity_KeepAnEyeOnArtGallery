@@ -30,7 +30,6 @@ public class CameraManager : MonoBehaviour
     {
         if(_isPlayerEnter)
         {
-            Debug.Log($"{_controller.CanCCTVOn}");
             if (_controller.CanCCTVOn)
             {
                 _isCCTVOn = !_isCCTVOn;

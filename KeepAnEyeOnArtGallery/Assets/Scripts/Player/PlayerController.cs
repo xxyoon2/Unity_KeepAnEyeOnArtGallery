@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
         X = Input.GetAxis(RotateAxisName);
         Z = Input.GetAxis(MoveAxisName);
         CanCCTVOn = Input.GetButtonDown(CCTVKeyName);
-        Debug.Log($"{CanCCTVOn}");
         CanInteract = Input.GetButtonDown(ObjectInteractionName);
     } 
 }

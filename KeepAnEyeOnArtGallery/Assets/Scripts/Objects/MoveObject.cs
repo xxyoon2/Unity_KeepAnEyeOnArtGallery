@@ -15,7 +15,6 @@ public class MoveObject : MonoBehaviour
     void Awake()
     {
         _moveableObjects = new GameObject[_roomCount];
-        //_fixCheckers = new GameObject[FixCheckerMaxCount];
         for (int i = 0; i < _roomCount; ++i)
         {
             _moveableObjects[i] = transform.GetChild(i).gameObject;
@@ -35,7 +34,7 @@ public class MoveObject : MonoBehaviour
     {
         int childNum = Random.Range(0, 100) % 3;
         int moveableObjectsInThisRoom = _moveableObjects[childNum].transform.childCount;
-        int indexNum = Random.Range(0, moveableObjectsInThisRoom);
+        int indexNum =Random.Range(0, moveableObjectsInThisRoom);
 
         Debug.Log($"{_moveableObjects[childNum].name} 의 {moveableObjectsInThisRoom}개 오브젝트 중{_moveableObjects[childNum].transform.GetChild(indexNum).gameObject.name}변경.");
 
@@ -43,16 +42,11 @@ public class MoveObject : MonoBehaviour
 
         switch (Random.Range(0, 2))
         {
-            /*
              case 0:
                 ChangeObjectPosition(targetObj);
                 break;
             case 1:
                 ChangeObjectRotation(targetObj);
-                break;
-            */
-            default:
-                ChangeObjectPosition(targetObj);
                 break;
         }
     }
@@ -60,13 +54,12 @@ public class MoveObject : MonoBehaviour
     private void ChangeObjectPosition(GameObject targetObj)
     {
         Vector3 changedPos = targetObj.transform.position;
-        changedPos.y += 2;
+        changedPos.y += 1;
         targetObj.transform.position = changedPos;
         ModifiedObjectsPos.Add(targetObj);
         _changeCount++;
-        Debug.Log($"현재 변경 사항: {_changeCount}, 이동");
         string last = ModifiedObjectsPos[ModifiedObjectsPos.Count - 1].name;
-        Debug.Log($"리스트에 들어감: {last}");
+        Debug.Log($"위치 리스트에 들어감: {last}");
     }
 
     private void ChangeObjectRotation(GameObject targetObj)
@@ -76,21 +69,39 @@ public class MoveObject : MonoBehaviour
         targetObj.transform.rotation = changedRot;
         ModifiedObjectsRot.Add(targetObj);
         _changeCount++;
-        Debug.Log($"현재 변경 사항: {_changeCount}, 회전");
         string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
-        Debug.Log($"리스트에 들어감: {last}");
+        Debug.Log($"회전 리스트에 들어감: {last}");
     }
 
-    private void FindTargetInList(string hitObj)
+    private void FindTargetInList(GameObject hitObj)
     {
         for(int i = ModifiedObjectsPos.Count - 1; i >= 0; i--)
         {
-            if (ModifiedObjectsPos[i].name == hitObj)
+            if (ModifiedObjectsPos[i].name == hitObj.name)
             {
-                Debug.Log($"{hitObj}찾음");
+                ModifiedObjectsPos.Remove(hitObj);
+                Vector3 fixedPos = hitObj.transform.position;
+                fixedPos.y -= 1;
+                hitObj.transform.position = fixedPos;
+                _changeCount--;
+                Debug.Log($"{hitObj.name}수정완");
                 return;
             }
         }
-        Debug.Log("못찾");
+        for (int j = ModifiedObjectsRot.Count - 1; j >= 0; j--)
+        {
+            if (ModifiedObjectsRot[j].name == hitObj.name)
+            {
+                Debug.Log("꺅!");
+                ModifiedObjectsRot.Remove(hitObj);
+                Quaternion changedRot = hitObj.transform.rotation;
+                changedRot.z -= 80f;
+                hitObj.transform.rotation = changedRot;
+                _changeCount--;
+                Debug.Log($"{hitObj.name}수정완");
+                return;
+            }
+        }
+        Debug.Log($"{hitObj.name} 작품은 변한 점이 없습니다.");
     }
 }

@@ -6,16 +6,13 @@ using UnityEngine.Events;
 public class GameManager : SingletonBehavior<GameManager>
 {
     public UnityEvent CanUpdateAnomaly = new UnityEvent();
-    public UnityEvent<string> AnomalyFix = new UnityEvent<string>();
+    public UnityEvent<GameObject> AnomalyFix = new UnityEvent<GameObject>();
     private float _elapsedTime;
-    private int _anomalyCooltime = 20;
+    private int _anomalyCooltime = 10;
 
-    private int _currentScore = 0;
-    
-    public void UpdateRayTarget(string target)
+    public void UpdateRayTarget(GameObject target)
     {
         AnomalyFix.Invoke(target);
-        Debug.Log($"{target}찾기 가보자고");
     }
 
     void Update()
@@ -24,7 +21,6 @@ public class GameManager : SingletonBehavior<GameManager>
         if (_elapsedTime > _anomalyCooltime)
         {
             _elapsedTime = 0f;
-            Debug.Log($"{_anomalyCooltime}초 지남. 변경사항 생김");
             CanUpdateAnomaly.Invoke();
         }
     }

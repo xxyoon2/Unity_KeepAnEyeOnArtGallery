@@ -20,7 +20,10 @@ public class MoveObject : MonoBehaviour
         {
             _moveableObjects[i] = transform.GetChild(i).gameObject;
         }
+        GameManager.Instance.CanUpdateAnomaly.RemoveListener(UpdateAnomaly);
         GameManager.Instance.CanUpdateAnomaly.AddListener(UpdateAnomaly);
+        GameManager.Instance.AnomalyFix.RemoveListener(FindTargetInList);
+        GameManager.Instance.AnomalyFix.AddListener(FindTargetInList);
     }
 
     void Update()
@@ -33,16 +36,21 @@ public class MoveObject : MonoBehaviour
         int childNum = Random.Range(0, 100) % 3;
         int moveableObjectsInThisRoom = _moveableObjects[childNum].transform.childCount;
         int indexNum = Random.Range(0, moveableObjectsInThisRoom);
+
         Debug.Log($"{_moveableObjects[childNum].name} 의 {moveableObjectsInThisRoom}개 오브젝트 중{_moveableObjects[childNum].transform.GetChild(indexNum).gameObject.name}변경.");
+
         GameObject targetObj = _moveableObjects[childNum].transform.GetChild(indexNum).gameObject;
+
         switch (Random.Range(0, 2))
         {
-            case 0:
+            /*
+             case 0:
                 ChangeObjectPosition(targetObj);
                 break;
             case 1:
                 ChangeObjectRotation(targetObj);
                 break;
+            */
             default:
                 ChangeObjectPosition(targetObj);
                 break;
@@ -71,5 +79,18 @@ public class MoveObject : MonoBehaviour
         Debug.Log($"현재 변경 사항: {_changeCount}, 회전");
         string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
         Debug.Log($"리스트에 들어감: {last}");
+    }
+
+    private void FindTargetInList(string hitObj)
+    {
+        for(int i = ModifiedObjectsPos.Count - 1; i >= 0; i--)
+        {
+            if (ModifiedObjectsPos[i].name == hitObj)
+            {
+                Debug.Log($"{hitObj}찾음");
+                return;
+            }
+        }
+        Debug.Log("못찾");
     }
 }

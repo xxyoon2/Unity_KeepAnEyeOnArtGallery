@@ -39,10 +39,10 @@ public class PlayerRotate : MonoBehaviour
             
             if (Physics.Raycast(ray.origin, ray.direction, out hit))
             {
-                Debug.Log($"{hit.transform.gameObject}");
+                //Debug.Log($"{hit.transform.gameObject}");
+                GameManager.Instance.UpdateRayTarget(hit.transform.gameObject.name);
+
             }
         }
-
-        
     }
 }

@@ -35,7 +35,6 @@ public class PlayerRotate : MonoBehaviour
 
         if (_controller.CanInteract)
         {
-            /*
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 5f);
             if (Physics.Raycast(ray.origin, ray.direction, out hit))
@@ -44,7 +43,6 @@ public class PlayerRotate : MonoBehaviour
                 GameManager.Instance.UpdateRayTarget(hit.transform.gameObject);
 
             }
-            
         }
     }
 }

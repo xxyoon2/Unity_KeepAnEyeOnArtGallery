@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public string RotateAxisName = "Horizontal";
     public string MoveAxisName = "Vertical";
     public string CCTVKeyName = "CCTVOnOff";
-    public string ObjectInteractionName = " In";
+    public string ObjectInteractionName = "Interaction";
 
     public float X { get; private set; }
     public float Z { get; private set; }

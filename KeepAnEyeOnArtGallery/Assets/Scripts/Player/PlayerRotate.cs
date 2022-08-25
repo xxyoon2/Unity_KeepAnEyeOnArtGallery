@@ -37,23 +37,14 @@ public class PlayerRotate : MonoBehaviour
         {
             /*
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 5f);
             if (Physics.Raycast(ray.origin, ray.direction, out hit))
             {
-                Debug.DrawRay(ray.origin, RaycastHit.point, Color green);
-                Debug.Log($"{hit.transform.gameObject}");
-            }
-            */
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
-            
-            if (Physics.Raycast(ray.origin, ray.direction, out hit))
-            {
-                Debug.DrawRay(ray.origin, hit.point, Color.green);
-                Debug.Log($"{hit.transform.gameObject}");
+                //Debug.Log($"{hit.transform.gameObject}");
+                GameManager.Instance.UpdateRayTarget(hit.transform.gameObject);
+
             }
             
         }
-
-        
     }
 }

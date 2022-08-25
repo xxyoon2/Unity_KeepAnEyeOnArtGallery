@@ -15,12 +15,14 @@ public class MoveObject : MonoBehaviour
     void Awake()
     {
         _moveableObjects = new GameObject[_roomCount];
-        //_fixCheckers = new GameObject[FixCheckerMaxCount];
         for (int i = 0; i < _roomCount; ++i)
         {
             _moveableObjects[i] = transform.GetChild(i).gameObject;
         }
+        GameManager.Instance.CanUpdateAnomaly.RemoveListener(UpdateAnomaly);
         GameManager.Instance.CanUpdateAnomaly.AddListener(UpdateAnomaly);
+        GameManager.Instance.AnomalyFix.RemoveListener(FindTargetInList);
+        GameManager.Instance.AnomalyFix.AddListener(FindTargetInList);
     }
 
     void Update()
@@ -32,19 +34,19 @@ public class MoveObject : MonoBehaviour
     {
         int childNum = Random.Range(0, 100) % 3;
         int moveableObjectsInThisRoom = _moveableObjects[childNum].transform.childCount;
-        int indexNum = Random.Range(0, moveableObjectsInThisRoom);
-        Debug.Log($"{_moveableObjects[childNum].name} ÀÇ {moveableObjectsInThisRoom}°³ ¿ÀºêÁ§Æ® Áß{_moveableObjects[childNum].transform.GetChild(indexNum).gameObject.name}º¯°æ.");
+        int indexNum =Random.Range(0, moveableObjectsInThisRoom);
+
+        Debug.Log($"{_moveableObjects[childNum].name} ì˜ {moveableObjectsInThisRoom}ê°œ ì˜¤ë¸Œì íŠ¸ ì¤‘{_moveableObjects[childNum].transform.GetChild(indexNum).gameObject.name}ë³€ê²½.");
+
         GameObject targetObj = _moveableObjects[childNum].transform.GetChild(indexNum).gameObject;
+
         switch (Random.Range(0, 2))
         {
-            case 0:
+             case 0:
                 ChangeObjectPosition(targetObj);
                 break;
             case 1:
                 ChangeObjectRotation(targetObj);
-                break;
-            default:
-                ChangeObjectPosition(targetObj);
                 break;
         }
     }
@@ -52,13 +54,12 @@ public class MoveObject : MonoBehaviour
     private void ChangeObjectPosition(GameObject targetObj)
     {
         Vector3 changedPos = targetObj.transform.position;
-        changedPos.y += 2;
+        changedPos.y += 1;
         targetObj.transform.position = changedPos;
         ModifiedObjectsPos.Add(targetObj);
         _changeCount++;
-        Debug.Log($"ÇöÀç º¯°æ »çÇ×: {_changeCount}, ÀÌµ¿");
         string last = ModifiedObjectsPos[ModifiedObjectsPos.Count - 1].name;
-        Debug.Log($"¸®½ºÆ®¿¡ µé¾î°¨: {last}");
+        Debug.Log($"ìœ„ì¹˜ ë¦¬ìŠ¤íŠ¸ì— ë“¤ì–´ê°: {last}");
     }
 
     private void ChangeObjectRotation(GameObject targetObj)
@@ -68,8 +69,39 @@ public class MoveObject : MonoBehaviour
         targetObj.transform.rotation = changedRot;
         ModifiedObjectsRot.Add(targetObj);
         _changeCount++;
-        Debug.Log($"ÇöÀç º¯°æ »çÇ×: {_changeCount}, È¸Àü");
         string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
-        Debug.Log($"¸®½ºÆ®¿¡ µé¾î°¨: {last}");
+        Debug.Log($"íšŒì „ ë¦¬ìŠ¤íŠ¸ì— ë“¤ì–´ê°: {last}");
+    }
+
+    private void FindTargetInList(GameObject hitObj)
+    {
+        for(int i = ModifiedObjectsPos.Count - 1; i >= 0; i--)
+        {
+            if (ModifiedObjectsPos[i].name == hitObj.name)
+            {
+                ModifiedObjectsPos.Remove(hitObj);
+                Vector3 fixedPos = hitObj.transform.position;
+                fixedPos.y -= 1;
+                hitObj.transform.position = fixedPos;
+                _changeCount--;
+                Debug.Log($"{hitObj.name}ìˆ˜ì •ì™„");
+                return;
+            }
+        }
+        for (int j = ModifiedObjectsRot.Count - 1; j >= 0; j--)
+        {
+            if (ModifiedObjectsRot[j].name == hitObj.name)
+            {
+                Debug.Log("êº…!");
+                ModifiedObjectsRot.Remove(hitObj);
+                Quaternion changedRot = hitObj.transform.rotation;
+                changedRot.z -= 80f;
+                hitObj.transform.rotation = changedRot;
+                _changeCount--;
+                Debug.Log($"{hitObj.name}ìˆ˜ì •ì™„");
+                return;
+            }
+        }
+        Debug.Log($"{hitObj.name} ì‘í’ˆì€ ë³€í•œ ì ì´ ì—†ìŠµë‹ˆë‹¤.");
     }
 }

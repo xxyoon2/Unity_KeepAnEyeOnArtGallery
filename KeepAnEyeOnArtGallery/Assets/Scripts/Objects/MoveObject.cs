@@ -5,17 +5,18 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    public GameObject FixCheckerPrefab;
-    public int FixCheckerMaxCount = 4;
-    private GameObject[] _fixCheckers;
+    //public GameObject FixCheckerPrefab;
+    //public int FixCheckerMaxCount = 4;
+    //private GameObject[] _fixCheckers;
+    private List<GameObject> _modifiedObjects = new List<GameObject>();
     private GameObject[] _moveableObjects;
     private int _roomCount = 3;
-    int _changeCount = 0;
+    private int _changeCount = 0;
 
     void Awake()
     {
         _moveableObjects = new GameObject[_roomCount];
-        _fixCheckers = new GameObject[FixCheckerMaxCount];
+        //_fixCheckers = new GameObject[FixCheckerMaxCount];
         for (int i = 0; i < _roomCount; ++i)
         {
             _moveableObjects[i] = transform.GetChild(i).gameObject;
@@ -41,11 +42,12 @@ public class MoveObject : MonoBehaviour
     {
         GameObject asdf = _moveableObjects[childNum].transform.GetChild(indexNum).gameObject;
         Vector3 changedPos = asdf.transform.position;
-        changedPos.y += 3;
+        changedPos.y += 2;
         asdf.transform.position = changedPos;
-        _fixCheckers[_changeCount] = Instantiate(FixCheckerPrefab);
-        _fixCheckers[_changeCount].transform.SetParent(_moveableObjects[childNum].transform, true);
+        _modifiedObjects.Add(asdf);
         _changeCount++;
         Debug.Log($"현재 변경 사항: {_changeCount}");
+        string last = _modifiedObjects[_modifiedObjects.Count - 1].name;
+        Debug.Log($"리스트에 들어감: {last}");
     }
 }

@@ -44,7 +44,7 @@ public class UndeadMoveState : StateMachineBehaviour
 
                 // 카메라에서 프러스텀 평면 생성
                 // 각 평면은 프러스텀의 벽 한 면을 나타내는 것
-                Plane[] eyePlanes = GeometryUtility.CalculateFrustumPlanes  (Undead.Eye);
+                Plane[] eyePlanes = GeometryUtility.CalculateFrustumPlanes(Undead.Eye);
                 // 프러스텀 평면 안에 해당 오브젝트가 있는지 검사
                 _isFindEnemy = GeometryUtility.TestPlanesAABB(eyePlanes, targetBounds);
 

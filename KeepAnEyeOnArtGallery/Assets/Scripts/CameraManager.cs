@@ -12,6 +12,7 @@ public class CameraManager : MonoBehaviour
     private bool _isPlayerEnter = false;
     private bool _isCCTVOn = false;
     private PlayerMovement _player;
+    private PlayerController _controller;
 
 
     void Start()
@@ -21,12 +22,16 @@ public class CameraManager : MonoBehaviour
         {
             _cameras[i] = transform.GetChild(i).GetComponent<Camera>();
         }
+
+        _player = GetComponent<PlayerMovement>();
+        _controller = GetComponent<PlayerController>();
     }
 
     void Update()
     {
         if(_isPlayerEnter)
         {
+            //Debug.Log($"{_controller.CanCCTVOn}");
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _isCCTVOn = !_isCCTVOn;

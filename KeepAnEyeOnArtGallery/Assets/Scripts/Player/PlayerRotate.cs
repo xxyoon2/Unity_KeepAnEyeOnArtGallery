@@ -8,6 +8,8 @@ public class PlayerRotate : MonoBehaviour
     float rotationY;
     public float rotSpeed = 200f;
 
+    private PlayerController _controller;
+
     RaycastHit hit;
     Ray ray;
 
@@ -15,6 +17,8 @@ public class PlayerRotate : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         hit = new RaycastHit();
+
+        _controller = GetComponent<PlayerController>();
     }
 
     void Update()
@@ -29,12 +33,16 @@ public class PlayerRotate : MonoBehaviour
 
         transform.eulerAngles = new Vector3(-rotationX, rotationY, 0f);
 
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray.origin, ray.direction, out hit))
+        if (_controller.CanInteract)
         {
-            Debug.Log($"{hit.transform.gameObject}");
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+            if (Physics.Raycast(ray.origin, ray.direction, out hit))
+            {
+                Debug.Log($"{hit.transform.gameObject}");
+            }
         }
+
         
     }
 }

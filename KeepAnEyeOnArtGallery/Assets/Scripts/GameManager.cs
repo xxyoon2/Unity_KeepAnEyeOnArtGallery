@@ -7,7 +7,7 @@ public class GameManager : SingletonBehavior<GameManager>
 {
     public UnityEvent CanUpdateAnomaly = new UnityEvent();
     private float _elapsedTime;
-    private int _anomalyCooltime = 20;
+    private int _anomalyCooltime = 10;
 
     void Start()
     {

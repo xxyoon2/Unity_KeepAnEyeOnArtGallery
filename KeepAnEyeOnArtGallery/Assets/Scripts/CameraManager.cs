@@ -5,12 +5,14 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public Camera PlayerCamera;
+    //public GameObject Player;
 
     private Camera[] _cameras;
     private int _cameraEnabled = 0;
     private int _cameraIndex = 4;
     private bool _isPlayerEnter = false;
     private bool _isCCTVOn = false;
+
     private PlayerMovement _player;
     private PlayerController _controller;
 
@@ -22,17 +24,14 @@ public class CameraManager : MonoBehaviour
         {
             _cameras[i] = transform.GetChild(i).GetComponent<Camera>();
         }
-
-        _player = GetComponent<PlayerMovement>();
-        _controller = GetComponent<PlayerController>();
     }
 
     void Update()
     {
         if(_isPlayerEnter)
         {
-            //Debug.Log($"{_controller.CanCCTVOn}");
-            if (Input.GetKeyDown(KeyCode.E))
+            Debug.Log($"{_controller.CanCCTVOn}");
+            if (_controller.CanCCTVOn)
             {
                 _isCCTVOn = !_isCCTVOn;
             }
@@ -78,6 +77,7 @@ public class CameraManager : MonoBehaviour
         {
             _isPlayerEnter = true;
             _player = other.GetComponent<PlayerMovement>();
+            _controller = other.GetComponent<PlayerController>();
         }
     }
     private void OnTriggerExit(Collider other)

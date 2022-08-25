@@ -36,7 +36,7 @@ public class MoveObject : MonoBehaviour
         int moveableObjectsInThisRoom = _moveableObjects[childNum].transform.childCount;
         int indexNum =Random.Range(0, moveableObjectsInThisRoom);
 
-        Debug.Log($"{_moveableObjects[childNum].name} ÀÇ {moveableObjectsInThisRoom}°³ ¿ÀºêÁ§Æ® Áß{_moveableObjects[childNum].transform.GetChild(indexNum).gameObject.name}º¯°æ.");
+        Debug.Log($"{_moveableObjects[childNum].name} ì˜ {moveableObjectsInThisRoom}ê°œ ì˜¤ë¸Œì íŠ¸ ì¤‘{_moveableObjects[childNum].transform.GetChild(indexNum).gameObject.name}ë³€ê²½.");
 
         GameObject targetObj = _moveableObjects[childNum].transform.GetChild(indexNum).gameObject;
 
@@ -59,7 +59,7 @@ public class MoveObject : MonoBehaviour
         ModifiedObjectsPos.Add(targetObj);
         _changeCount++;
         string last = ModifiedObjectsPos[ModifiedObjectsPos.Count - 1].name;
-        Debug.Log($"À§Ä¡ ¸®½ºÆ®¿¡ µé¾î°¨: {last}");
+        Debug.Log($"ìœ„ì¹˜ ë¦¬ìŠ¤íŠ¸ì— ë“¤ì–´ê°: {last}");
     }
 
     private void ChangeObjectRotation(GameObject targetObj)
@@ -70,7 +70,7 @@ public class MoveObject : MonoBehaviour
         ModifiedObjectsRot.Add(targetObj);
         _changeCount++;
         string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
-        Debug.Log($"È¸Àü ¸®½ºÆ®¿¡ µé¾î°¨: {last}");
+        Debug.Log($"íšŒì „ ë¦¬ìŠ¤íŠ¸ì— ë“¤ì–´ê°: {last}");
     }
 
     private void FindTargetInList(GameObject hitObj)
@@ -84,7 +84,7 @@ public class MoveObject : MonoBehaviour
                 fixedPos.y -= 1;
                 hitObj.transform.position = fixedPos;
                 _changeCount--;
-                Debug.Log($"{hitObj.name}¼öÁ¤¿Ï");
+                Debug.Log($"{hitObj.name}ìˆ˜ì •ì™„");
                 return;
             }
         }
@@ -92,16 +92,16 @@ public class MoveObject : MonoBehaviour
         {
             if (ModifiedObjectsRot[j].name == hitObj.name)
             {
-                Debug.Log("²¦!");
+                Debug.Log("êº…!");
                 ModifiedObjectsRot.Remove(hitObj);
                 Quaternion changedRot = hitObj.transform.rotation;
                 changedRot.z -= 80f;
                 hitObj.transform.rotation = changedRot;
                 _changeCount--;
-                Debug.Log($"{hitObj.name}¼öÁ¤¿Ï");
+                Debug.Log($"{hitObj.name}ìˆ˜ì •ì™„");
                 return;
             }
         }
-        Debug.Log($"{hitObj.name} ÀÛÇ°Àº º¯ÇÑ Á¡ÀÌ ¾ø½À´Ï´Ù.");
+        Debug.Log($"{hitObj.name} ì‘í’ˆì€ ë³€í•œ ì ì´ ì—†ìŠµë‹ˆë‹¤.");
     }
 }

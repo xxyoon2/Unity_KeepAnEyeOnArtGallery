@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {   
-        if (_pState != PlayerState.IDLE)
+        if (_pState == PlayerState.MOVE)
         {
             Move();
         }

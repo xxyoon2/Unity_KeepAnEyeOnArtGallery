@@ -29,8 +29,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
-    {    
-        Move();
+    {   
+        if (_pState != PlayerState.IDLE)
+        {
+            Move();
+        }
     }
 
     void OnTriggerEnter(Collider other)

@@ -64,9 +64,7 @@ public class MoveObject : MonoBehaviour
 
     private void ChangeObjectRotation(GameObject targetObj)
     {
-        Quaternion changedRot = targetObj.transform.rotation;
-        changedRot.z += 80f;
-        targetObj.transform.rotation = changedRot;
+        targetObj.transform.rotation *= Quaternion.Euler(0, 0, 20);
         ModifiedObjectsRot.Add(targetObj);
         _changeCount++;
         string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
@@ -94,9 +92,7 @@ public class MoveObject : MonoBehaviour
             {
                 Debug.Log("꺅!");
                 ModifiedObjectsRot.Remove(hitObj);
-                Quaternion changedRot = hitObj.transform.rotation;
-                changedRot.z -= 80f;
-                hitObj.transform.rotation = changedRot;
+                hitObj.transform.rotation *= Quaternion.Euler(0, 0, -20);
                 _changeCount--;
                 Debug.Log($"{hitObj.name}수정완");
                 return;

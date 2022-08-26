@@ -8,10 +8,9 @@ public class FixNotify : MonoBehaviour
     private TextMeshProUGUI _ui;
     void Start()
     {
-        
+        _ui = GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

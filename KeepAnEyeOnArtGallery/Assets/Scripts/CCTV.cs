@@ -23,9 +23,16 @@ public class CCTV : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             _currentTextureIndex = (_currentTextureIndex + 1) % CameraTextures.Length;
+            _canvasRenderer.SetTexture(CameraTextures[_currentTextureIndex]);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            _currentTextureIndex = (_currentTextureIndex - 1) % CameraTextures.Length;
+            if (_currentTextureIndex <= 0)
+                _currentTextureIndex = CameraTextures.Length - 1;
             _canvasRenderer.SetTexture(CameraTextures[_currentTextureIndex]);
         }
     }

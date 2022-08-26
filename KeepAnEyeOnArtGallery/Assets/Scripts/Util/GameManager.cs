@@ -7,7 +7,7 @@ public class GameManager : SingletonBehavior<GameManager>
 {
     public UnityEvent CanUpdateAnomaly = new UnityEvent();
     public UnityEvent<GameObject> AnomalyFix = new UnityEvent<GameObject>();
-    public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
+    //public UnityEvent<int, bool> ShowCamInfo = new UnityEvent<int, bool>();
 
     public bool IsPlayerWatchingCCTV = false;
 
@@ -19,10 +19,6 @@ public class GameManager : SingletonBehavior<GameManager>
         AnomalyFix.Invoke(target);
     }
 
-    public void ShowCCTVUi(int camIndex)
-    {
-        ShowCamInfo.Invoke(camIndex);
-    }
 
     void Update()
     {

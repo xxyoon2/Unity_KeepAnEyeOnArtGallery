@@ -6,6 +6,7 @@ public class CameraManager : MonoBehaviour
 {
     public Camera PlayerCamera;
     //public GameObject Player;
+    public GameObject CCTVPanel;
 
     private Camera[] _cameras;
     private int _cameraEnabled = 0;
@@ -19,11 +20,6 @@ public class CameraManager : MonoBehaviour
 
     void Start()
     {
-        _cameras = new Camera[_cameraIndex];
-        for (int i = 0; i < _cameraIndex; ++i)
-        {
-            _cameras[i] = transform.GetChild(i).GetComponent<Camera>();
-        }
     }
 
     void Update()
@@ -33,30 +29,18 @@ public class CameraManager : MonoBehaviour
             if (_controller.CanCCTVOn)
             {
                 _isCCTVOn = !_isCCTVOn;
-                GameManager.Instance.IsPlayerWatchingCCTV = !GameManager.Instance.IsPlayerWatchingCCTV;
             }
 
             if (_isCCTVOn)
             {
                 _player.ChangePlayerState(PlayerState.IDLE);
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    _cameraEnabled = (_cameraEnabled - 1) % _cameraIndex;
-                    if (_cameraEnabled < 0)
-                    {
-                        _cameraEnabled = _cameraIndex - 1;
-                    }
-                }
-                if (Input.GetKeyDown(KeyCode.D))
-                {
-                    _cameraEnabled = (_cameraEnabled + 1) % _cameraIndex;
-                }
-                ShowCCTV();
+                CCTVPanel.SetActive(true);
+                //ShowCCTV();
             }
             else
             {
-                PlayerCamera.enabled = true;
                 _player.ChangePlayerState(PlayerState.MOVE);
+                CCTVPanel.SetActive(false);
             }
         }
     }
@@ -64,12 +48,6 @@ public class CameraManager : MonoBehaviour
     public void ShowCCTV()
     {
         PlayerCamera.enabled = false;
-        for (int i = 0; i < _cameraIndex; ++i)
-        {
-            _cameras[i].enabled = false;
-        }
-        _cameras[_cameraEnabled].enabled = true;
-        GameManager.Instance.ShowCCTVUi(_cameraEnabled);
     }
 
     private void OnTriggerEnter(Collider other)

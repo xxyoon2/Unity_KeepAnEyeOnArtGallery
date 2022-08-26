@@ -139,6 +139,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8400000, guid: 578bbb6b1709aaa4ba2677e0a0b9f46c, type: 2}
     - target: {fileID: 998807899111224070, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 998807899111224070, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 7533eb48ebbc8524fb3294191caad2dc, type: 2}
@@ -191,9 +195,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 998807899896214284, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 998807899896214284, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 9a8e596d1afd465419051e245796c927, type: 2}
+    - target: {fileID: 998807900208817912, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 998807900208817919, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
+      propertyPath: CCTVPanel
+      value: 
+      objectReference: {fileID: 2020568131}
+    - target: {fileID: 998807900208817919, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
+      propertyPath: CCTVPlane
+      value: 
+      objectReference: {fileID: 2020568131}
     - target: {fileID: 998807900208817919, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
       propertyPath: PlayerCamera
       value: 
@@ -202,6 +222,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a8110a263a9aa234690b7fdb5703417a, type: 2}
+    - target: {fileID: 998807900679817147, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 998807900679817147, guid: adb3163f4d189df4dbd7a1f15e458412, type: 3}
       propertyPath: m_TargetTexture
       value: 
@@ -811,7 +835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2020568132
 RectTransform:
   m_ObjectHideFlags: 0

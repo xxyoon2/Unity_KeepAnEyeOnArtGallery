@@ -9,7 +9,7 @@ public class SceneChange : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene("AnomalyTest");
+            SceneManager.LoadScene("test");
         }
     }
 }

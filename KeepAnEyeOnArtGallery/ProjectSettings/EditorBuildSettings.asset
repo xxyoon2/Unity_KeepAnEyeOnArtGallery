@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/test.unity
     guid: cb7a11e08904bef4d9bbdafd429fa5ca
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AnomalyTest.unity
     guid: 082ec93cdb991154ebca04966b28c474
   m_configObjects: {}

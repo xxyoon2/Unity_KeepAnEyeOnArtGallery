@@ -2,9 +2,10 @@ fileFormatVersion: 2
 guid: 0228357e1b793e643931606473de06cf
 ShaderImporter:
   externalObjects: {}
-  defaultTextures: []
+  defaultTextures:
+  - _GlitchTex: {instanceID: 0}
   nonModifiableTextures: []
-  preprocessorOverride: 0
+  preprocessorOverride: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glitch
-  m_Shader: {fileID: 4800000, guid: 0228357e1b793e643931606473de06cf, type: 3}
+  m_Name: New Render Texture
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -40,16 +40,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _GlitchTex:
-        m_Texture: {fileID: 2800000, guid: 2d8e41b71a2bf3144b9b018695399016, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _GrabTexture:
-        m_Texture: {fileID: 8400000, guid: 050470e7acdff974f92f6814fc117064, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 8400000, guid: 578bbb6b1709aaa4ba2677e0a0b9f46c, type: 2}
+        m_Texture: {fileID: 8400000, guid: 050470e7acdff974f92f6814fc117064, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -70,9 +62,6 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlitchAmount: 0.01
-    - _GlitchCutAmountX: 0.1
-    - _GlitchCutAmountY: 2.14
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -88,7 +77,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GlitchColor1: {r: 1, g: 0.6084906, b: 1, a: 0.13333334}
-    - _GlitchColor2: {r: 0.4575472, g: 0.7792447, b: 1, a: 0.5176471}
-    - _GlitchColor3: {r: 0.514151, g: 1, b: 0.68130994, a: 0.5882353}
   m_BuildTextureStacks: []

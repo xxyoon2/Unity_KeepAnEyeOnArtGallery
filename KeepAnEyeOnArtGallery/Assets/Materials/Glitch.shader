@@ -9,6 +9,8 @@ Shader "Ageia/ImageEffect/Glitch" {
 
 		_GlitchCutAmountX("GlitchCutAmountX", Range(0.1, 10)) = 1 //글리치 잘리는 양.
 		_GlitchCutAmountY("GlitchCutAmountY", Range(0.1, 10)) = 1 //글리치 잘리는 양.
+
+		_MainTex ("Display", 2D) = "white" {}
 	}
 
 		SubShader{
@@ -24,7 +26,7 @@ Shader "Ageia/ImageEffect/Glitch" {
 			// Use shader model 3.0 target, to get nicer looking lighting
 			#pragma target 3.0
 
-			sampler2D _GrabTexture;
+			sampler2D _MainTex;
 			sampler2D _GlitchTex;
 
 			struct Input {
@@ -59,9 +61,9 @@ Shader "Ageia/ImageEffect/Glitch" {
 				half GlitchAmountFinal = saturate(_GlitchAmount * 10);
 
 				// Albedo comes from a texture tinted by color
-				fixed3 r = tex2D(_GrabTexture, half2(screenUV.x + UV, screenUV.y)).r * lerp(fixed3(1, 0, 0), _GlitchColor1, GlitchAmountFinal); //레드값 처리
-				fixed3 g = tex2D(_GrabTexture, half2(screenUV.x - UV, screenUV.y)).g * lerp(fixed3(0, 1, 0), _GlitchColor2, GlitchAmountFinal); //그린값 처리
-				fixed3 b = tex2D(_GrabTexture, half2(screenUV.x , screenUV.y + UV)).b * lerp(fixed3(0, 0, 1), _GlitchColor3, GlitchAmountFinal); //블루값 처리
+				fixed3 r = tex2D(_MainTex, half2(screenUV.x + UV, screenUV.y)).r * lerp(fixed3(1, 0, 0), _GlitchColor1, GlitchAmountFinal); //레드값 처리
+				fixed3 g = tex2D(_MainTex, half2(screenUV.x - UV, screenUV.y)).g * lerp(fixed3(0, 1, 0), _GlitchColor2, GlitchAmountFinal); //그린값 처리
+				fixed3 b = tex2D(_MainTex, half2(screenUV.x , screenUV.y + UV)).b * lerp(fixed3(0, 0, 1), _GlitchColor3, GlitchAmountFinal); //블루값 처리
 
 				half3 GlitchFinal = r + g + b;
 				//half3 GrabFinal = tex2D(_GrabTexture, screenUV);

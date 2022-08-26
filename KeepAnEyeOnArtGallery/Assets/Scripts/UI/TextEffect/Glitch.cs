@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Glitch : MonoBehaviour
 {
-    private bool _isGlitchOn = false;
     private float _glitchEffectTime;
     void Start()
     {

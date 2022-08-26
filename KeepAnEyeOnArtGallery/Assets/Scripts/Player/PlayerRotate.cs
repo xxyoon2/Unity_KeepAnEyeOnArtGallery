@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class PlayerRotate : MonoBehaviour
 {
-    float rotationX;
-    float rotationY;
-    public float rotSpeed = 200f;
-
     private PlayerController _controller;
 
     RaycastHit hit;
@@ -18,9 +14,7 @@ public class PlayerRotate : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         hit = new RaycastHit();
-
         _controller = GetComponent<PlayerController>();
     }
 
@@ -28,18 +22,8 @@ public class PlayerRotate : MonoBehaviour
     {   
         _prevHitObject = _hitObject;
 
-        float x = Input.GetAxisRaw("Mouse X");
-        float y = Input.GetAxisRaw("Mouse Y");
-
-        rotationX += rotSpeed * y * Time.deltaTime;
-        rotationY += rotSpeed * x * Time.deltaTime;
-
-        rotationX = Mathf.Clamp(rotationX, -30f, 30f);
-
-        transform.eulerAngles = new Vector3(-rotationX, rotationY, 0f);
-
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 5f);
+        //Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 5f);
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit))
         {
@@ -51,7 +35,7 @@ public class PlayerRotate : MonoBehaviour
             }
         }
 
-        if (_hitObject != null && _hitObject != _prevHitObject)
+        if (_prevHitObject != null && _prevHitObject != _hitObject)
         {
             if (_prevHitObject.tag == "InteractObject")
             {

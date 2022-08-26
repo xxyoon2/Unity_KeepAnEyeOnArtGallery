@@ -60,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
         dir.y = 0f;
         dir.Normalize();
 
-
         _rigidbody.MovePosition(transform.position + dir * _moveSpeed * Time.deltaTime);
     }
 
@@ -79,5 +78,10 @@ public class PlayerMovement : MonoBehaviour
                 _moveSpeed = 0f;
                 break; 
         }
+    }
+    
+    public PlayerState WhatStats()
+    {
+        return _pState;
     }
 }

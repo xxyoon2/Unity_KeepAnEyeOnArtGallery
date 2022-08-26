@@ -5,25 +5,35 @@ using UnityEngine;
 public class PlayerRotate : MonoBehaviour
 {
     private PlayerController _controller;
+    private PlayerMovement _movement;
 
-    RaycastHit hit;
 
     private GameObject _hitObject;
     private GameObject _prevHitObject;
     Ray ray;
+    RaycastHit hit;
 
     void Start()
     {
         hit = new RaycastHit();
         _controller = GetComponent<PlayerController>();
+        _movement = GetComponent<PlayerMovement>();
     }
 
     void Update()
     {   
+        Debug.Log($"{_movement.WhatStats()}");
+        if (_movement.WhatStats() == PlayerState.MOVE)
+        {
+            ShotRay();
+        }
+    }
+
+    private void ShotRay()
+    {
         _prevHitObject = _hitObject;
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 5f);
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit))
         {
@@ -42,8 +52,6 @@ public class PlayerRotate : MonoBehaviour
                 _prevHitObject.GetComponent<Outline>().enabled = false;
             }
         }
-        
-        //Debug.Log($"{_hitObject} {_prevHitObject}");
 
         if (_controller.CanInteract)
         {

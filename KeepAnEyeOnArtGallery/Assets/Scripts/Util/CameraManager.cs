@@ -33,6 +33,7 @@ public class CameraManager : MonoBehaviour
             if (_controller.CanCCTVOn)
             {
                 _isCCTVOn = !_isCCTVOn;
+                GameManager.Instance.IsPlayerWatchingCCTV = !GameManager.Instance.IsPlayerWatchingCCTV;
             }
 
             if (_isCCTVOn)
@@ -68,6 +69,7 @@ public class CameraManager : MonoBehaviour
             _cameras[i].enabled = false;
         }
         _cameras[_cameraEnabled].enabled = true;
+        GameManager.Instance.ShowCCTVUi(_cameraEnabled);
     }
 
     private void OnTriggerEnter(Collider other)

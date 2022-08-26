@@ -11,6 +11,7 @@ public class MoveObject : MonoBehaviour
     private GameObject[] _moveableObjects;
     private int _roomCount = 3;
     private int _changeCount = 0;
+    private int _overlapCount = 0;
 
     void Awake()
     {
@@ -30,15 +31,31 @@ public class MoveObject : MonoBehaviour
         
     }
 
+    private GameObject SelectRandomObj()
+    {
+        GameObject result = null;
+        while(result == null || ModifiedObjectsPos.Exists(x => x == result) || ModifiedObjectsRot.Exists(x => x == result))
+        {
+            Debug.Log($"{_overlapCount}");
+            int childNum = Random.Range(0, 100) % 3;
+            int moveableObjectsInThisRoom = _moveableObjects[childNum].transform.childCount;
+            int indexNum = Random.Range(0, moveableObjectsInThisRoom);
+            result = _moveableObjects[childNum].transform.GetChild(indexNum).gameObject;
+            _overlapCount++;
+            if(_overlapCount >= 10)
+            {
+                _overlapCount = 0;
+                return result;
+            }
+        }
+        Debug.Log($"{result.name}변경.");
+        return result;
+    }
+
     private void UpdateAnomaly()
     {
-        int childNum = Random.Range(0, 100) % 3;
-        int moveableObjectsInThisRoom = _moveableObjects[childNum].transform.childCount;
-        int indexNum =Random.Range(0, moveableObjectsInThisRoom);
 
-        Debug.Log($"{_moveableObjects[childNum].name} 의 {moveableObjectsInThisRoom}개 오브젝트 중{_moveableObjects[childNum].transform.GetChild(indexNum).gameObject.name}변경.");
-
-        GameObject targetObj = _moveableObjects[childNum].transform.GetChild(indexNum).gameObject;
+        GameObject targetObj = SelectRandomObj();
 
         switch (Random.Range(0, 2))
         {

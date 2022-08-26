@@ -59,7 +59,7 @@ public class PlayerRotate : MonoBehaviour
             }
         }
         
-        Debug.Log($"{_hitObject} {_prevHitObject}");
+        //Debug.Log($"{_hitObject} {_prevHitObject}");
 
         if (_controller.CanInteract)
         {

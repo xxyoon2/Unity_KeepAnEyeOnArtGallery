@@ -9,6 +9,8 @@ public class GameManager : SingletonBehavior<GameManager>
     public UnityEvent<GameObject> AnomalyFix = new UnityEvent<GameObject>();
     public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
     public UnityEvent TimeChange = new UnityEvent();
+    public UnityEvent NotifyTextChange = new UnityEvent();
+
 
     public bool IsPlayerWatchingCCTV = false;
 
@@ -18,6 +20,10 @@ public class GameManager : SingletonBehavior<GameManager>
     public void UpdateRayTarget(GameObject target)
     {
         AnomalyFix.Invoke(target);
+    }
+    public void UpdateNotifyText()
+    {
+        NotifyTextChange.Invoke();
     }
     public void CameraIndexTest(int index)
     {
@@ -32,7 +38,6 @@ public class GameManager : SingletonBehavior<GameManager>
         {
             _elapsedTime = 0f;
             CanUpdateAnomaly.Invoke();
-            TimeChange.Invoke();
         }
     }
 

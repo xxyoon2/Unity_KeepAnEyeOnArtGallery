@@ -11,8 +11,8 @@ public class TimeText : MonoBehaviour
     void Start()
     {
         _ui = GetComponent<TextMeshProUGUI>();
-        GameManager.Instance.TimeChange.RemoveListener(UpdateText);
-        GameManager.Instance.TimeChange.AddListener(UpdateText);
+        GameManager.Instance.CanUpdateAnomaly.RemoveListener(UpdateText);
+        GameManager.Instance.CanUpdateAnomaly.AddListener(UpdateText);
     }
 
     void UpdateText()

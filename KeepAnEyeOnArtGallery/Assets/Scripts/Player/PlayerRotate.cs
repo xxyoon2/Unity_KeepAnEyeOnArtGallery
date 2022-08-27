@@ -10,6 +10,8 @@ public class PlayerRotate : MonoBehaviour
 
     private GameObject _hitObject;
     private GameObject _prevHitObject;
+
+    public GameObject FixNotifyText;
     Ray ray;
     RaycastHit hit;
 
@@ -42,6 +44,11 @@ public class PlayerRotate : MonoBehaviour
             if (_hitObject.tag == "InteractObject")
             {
                 _hitObject.GetComponent<Outline>().enabled = true;
+                FixNotifyText.SetActive(true);
+            }
+            else
+            {
+                FixNotifyText.SetActive(false);
             }
         }
 

@@ -14,6 +14,6 @@ public class CameraInfoText : MonoBehaviour
 
     void UpdateText(int index)
     {
-        _ui.text = $"Camera {index}";
+        _ui.text = $"Camera 0{index}";
     }
 }

@@ -9,8 +9,6 @@ public class CameraManager : MonoBehaviour
     public GameObject CCTVPanel;
 
     private Camera[] _cameras;
-    private int _cameraEnabled = 0;
-    private int _cameraIndex = 4;
     private bool _isPlayerEnter = false;
     private bool _isCCTVOn = false;
 

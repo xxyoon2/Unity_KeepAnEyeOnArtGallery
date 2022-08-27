@@ -62,7 +62,15 @@ public class PlayerRotate : MonoBehaviour
 
         if (_controller.CanInteract)
         {
-            GameManager.Instance.UpdateRayTarget(hit.transform.gameObject);
+            StartCoroutine(FixingState());
         }
+    }
+
+    IEnumerator FixingState()
+    {
+        _movement.ChangePlayerState(PlayerState.IDLE);
+        yield return new WaitForSeconds(3f);
+        _movement.ChangePlayerState(PlayerState.MOVE);
+        GameManager.Instance.UpdateRayTarget(hit.transform.gameObject);
     }
 }

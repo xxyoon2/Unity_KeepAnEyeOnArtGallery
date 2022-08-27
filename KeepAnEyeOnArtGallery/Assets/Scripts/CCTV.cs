@@ -9,18 +9,20 @@ public class CCTV : MonoBehaviour
 
     private int _currentTextureIndex = 0;
     private CanvasRenderer _canvasRenderer;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
         _canvasRenderer = GetComponent<CanvasRenderer>();
+        _audioSource = GetComponent<AudioSource>();
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
         _canvasRenderer.SetTexture(CameraTextures[_currentTextureIndex]);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
@@ -28,6 +30,7 @@ public class CCTV : MonoBehaviour
             _currentTextureIndex = (_currentTextureIndex + 1) % CameraTextures.Length;
             _canvasRenderer.SetTexture(CameraTextures[_currentTextureIndex]);
             GameManager.Instance.CameraIndexTest(_currentTextureIndex + 1);
+            _audioSource.Play();
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -36,6 +39,7 @@ public class CCTV : MonoBehaviour
                 _currentTextureIndex = CameraTextures.Length;
             _canvasRenderer.SetTexture(CameraTextures[_currentTextureIndex]);
             GameManager.Instance.CameraIndexTest(_currentTextureIndex + 1);
+            _audioSource.Play();
         }
         
     }

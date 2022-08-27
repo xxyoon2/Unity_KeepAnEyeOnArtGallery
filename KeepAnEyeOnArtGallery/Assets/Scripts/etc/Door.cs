@@ -17,13 +17,13 @@ public class Door : MonoBehaviour
 
     void Update()
     {
+        Debug.Log($"{_isInside} {_isPlayerHere}");
         if (_isPlayerHere)
         {
             if (Player.GetComponent<PlayerController>().CanInteract)
             {
                 _isInside = !_isInside;
                 int index = Convert.ToInt32(_isInside);
-                Debug.Log($"{_isInside} {index}");
                 Player.transform.position = DoorWarpPosition[index].transform.position;
             }
         }
@@ -33,7 +33,6 @@ public class Door : MonoBehaviour
     {
         _isInside = !_isInside;
         int index = Convert.ToInt32(_isInside);
-        Debug.Log($"{_isInside} {index}");
         Player.transform.position = DoorWarpPosition[index].transform.position;
     }
 
@@ -41,13 +40,14 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Debug.Log("왜 안돼?");
             _isPlayerHere = true;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "player")
+        if (other.tag == "Player")
         {
             _isPlayerHere = false;
         }

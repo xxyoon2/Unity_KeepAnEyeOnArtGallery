@@ -29,6 +29,22 @@ public class GameManager : SingletonBehavior<GameManager>
     private bool _startCountdown = false;
     private int _anomalyCooltime = 30;
 
+    public GameObject UndeadPrefab;
+    public GameObject[] UndeadSpawners;
+
+    void Start()
+    {
+        int spawnerCount = UndeadSpawners.Length;
+        Debug.Log($"{UndeadSpawners.Length}");
+        for (int i = 0; i < spawnerCount; ++i)
+        {
+            GameObject undead = Instantiate<GameObject>(UndeadPrefab);
+            UndeadSpawners[i].GetComponent<UndeadSpawner>().Init(undead);
+            Debug.Log("우가!!!!");
+        }
+    }
+
+
     public void UpdateRayTarget(GameObject target)
     {
         AnomalyFix.Invoke(target);
@@ -51,7 +67,6 @@ public class GameManager : SingletonBehavior<GameManager>
 
         if (!_startCountdown && _elapsedTime > _anomalyCooltime)
         {
-            //_elapsedTime = 0f;
             _startCountdown = true;
 
             CanUpdateAnomaly.Invoke();
@@ -63,6 +78,26 @@ public class GameManager : SingletonBehavior<GameManager>
             SpawnUndead.Invoke(SpawnRoom);
             _startCountdown = false;
         }
+    }
+
+    
+
+    private void spawnUndead()
+    {
+        // TO DO : 만약 모든 스포너가 활성화 되어 있다면?
+
+        int randomIndex = Random.Range(0, UndeadSpawners.Length);
+        while (true)
+        {
+            if (UndeadSpawners[randomIndex].GetComponent<UndeadSpawner>().IsActive == false)
+            {
+                break;
+            }
+
+            randomIndex = Random.Range(0, UndeadSpawners.Length);
+        }
+
+        UndeadSpawners[randomIndex].GetComponent<UndeadSpawner>().Spawn();
     }
 
 }

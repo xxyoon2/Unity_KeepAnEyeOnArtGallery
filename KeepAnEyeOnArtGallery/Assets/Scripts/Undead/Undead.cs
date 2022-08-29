@@ -21,6 +21,12 @@ public class Undead : MonoBehaviour
         _animator = GetComponent<Animator>();
         Eye = transform.GetComponentInChildren<Camera>();
     }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

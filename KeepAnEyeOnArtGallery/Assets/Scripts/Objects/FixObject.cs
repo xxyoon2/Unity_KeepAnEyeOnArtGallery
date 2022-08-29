@@ -23,7 +23,7 @@ public class FixObject : MonoBehaviour
                 fixedPos.y -= 1;
                 hitObj.transform.position = fixedPos;
                 _move.ChangeCount--;
-                Debug.Log($"{hitObj.name}ºˆ¡§øœ");
+                Debug.Log($"{hitObj.name} ÏôÄÏö∞");
                 return;
             }
         }
@@ -31,14 +31,13 @@ public class FixObject : MonoBehaviour
         {
             if (_move.ModifiedObjectsRot[j].name == hitObj.name)
             {
-                Debug.Log("≤¶!");
                 _move.ModifiedObjectsRot.Remove(hitObj);
                 hitObj.transform.rotation *= Quaternion.Euler(0, 0, -20);
                 _move.ChangeCount--;
-                Debug.Log($"{hitObj.name}ºˆ¡§øœ");
+                Debug.Log($"{hitObj.name} Ïõ®Ïö∞");
                 return;
             }
         }
-        Debug.Log($"{hitObj.name} ¿€«∞¿∫ ∫Ø«— ¡°¿Ã æ¯Ω¿¥œ¥Ÿ.");
+        Debug.Log($"{hitObj.name} ÏïàÍ≥†Ï≥êÏßê");
     }
 }

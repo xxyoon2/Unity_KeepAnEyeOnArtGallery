@@ -4,7 +4,52 @@ using UnityEngine;
 
 public class UndeadSpawner : MonoBehaviour
 {
-    public GameObject UndeadPrefab;
+    public Transform SpawnTransform;
+    public bool IsActive { get; private set; }
+    private GameObject _undead;
+
+
+    public void Init(GameObject undead)
+    {
+        IsActive = false;
+        _undead = undead;
+        _undead.gameObject.SetActive(false);
+    }
+
+    public void Spawn()
+    {
+        Debug.Assert(IsActive == false);
+
+        StartCoroutine(spawnHelper());        
+    }
+
+    private IEnumerator spawnHelper()
+    {
+        yield return new WaitForSeconds(10f);
+
+        if (IsActive)
+        {
+            _undead.GetComponent<Transform>().position = SpawnTransform.position;
+            _undead.gameObject.SetActive(true);
+        }
+    }
+
+    public void Deactive()
+    {
+        if (IsActive == false)
+        {
+            return;
+        }
+
+        IsActive = false;
+        _undead.gameObject.SetActive(false);
+    }
+
+
+
+    /*
+
+    //public GameObject UndeadPrefab;
     GameObject[] Spawners = new GameObject[3];
     void Start()
     {
@@ -22,4 +67,5 @@ public class UndeadSpawner : MonoBehaviour
     {
         GameObject undead = Instantiate(UndeadPrefab, Spawners[roomNum].transform);
     }
+    */
 }

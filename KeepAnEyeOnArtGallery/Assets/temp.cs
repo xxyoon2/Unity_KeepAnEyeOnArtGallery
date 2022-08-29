@@ -53,7 +53,11 @@ public class temp : MonoBehaviour
         while(i < _dialogs.Length)
         {
             _ui.text = _dialogs[i];
-            if (Input.GetKey(KeyCode.Space)) { i++; }
+            if (Input.GetKey(KeyCode.Space)) 
+            { 
+                yield return new WaitForSeconds(0.1f);
+                i++; 
+            }
             yield return new WaitForSeconds(0.1f);
         }
         _ui.text = "Press spacebar to start game...";

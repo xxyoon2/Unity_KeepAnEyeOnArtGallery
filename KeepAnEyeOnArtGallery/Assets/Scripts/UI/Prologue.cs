@@ -25,6 +25,11 @@ public class Prologue : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ++_currentDialogueIndex;
+            if( _currentDialogueIndex >= _dialogueRecords.Count )
+            { 
+                _ui.text = "tap Space to start / tap Esc to Title Scene";
+                _currentDialogueIndex = _dialogueRecords.Count;
+            }
             _ui.text = _dialogueRecords[_currentDialogueIndex].Text;
         }
     }

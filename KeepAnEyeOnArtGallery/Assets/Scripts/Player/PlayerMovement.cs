@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        // layer 쓰세요.
         if (other.tag == "SafeZone")
         {
             _isPlayerInSaveZone = false;

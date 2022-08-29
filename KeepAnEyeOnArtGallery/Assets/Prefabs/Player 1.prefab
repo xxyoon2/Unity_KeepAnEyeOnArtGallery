@@ -103,10 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5045d6b32164dd941a3af92fbfb948e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateAxisName: Horizontal
-  MoveAxisName: Vertical
   CCTVKeyName: CCTVOnOff
   ObjectInteractionName: Interaction
+  rotSpeed: 200
 --- !u!114 &326741135375063492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40139ab915966fd458b3334afb59456b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 400
+  FixNotifyText: {fileID: 0}
 --- !u!136 &8441118382702228829
 CapsuleCollider:
   m_ObjectHideFlags: 0

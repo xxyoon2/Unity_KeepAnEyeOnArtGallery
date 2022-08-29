@@ -377,6 +377,26 @@ PrefabInstance:
       propertyPath: PlayerCamera
       value: 
       objectReference: {fileID: 699417268}
+    - target: {fileID: 6181197456746218795, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 5.671
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181197456746218795, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2.1559
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181197456746218795, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181197456746218795, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181197456746218795, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.47
+      objectReference: {fileID: 0}
     - target: {fileID: 6286540389441652379, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -424,6 +444,18 @@ PrefabInstance:
     - target: {fileID: 6286540389441652380, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
       propertyPath: m_Name
       value: Map8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993460333969396091, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993460333969396091, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993460333969396091, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694826552040256049, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
       propertyPath: Player

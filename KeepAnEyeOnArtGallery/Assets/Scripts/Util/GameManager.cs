@@ -8,7 +8,6 @@ public class GameManager : SingletonBehavior<GameManager>
     public UnityEvent CanUpdateAnomaly = new UnityEvent();
     public UnityEvent<GameObject> AnomalyFix = new UnityEvent<GameObject>();
     public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
-    public UnityEvent TimeChange = new UnityEvent();
     public UnityEvent NotifyTextChange = new UnityEvent();
 
 

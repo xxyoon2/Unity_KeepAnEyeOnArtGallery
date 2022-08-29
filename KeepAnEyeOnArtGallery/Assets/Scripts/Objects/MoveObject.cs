@@ -24,11 +24,6 @@ public class MoveObject : MonoBehaviour
         GameManager.Instance.CanUpdateAnomaly.AddListener(UpdateAnomaly);
     }
 
-    void Update()
-    {
-        
-    }
-
     private GameObject SelectRandomObj()
     {
         GameObject result = null;
@@ -38,6 +33,9 @@ public class MoveObject : MonoBehaviour
             int childNum = Random.Range(0, 100) % 3;
             int moveableObjectsInThisRoom = _moveableObjects[childNum].transform.childCount;
             int indexNum = Random.Range(0, moveableObjectsInThisRoom);
+            
+            GameManager.Instance.SpawnRoom = childNum;
+            
             result = _moveableObjects[childNum].transform.GetChild(indexNum).gameObject;
             _overlapCount++;
             if(_overlapCount >= 10)
@@ -47,6 +45,7 @@ public class MoveObject : MonoBehaviour
             }
         }
         Debug.Log($"{result.name}변경.");
+
         return result;
     }
 

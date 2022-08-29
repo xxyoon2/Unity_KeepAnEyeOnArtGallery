@@ -1037,9 +1037,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPos: {x: 0, y: 0, z: 0}
-  _pState: 2
+  _moveSpeed: 2
   rotationSpeed: 2
-  Target: {fileID: 0}
+  Target: {fileID: 8441118382702228831, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
   Eye: {fileID: 8009668392619953459}
 --- !u!195 &397966754
 NavMeshAgent:

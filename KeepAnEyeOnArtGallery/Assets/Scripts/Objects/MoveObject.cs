@@ -15,6 +15,16 @@ public class MoveObject : MonoBehaviour
 
     void Awake()
     {
+        GameManager.Instance.ChangeObjectPosition.RemoveListener(ChangePosition);
+        GameManager.Instance.ChangeObjectPosition.AddListener(ChangePosition);
+
+        GameManager.Instance.ChangeObjectRotation.RemoveListener(ChangeRotation);
+        GameManager.Instance.ChangeObjectRotation.AddListener(ChangeRotation);
+    }
+    /*
+    void Awake()
+    {
+        // RoomA, RoomB, RoomC 오브젝트를 받아옴
         _moveableObjects = new GameObject[_roomCount];
         for (int i = 0; i < _roomCount; ++i)
         {
@@ -22,31 +32,6 @@ public class MoveObject : MonoBehaviour
         }
         GameManager.Instance.CanUpdateAnomaly.RemoveListener(UpdateAnomaly);
         GameManager.Instance.CanUpdateAnomaly.AddListener(UpdateAnomaly);
-    }
-
-    private GameObject SelectRandomObj()
-    {
-        GameObject result = null;
-        while(result == null || ModifiedObjectsPos.Exists(x => x == result) || ModifiedObjectsRot.Exists(x => x == result))
-        {
-            Debug.Log($"{_overlapCount}");
-            int childNum = Random.Range(0, 100) % 3;
-            int moveableObjectsInThisRoom = _moveableObjects[childNum].transform.childCount;
-            int indexNum = Random.Range(0, moveableObjectsInThisRoom);
-            
-            GameManager.Instance.SpawnRoom = childNum;
-            
-            result = _moveableObjects[childNum].transform.GetChild(indexNum).gameObject;
-            _overlapCount++;
-            if(_overlapCount >= 10)
-            {
-                _overlapCount = 0;
-                return result;
-            }
-        }
-        Debug.Log($"{result.name}변경.");
-
-        return result;
     }
 
     private void UpdateAnomaly()
@@ -65,7 +50,34 @@ public class MoveObject : MonoBehaviour
         }
     }
 
-    private void ChangeObjectPosition(GameObject targetObj)
+    private GameObject SelectRandomObj()
+    {
+        GameObject result = null;
+        while(result == null || ModifiedObjectsPos.Exists(x => x == result) || ModifiedObjectsRot.Exists(x => x == result))
+        {
+            int roomNum = Random.Range(0, 100) % 3; // 방 랜덤 뽑기
+            int moveableObjectsInThisRoom = _moveableObjects[roomNum].transform.childCount; // 랜덤으로 뽑은 방의 자식오브젝트 숫자
+            int indexNum = Random.Range(0, moveableObjectsInThisRoom);
+            
+            GameManager.Instance.SpawnRoom = roomNum;
+            
+            result = _moveableObjects[roomNum].transform.GetChild(indexNum).gameObject;
+
+            _overlapCount++;
+            if(_overlapCount >= 10)
+            {
+                _overlapCount = 0;
+                return result;
+            }
+        }
+        Debug.Log($"{result.name}변경.");
+
+        return result;
+    }
+
+    */
+
+    private void ChangePosition(GameObject targetObj)
     {
         Vector3 changedPos = targetObj.transform.position;
         changedPos.y += 1;
@@ -76,7 +88,7 @@ public class MoveObject : MonoBehaviour
         Debug.Log($"위치 리스트에 들어감: {last}");
     }
 
-    private void ChangeObjectRotation(GameObject targetObj)
+    private void ChangeRotation(GameObject targetObj)
     {
         targetObj.transform.rotation *= Quaternion.Euler(0, 0, 20);
         ModifiedObjectsRot.Add(targetObj);

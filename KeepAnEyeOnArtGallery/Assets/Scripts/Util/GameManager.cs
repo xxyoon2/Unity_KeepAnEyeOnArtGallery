@@ -27,7 +27,7 @@ public class GameManager : SingletonBehavior<GameManager>
     
     public int SpawnRoom;
     private bool _startCountdown = false;
-    private int _anomalyCooltime = 30;
+    private int _anomalyCooltime = 10;
 
     public void UpdateRayTarget(GameObject target)
     {

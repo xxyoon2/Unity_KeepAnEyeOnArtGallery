@@ -277,6 +277,9 @@ MonoBehaviour:
   ShowCamInfo:
     m_PersistentCalls:
       m_Calls: []
+  NotifyTextChange:
+    m_PersistentCalls:
+      m_Calls: []
   IsPlayerWatchingCCTV: 0
 --- !u!4 &1206803718
 Transform:
@@ -428,6 +431,23 @@ PrefabInstance:
       objectReference: {fileID: 1420480903}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+--- !u!1 &2593242777892233122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6286540388516115731, guid: 5410cfe0bc85f3848ae372f6470aa628, type: 3}
+  m_PrefabInstance: {fileID: 2593242777892233121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2593242777892233123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593242777892233122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4500407de52229d43a78f6b965fdd5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6253628529789635401 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6253628530473755494, guid: 9525092e5b1757c4bb5d24bab1dc1dca, type: 3}

@@ -10,7 +10,7 @@ public class MoveObject : MonoBehaviour
 
     private GameObject[] _moveableObjects;
     private int _roomCount = 3;
-    private int _changeCount = 0;
+    public int ChangeCount = 0;
     private int _overlapCount = 0;
 
     void Awake()
@@ -22,8 +22,6 @@ public class MoveObject : MonoBehaviour
         }
         GameManager.Instance.CanUpdateAnomaly.RemoveListener(UpdateAnomaly);
         GameManager.Instance.CanUpdateAnomaly.AddListener(UpdateAnomaly);
-        GameManager.Instance.AnomalyFix.RemoveListener(FindTargetInList);
-        GameManager.Instance.AnomalyFix.AddListener(FindTargetInList);
     }
 
     void Update()
@@ -74,7 +72,7 @@ public class MoveObject : MonoBehaviour
         changedPos.y += 1;
         targetObj.transform.position = changedPos;
         ModifiedObjectsPos.Add(targetObj);
-        _changeCount++;
+        ChangeCount++;
         string last = ModifiedObjectsPos[ModifiedObjectsPos.Count - 1].name;
         Debug.Log($"위치 리스트에 들어감: {last}");
     }
@@ -83,38 +81,8 @@ public class MoveObject : MonoBehaviour
     {
         targetObj.transform.rotation *= Quaternion.Euler(0, 0, 20);
         ModifiedObjectsRot.Add(targetObj);
-        _changeCount++;
+        ChangeCount++;
         string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
         Debug.Log($"회전 리스트에 들어감: {last}");
-    }
-
-    private void FindTargetInList(GameObject hitObj)
-    {
-        for(int i = ModifiedObjectsPos.Count - 1; i >= 0; i--)
-        {
-            if (ModifiedObjectsPos[i].name == hitObj.name)
-            {
-                ModifiedObjectsPos.Remove(hitObj);
-                Vector3 fixedPos = hitObj.transform.position;
-                fixedPos.y -= 1;
-                hitObj.transform.position = fixedPos;
-                _changeCount--;
-                Debug.Log($"{hitObj.name}수정완");
-                return;
-            }
-        }
-        for (int j = ModifiedObjectsRot.Count - 1; j >= 0; j--)
-        {
-            if (ModifiedObjectsRot[j].name == hitObj.name)
-            {
-                Debug.Log("꺅!");
-                ModifiedObjectsRot.Remove(hitObj);
-                hitObj.transform.rotation *= Quaternion.Euler(0, 0, -20);
-                _changeCount--;
-                Debug.Log($"{hitObj.name}수정완");
-                return;
-            }
-        }
-        Debug.Log($"{hitObj.name} 작품은 변한 점이 없습니다.");
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UndeadSpawner : MonoBehaviour
 {
-    public Transform SpawnTransform;
+    public Transform[] SpawnTransform;
     public bool IsActive { get; private set; }
     private GameObject _undead;
 
@@ -16,20 +16,20 @@ public class UndeadSpawner : MonoBehaviour
         _undead.gameObject.SetActive(false);
     }
 
-    public void Spawn()
+    public void Spawn(int undeadNum)
     {
-        Debug.Assert(IsActive == false);
+        Debug.Assert(GameManager.Instance.Objects[undeadNum].IsActive == false);
 
-        StartCoroutine(spawnHelper());        
+        StartCoroutine(spawnHelper(undeadNum));        
     }
 
-    private IEnumerator spawnHelper()
+    private IEnumerator spawnHelper(int undeadNum)
     {
         yield return new WaitForSeconds(10f);
 
         if (IsActive)
         {
-            _undead.GetComponent<Transform>().position = SpawnTransform.position;
+            _undead.GetComponent<Transform>().position = SpawnTransform[GameManager.Instance.Objects[undeadNum].RoomNum].position;
             _undead.gameObject.SetActive(true);
         }
     }

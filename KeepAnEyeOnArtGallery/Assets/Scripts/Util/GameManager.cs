@@ -13,46 +13,23 @@ public struct MoveableObject
 
 public class GameManager : SingletonBehavior<GameManager>
 {
-    // CCTV 관련
-    public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
-
-    // UI 관련
-    public UnityEvent CanUpdateAnomaly = new UnityEvent();
-
-    public UnityEvent NotifyTextChange = new UnityEvent();
-
-    // Undead 관련
-    public UnityEvent<int> SpawnUndead = new UnityEvent<int>();
-
-
-    public bool IsPlayerWatchingCCTV = false;
-
-    private float _elapsedTime;
-    //private int _undeadCooltime = 40;
-    
-    //private bool _startCountdown = false;
-    private int _anomalyCooltime = 5;
-
-    public GameObject UndeadPrefab;
-    public GameObject[] UndeadSpawners;
-
-
-    // 오브젝트 관련 - 움직임
+    // 오브젝트 변화 주는 이벤트
     public UnityEvent<GameObject> ChangeObjectPosition = new UnityEvent<GameObject>();
     public UnityEvent<GameObject> ChangeObjectRotation = new UnityEvent<GameObject>();
-    //오브젝트 관련 - 고침
+    
+    // 오브젝트 고치는 이벤트
     public UnityEvent<GameObject> AnomalyFix = new UnityEvent<GameObject>();
 
-
+    // 오브젝트 관리 관련
     public GameObject Showrooms;
     public MoveableObject[] Objects = new MoveableObject[18];
 
-    public int ObjectTotalCount = 0;
-    public int ActiveObjectCount = 0;
+    public int ObjectTotalCount = 0;    // 오브젝트 개수
+    public int ActiveObjectCount = 0;   // 활성화된 오브젝트 개수
 
     void Start()
     {
-        // RoomA, RoomB, RoomC 들고옴
+        // 오브젝트 배열 생성
         int roomCount = Showrooms.transform.childCount;
         for (int i = 0; i < roomCount; ++i)
         {
@@ -73,34 +50,33 @@ public class GameManager : SingletonBehavior<GameManager>
 
         }
 
-        /*
-        int spawnerCount = UndeadSpawners.Length;
-        Debug.Log($"{UndeadSpawners.Length}");
-        for (int i = 0; i < spawnerCount; ++i)
+        // 언데드 생성
+        for (int i = 0; i < ObjectTotalCount; ++i)
         {
             GameObject undead = Instantiate<GameObject>(UndeadPrefab);
             UndeadSpawners[i].GetComponent<UndeadSpawner>().Init(undead);
-            Debug.Log("우가!!!!");
         }
-        */
     }
 
+    private float _elapsedTime;
     void Update()
     {
         _elapsedTime += Time.deltaTime;
 
+        // 시간이 업데이트 될 때마다 오브젝트 변화사항도 하나씩 추가됨
         if (_elapsedTime >= _anomalyCooltime)
         {
             _elapsedTime = 0f;
             UpdateAnomaly();
+
+            // 시간 업데이트
+            CanUpdateAnomaly.Invoke();
         }
 
         /*
         if (!_startCountdown && _elapsedTime > _anomalyCooltime)
         {
             _startCountdown = true;
-
-            CanUpdateAnomaly.Invoke();
         }
 
         if (_startCountdown && _elapsedTime >= _undeadCooltime)
@@ -147,6 +123,41 @@ public class GameManager : SingletonBehavior<GameManager>
         return result;
     }
 
+    // CCTV 관련
+    public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
+
+    public void CameraIndexTest(int index)
+    {
+        ShowCamInfo.Invoke(index);
+    }
+   
+
+
+
+
+
+    // UI 관련
+    public UnityEvent CanUpdateAnomaly = new UnityEvent();
+    public UnityEvent NotifyTextChange = new UnityEvent();
+
+    // Undead 관련
+    public UnityEvent<int> SpawnUndead = new UnityEvent<int>();
+
+
+    public bool IsPlayerWatchingCCTV = false;
+
+    //private int _undeadCooltime = 40;
+    
+    //private bool _startCountdown = false;
+    private int _anomalyCooltime = 5;
+
+    public GameObject UndeadPrefab;
+    public GameObject[] UndeadSpawners;
+
+
+    // 오브젝트 관련 - 움직임
+    
+
     public void UpdateRayTarget(GameObject target)
     {
         AnomalyFix.Invoke(target);
@@ -156,12 +167,7 @@ public class GameManager : SingletonBehavior<GameManager>
     {
         NotifyTextChange.Invoke();
     }
-    
-    public void CameraIndexTest(int index)
-    {
-        ShowCamInfo.Invoke(index);
-    }
-    
+     
     private void spawnUndead()
     {
         // TO DO : 만약 모든 스포너가 활성화 되어 있다면?

@@ -22,7 +22,7 @@ public class FixObject : MonoBehaviour
                 Vector3 fixedPos = hitObj.transform.position;
                 fixedPos.y -= 1;
                 hitObj.transform.position = fixedPos;
-                _move.ChangeCount--;
+                GameManager.Instance.ActiveObjectCount++;
                 Debug.Log($"{hitObj.name} 와우");
                 return;
             }
@@ -33,7 +33,7 @@ public class FixObject : MonoBehaviour
             {
                 _move.ModifiedObjectsRot.Remove(hitObj);
                 hitObj.transform.rotation *= Quaternion.Euler(0, 0, -20);
-                _move.ChangeCount--;
+                GameManager.Instance.ActiveObjectCount++;
                 Debug.Log($"{hitObj.name} 웨우");
                 return;
             }

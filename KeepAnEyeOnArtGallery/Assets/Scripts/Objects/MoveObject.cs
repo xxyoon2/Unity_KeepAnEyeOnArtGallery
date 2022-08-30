@@ -9,7 +9,6 @@ public class MoveObject : MonoBehaviour
     public List<GameObject> ModifiedObjectsRot = new List<GameObject>();
 
     private GameObject[] _moveableObjects;
-    public int ChangeCount = 0;
 
     void Awake()
     {

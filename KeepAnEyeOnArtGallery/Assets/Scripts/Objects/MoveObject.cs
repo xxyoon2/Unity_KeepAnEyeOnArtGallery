@@ -9,9 +9,7 @@ public class MoveObject : MonoBehaviour
     public List<GameObject> ModifiedObjectsRot = new List<GameObject>();
 
     private GameObject[] _moveableObjects;
-    private int _roomCount = 3;
     public int ChangeCount = 0;
-    private int _overlapCount = 0;
 
     void Awake()
     {
@@ -21,6 +19,27 @@ public class MoveObject : MonoBehaviour
         GameManager.Instance.ChangeObjectRotation.RemoveListener(ChangeRotation);
         GameManager.Instance.ChangeObjectRotation.AddListener(ChangeRotation);
     }
+    private void ChangePosition(GameObject targetObj)
+    {
+        Vector3 changedPos = targetObj.transform.position;
+        changedPos.y += 1;
+        targetObj.transform.position = changedPos;
+        ModifiedObjectsPos.Add(targetObj);
+        GameManager.Instance.ActiveObjectCount++;
+        string last = ModifiedObjectsPos[ModifiedObjectsPos.Count - 1].name;
+        Debug.Log($"위치 리스트에 들어감: {last}");
+    }
+
+    private void ChangeRotation(GameObject targetObj)
+    {
+        targetObj.transform.rotation *= Quaternion.Euler(0, 0, 20);
+        ModifiedObjectsRot.Add(targetObj);
+        GameManager.Instance.ActiveObjectCount++;
+        string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
+        Debug.Log($"회전 리스트에 들어감: {last}");
+    }
+
+    
     /*
     void Awake()
     {
@@ -77,23 +96,4 @@ public class MoveObject : MonoBehaviour
 
     */
 
-    private void ChangePosition(GameObject targetObj)
-    {
-        Vector3 changedPos = targetObj.transform.position;
-        changedPos.y += 1;
-        targetObj.transform.position = changedPos;
-        ModifiedObjectsPos.Add(targetObj);
-        ChangeCount++;
-        string last = ModifiedObjectsPos[ModifiedObjectsPos.Count - 1].name;
-        Debug.Log($"위치 리스트에 들어감: {last}");
-    }
-
-    private void ChangeRotation(GameObject targetObj)
-    {
-        targetObj.transform.rotation *= Quaternion.Euler(0, 0, 20);
-        ModifiedObjectsRot.Add(targetObj);
-        ChangeCount++;
-        string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
-        Debug.Log($"회전 리스트에 들어감: {last}");
-    }
 }

@@ -394,13 +394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5d40f9b69afc0448d4efe76f9b8840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanUpdateAnomaly:
-    m_PersistentCalls:
-      m_Calls: []
-  AnomalyFix:
-    m_PersistentCalls:
-      m_Calls: []
   ShowCamInfo:
+    m_PersistentCalls:
+      m_Calls: []
+  CanUpdateAnomaly:
     m_PersistentCalls:
       m_Calls: []
   NotifyTextChange:
@@ -410,7 +407,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsPlayerWatchingCCTV: 0
-  SpawnRoom: 0
   UndeadPrefab: {fileID: 1309486516299566, guid: 36162ca0c6113f744b350e63fd0229bc, type: 3}
   UndeadSpawners:
   - {fileID: 658272064}
@@ -431,6 +427,18 @@ MonoBehaviour:
   - {fileID: 632229212}
   - {fileID: 632229212}
   - {fileID: 38256539}
+  ChangeObjectPosition:
+    m_PersistentCalls:
+      m_Calls: []
+  ChangeObjectRotation:
+    m_PersistentCalls:
+      m_Calls: []
+  AnomalyFix:
+    m_PersistentCalls:
+      m_Calls: []
+  Rooms: {fileID: 1754988859}
+  ObjectTotalCount: 0
+  ActiveObjectCount: 0
 --- !u!4 &1493442066
 Transform:
   m_ObjectHideFlags: 0
@@ -469,6 +477,11 @@ GameObject:
 --- !u!1 &1743750306 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6286540389320086220, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+  m_PrefabInstance: {fileID: 1433197889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1754988859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6286540388516115731, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
   m_PrefabInstance: {fileID: 1433197889}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1768106389

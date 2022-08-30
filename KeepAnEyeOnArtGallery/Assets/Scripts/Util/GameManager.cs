@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public struct MoveableObject
+{
+    public GameObject Name;
+    public bool IsActive;
+    public int RoomNum;
+    public bool IsUndeadLive;
+}
+
 public class GameManager : SingletonBehavior<GameManager>
 {
-
-
-
     // CCTV 관련
     public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
 
     // UI 관련
+    public UnityEvent CanUpdateAnomaly = new UnityEvent();
+
     public UnityEvent NotifyTextChange = new UnityEvent();
 
     // Undead 관련
@@ -21,12 +28,10 @@ public class GameManager : SingletonBehavior<GameManager>
     public bool IsPlayerWatchingCCTV = false;
 
     private float _elapsedTime;
-    private int _undeadCooltime = 40;
+    //private int _undeadCooltime = 40;
     
-    
-    public int SpawnRoom;
-    private bool _startCountdown = false;
-    private int _anomalyCooltime = 30;
+    //private bool _startCountdown = false;
+    private int _anomalyCooltime = 5;
 
     public GameObject UndeadPrefab;
     public GameObject[] UndeadSpawners;
@@ -39,19 +44,33 @@ public class GameManager : SingletonBehavior<GameManager>
     public UnityEvent<GameObject> AnomalyFix = new UnityEvent<GameObject>();
 
 
-    public GameObject MoveableObjects;
-    private GameObject[] _rooms;
-    private GameObject[] _objects;
+    public GameObject Showrooms;
+    public MoveableObject[] Objects = new MoveableObject[18];
 
-    private _roomCount = 3;
-    
+    public int ObjectTotalCount = 0;
+    public int ActiveObjectCount = 0;
+
     void Start()
     {
         // RoomA, RoomB, RoomC 들고옴
-        _rooms = new GameObject[_roomCount];
-        for (int i = 0; i < _roomCount; ++i)
+        int roomCount = Showrooms.transform.childCount;
+        for (int i = 0; i < roomCount; ++i)
         {
-            _rooms[i] = MoveableObjects.transform.GetChild(i).gameObject;
+            GameObject room = Showrooms.transform.GetChild(i).gameObject;
+            
+            int objectCount = room.transform.childCount;
+            for (int j = ObjectTotalCount; j < ObjectTotalCount + objectCount; ++j)
+            {
+                GameObject obj = room.transform.GetChild(j - ObjectTotalCount).gameObject;
+                Objects[j].Name = obj;
+                Objects[j].IsActive = false;
+                Objects[j].RoomNum = i;
+                Objects[j].IsUndeadLive = false;
+                Debug.Log($"{Objects[j].Name} {j}번째원소로 들어감");
+            }
+
+            ObjectTotalCount += objectCount;
+
         }
 
         /*
@@ -92,47 +111,41 @@ public class GameManager : SingletonBehavior<GameManager>
         }
         */
     }
-
+    
     private void UpdateAnomaly()
     {
-        GameObject targetObj = SelectRandomObj();
+        int targetObj = SelectRandomObj();
 
         switch (Random.Range(0, 2))
         {
              case 0:
-                ChangeObjectPosition.Invoke(targetObj);
+                ChangeObjectPosition.Invoke(Objects[targetObj].Name);
                 break;
             case 1:
-                ChangeObjectRotation.Invoke(targetObj);
+                ChangeObjectRotation.Invoke(Objects[targetObj].Name);
                 break;
         }
     }
 
-    private GameObject SelectRandomObj()
+    private int SelectRandomObj()
     {
-        GameObject result = null;
-        while(result == null || ModifiedObjectsPos.Exists(x => x == result) || ModifiedObjectsRot.Exists(x => x == result))
+        int result = -1;
+        while(result == -1)
         {
-            int roomNum = Random.Range(0, 100) % 3; // 방 랜덤 뽑기
-            int moveableObjectsInThisRoom = _moveableObjects[roomNum].transform.childCount; // 랜덤으로 뽑은 방의 자식오브젝트 숫자
-            int indexNum = Random.Range(0, moveableObjectsInThisRoom);
-            
-            GameManager.Instance.SpawnRoom = roomNum;
-            
-            result = _moveableObjects[roomNum].transform.GetChild(indexNum).gameObject;
-
-            _overlapCount++;
-            if(_overlapCount >= 10)
+            int randomObject = Random.Range(0, ObjectTotalCount);   // 랜덤 오브젝트 설정
+            Debug.Log($"{randomObject}");
+            if (Objects[randomObject].IsActive == false)
             {
-                _overlapCount = 0;
-                return result;
+                Objects[randomObject].IsActive = true;
+                result = randomObject;
+
+                ++ActiveObjectCount;
             }
         }
-        Debug.Log($"{result.name}변경.");
+        Debug.Log($"{Objects[result].Name}변경. {ActiveObjectCount}개의 오브젝트 활성화 됨");
 
         return result;
     }
-
 
     public void UpdateRayTarget(GameObject target)
     {

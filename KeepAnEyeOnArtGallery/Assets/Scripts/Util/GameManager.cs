@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public struct MoveableObject
 {
     public GameObject Name;
-    public bool IsActive;
     public int RoomNum;
+    public bool IsActive;
     public bool IsUndeadLive;
 }
 
@@ -26,6 +26,8 @@ public class GameManager : SingletonBehavior<GameManager>
 
     public int ObjectTotalCount = 0;    // 오브젝트 개수
     public int ActiveObjectCount = 0;   // 활성화된 오브젝트 개수
+
+    public int result;
 
     void Start()
     {
@@ -53,11 +55,11 @@ public class GameManager : SingletonBehavior<GameManager>
         // 언데드 생성
         for (int i = 0; i < ObjectTotalCount; ++i)
         {
-            GameObject undead = Instantiate<GameObject>(UndeadPrefab);
-            UndeadSpawners[i].GetComponent<UndeadSpawner>().Init(undead);
+            //GameObject undead = Instantiate<GameObject>(UndeadPrefab);
+            //UndeadSpawner.GetComponent<UndeadSpawner>().Init(undead);
         }
     }
-
+    
     private float _elapsedTime;
     void Update()
     {
@@ -67,12 +69,14 @@ public class GameManager : SingletonBehavior<GameManager>
         if (_elapsedTime >= _anomalyCooltime)
         {
             _elapsedTime = 0f;
-            UpdateAnomaly();
+            UpdateAnomaly();    // 오브젝트 변화
+            spawnUndead();      // 언데드 소환
 
             // 시간 업데이트
             CanUpdateAnomaly.Invoke();
         }
 
+        
         /*
         if (!_startCountdown && _elapsedTime > _anomalyCooltime)
         {
@@ -82,7 +86,6 @@ public class GameManager : SingletonBehavior<GameManager>
         if (_startCountdown && _elapsedTime >= _undeadCooltime)
         {
             _elapsedTime = 0f;
-            SpawnUndead.Invoke(SpawnRoom);
             _startCountdown = false;
         }
         */
@@ -105,7 +108,7 @@ public class GameManager : SingletonBehavior<GameManager>
 
     private int SelectRandomObj()
     {
-        int result = -1;
+        result = -1;
         while(result == -1)
         {
             int randomObject = Random.Range(0, ObjectTotalCount);   // 랜덤 오브젝트 설정
@@ -122,6 +125,22 @@ public class GameManager : SingletonBehavior<GameManager>
 
         return result;
     }
+
+    public UnityEvent<int> SpawnUndead = new UnityEvent<int>();
+    // 언데드 관련
+    //public GameObject UndeadPrefab;
+    //public GameObject[] UndeadSpawners;
+
+    private void spawnUndead()
+    {
+        Objects[result].IsUndeadLive = true;
+        SpawnUndead.Invoke(Objects[result].RoomNum);
+    }
+
+
+
+
+
 
     // CCTV 관련
     public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
@@ -141,7 +160,7 @@ public class GameManager : SingletonBehavior<GameManager>
     public UnityEvent NotifyTextChange = new UnityEvent();
 
     // Undead 관련
-    public UnityEvent<int> SpawnUndead = new UnityEvent<int>();
+    
 
 
     public bool IsPlayerWatchingCCTV = false;
@@ -151,8 +170,6 @@ public class GameManager : SingletonBehavior<GameManager>
     //private bool _startCountdown = false;
     private int _anomalyCooltime = 5;
 
-    public GameObject UndeadPrefab;
-    public GameObject[] UndeadSpawners;
 
 
     // 오브젝트 관련 - 움직임
@@ -168,22 +185,6 @@ public class GameManager : SingletonBehavior<GameManager>
         NotifyTextChange.Invoke();
     }
      
-    private void spawnUndead()
-    {
-        // TO DO : 만약 모든 스포너가 활성화 되어 있다면?
-
-        int randomIndex = Random.Range(0, UndeadSpawners.Length);
-        while (true)
-        {
-            if (UndeadSpawners[randomIndex].GetComponent<UndeadSpawner>().IsActive == false)
-            {
-                break;
-            }
-
-            randomIndex = Random.Range(0, UndeadSpawners.Length);
-        }
-
-        UndeadSpawners[randomIndex].GetComponent<UndeadSpawner>().Spawn();
-    }
+    
 
 }

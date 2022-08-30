@@ -106,7 +106,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7256783835893912959}
-  - component: {fileID: 1698571385467759612}
   m_Layer: 0
   m_Name: UndeadSpawner
   m_TagString: Untagged
@@ -132,19 +131,6 @@ Transform:
   m_Father: {fileID: 6286540389441652379}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1698571385467759612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839377474821779965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 0}
 --- !u!1 &1398377635285200679
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +847,6 @@ GameObject:
   - component: {fileID: 6286540388486373598}
   - component: {fileID: 6286540388486373597}
   - component: {fileID: 2836512338408931221}
-  - component: {fileID: 3784500870844553306}
   m_Layer: 0
   m_Name: VASO GRECO-Circle
   m_TagString: InteractObject
@@ -917,19 +902,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &3784500870844553306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540388486373599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1416937405598568683}
 --- !u!1 &6286540388487347698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1281,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6286540388516115730}
   - component: {fileID: 6286540388516115729}
+  - component: {fileID: 380557391898876970}
+  - component: {fileID: 6742472871765735888}
   m_Layer: 0
   m_Name: MoveableObjects
   m_TagString: Untagged
@@ -1346,9 +1320,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8527f7a02016ed94ca8ecfd04d37e95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModifiedObjectsPos: []
-  ModifiedObjectsRot: []
-  ChangeCount: 0
+--- !u!114 &380557391898876970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286540388516115731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4500407de52229d43a78f6b965fdd5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6742472871765735888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286540388516115731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnTransform:
+  - {fileID: 2102437965643930114}
+  - {fileID: 1416937405598568683}
+  - {fileID: 1881205951839918172}
+  UndeadPrefab: {fileID: 1309486516299566, guid: 36162ca0c6113f744b350e63fd0229bc, type: 3}
 --- !u!1 &6286540388540878059
 GameObject:
   m_ObjectHideFlags: 0
@@ -3584,7 +3584,6 @@ GameObject:
   - component: {fileID: 6286540388783023871}
   - component: {fileID: 6286540389098493372}
   - component: {fileID: 8117078373202672601}
-  - component: {fileID: 3809095374978149392}
   m_Layer: 0
   m_Name: frame
   m_TagString: InteractObject
@@ -3639,19 +3638,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &3809095374978149392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540388783023856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 2102437965643930114}
 --- !u!1 &6286540388801766805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4205,7 +4191,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6286540388842224128}
-  - component: {fileID: 1419760746837472693}
   m_Layer: 0
   m_Name: RoomBMoveable
   m_TagString: InteractObject
@@ -4234,19 +4219,6 @@ Transform:
   m_Father: {fileID: 6286540388516115730}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1419760746837472693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540388842224129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1416937405598568683}
 --- !u!1 &6286540388846007309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4341,7 +4313,6 @@ GameObject:
   - component: {fileID: 6286540388866406314}
   - component: {fileID: 6286540389608756104}
   - component: {fileID: 4482066901636033163}
-  - component: {fileID: 7871379810206248425}
   m_Layer: 0
   m_Name: manequim
   m_TagString: InteractObject
@@ -4396,19 +4367,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &7871379810206248425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540388866406315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1881205951839918172}
 --- !u!1 &6286540388882381909
 GameObject:
   m_ObjectHideFlags: 0
@@ -5629,7 +5587,6 @@ GameObject:
   - component: {fileID: 6286540389062616864}
   - component: {fileID: 6286540389542967423}
   - component: {fileID: 7675699209626631232}
-  - component: {fileID: 868705274722943844}
   m_Layer: 0
   m_Name: frame 01
   m_TagString: InteractObject
@@ -5685,19 +5642,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &868705274722943844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540389062616865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 2102437965643930114}
 --- !u!1 &6286540389062694602
 GameObject:
   m_ObjectHideFlags: 0
@@ -7509,7 +7453,6 @@ GameObject:
   - component: {fileID: 6286540389320086219}
   - component: {fileID: 6286540388659884725}
   - component: {fileID: 4283202394675837288}
-  - component: {fileID: 4619882700390679897}
   m_Layer: 0
   m_Name: Picture(1)
   m_TagString: InteractObject
@@ -7564,19 +7507,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &4619882700390679897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540389320086220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1416937405598568683}
 --- !u!1 &6286540389339383023
 GameObject:
   m_ObjectHideFlags: 0
@@ -10093,7 +10023,6 @@ GameObject:
   - component: {fileID: 6286540389755234487}
   - component: {fileID: 6286540389037876932}
   - component: {fileID: 701544978364605240}
-  - component: {fileID: 7897623628699358175}
   m_Layer: 0
   m_Name: apollo
   m_TagString: InteractObject
@@ -10148,19 +10077,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &7897623628699358175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540389755234376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1416937405598568683}
 --- !u!1 &6286540389756806102
 GameObject:
   m_ObjectHideFlags: 0
@@ -10255,7 +10171,6 @@ GameObject:
   - component: {fileID: 6286540389772664373}
   - component: {fileID: 6286540390062600782}
   - component: {fileID: 1211330191037911880}
-  - component: {fileID: 2288502834414312928}
   m_Layer: 0
   m_Name: Manequim de madeira masculino low poly (1)
   m_TagString: InteractObject
@@ -10311,19 +10226,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &2288502834414312928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540389772664374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1881205951839918172}
 --- !u!1 &6286540389778552340
 GameObject:
   m_ObjectHideFlags: 0
@@ -12258,7 +12160,6 @@ GameObject:
   - component: {fileID: 6286540390023024614}
   - component: {fileID: 6286540389814361159}
   - component: {fileID: 1983510424746696685}
-  - component: {fileID: 8353123143795464740}
   m_Layer: 0
   m_Name: MainStatue
   m_TagString: InteractObject
@@ -12313,19 +12214,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &8353123143795464740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540390023024615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 2102437965643930114}
 --- !u!1 &6286540390028122185
 GameObject:
   m_ObjectHideFlags: 0
@@ -13348,7 +13236,6 @@ GameObject:
   - component: {fileID: 6286540390231187831}
   - component: {fileID: 6286540389396372884}
   - component: {fileID: 1072460917656801183}
-  - component: {fileID: 5869170160498964735}
   m_Layer: 0
   m_Name: paint3
   m_TagString: InteractObject
@@ -13403,19 +13290,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &5869170160498964735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540390231187720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1881205951839918172}
 --- !u!1 &6286540390278142518
 GameObject:
   m_ObjectHideFlags: 0
@@ -13614,7 +13488,6 @@ GameObject:
   - component: {fileID: 6286540390292109013}
   - component: {fileID: 6286540389517306932}
   - component: {fileID: 5292832447830550128}
-  - component: {fileID: 2250218926721017206}
   m_Layer: 0
   m_Name: paint2
   m_TagString: InteractObject
@@ -13669,19 +13542,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &2250218926721017206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540390292109014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1881205951839918172}
 --- !u!1 &6286540390349052078
 GameObject:
   m_ObjectHideFlags: 0
@@ -13779,7 +13639,6 @@ GameObject:
   - component: {fileID: 6286540390398343932}
   - component: {fileID: 6286540389290567032}
   - component: {fileID: 3889879342763847686}
-  - component: {fileID: 7974398861427005531}
   m_Layer: 0
   m_Name: Books
   m_TagString: InteractObject
@@ -13834,19 +13693,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &7974398861427005531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540390398343933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1881205951839918172}
 --- !u!1 &6286540390426021739
 GameObject:
   m_ObjectHideFlags: 0
@@ -20377,7 +20223,6 @@ GameObject:
   - component: {fileID: 6339967864399371337}
   - component: {fileID: 6339967864762847659}
   - component: {fileID: 5410756351973241433}
-  - component: {fileID: 765231745022895254}
   m_Layer: 0
   m_Name: plant2
   m_TagString: InteractObject
@@ -20432,19 +20277,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &765231745022895254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6339967864399371342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1881205951839918172}
 --- !u!1 &6339967864403099497
 GameObject:
   m_ObjectHideFlags: 0
@@ -24303,7 +24135,6 @@ GameObject:
   - component: {fileID: 6339967864743907081}
   - component: {fileID: 6339967864740873577}
   - component: {fileID: 3802243012353849515}
-  - component: {fileID: 7210613397516198166}
   m_Layer: 0
   m_Name: Obraz01
   m_TagString: InteractObject
@@ -24358,19 +24189,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &7210613397516198166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6339967864743907086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 2102437965643930114}
 --- !u!1 &6339967864748100421
 GameObject:
   m_ObjectHideFlags: 0
@@ -30692,7 +30510,6 @@ GameObject:
   - component: {fileID: 6339967865304842247}
   - component: {fileID: 6339967865304842244}
   - component: {fileID: 4748159745347205586}
-  - component: {fileID: 5540999250064613167}
   m_Layer: 0
   m_Name: GreekStatue_LOD0
   m_TagString: InteractObject
@@ -30797,19 +30614,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &5540999250064613167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6339967865304842250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 2102437965643930114}
 --- !u!1 &6339967865306130436
 GameObject:
   m_ObjectHideFlags: 0
@@ -36295,7 +36099,6 @@ GameObject:
   - component: {fileID: 6339967865697140231}
   - component: {fileID: 6339967864071225561}
   - component: {fileID: 5441811100902549440}
-  - component: {fileID: 4079275361815376499}
   m_Layer: 0
   m_Name: Painting_with_frame2
   m_TagString: InteractObject
@@ -36350,19 +36153,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &4079275361815376499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6339967865697140228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1416937405598568683}
 --- !u!1 &6339967865704750112
 GameObject:
   m_ObjectHideFlags: 0
@@ -41033,7 +40823,6 @@ GameObject:
   - component: {fileID: 6339967866052227876}
   - component: {fileID: 6339967865658705784}
   - component: {fileID: 7205535437480228066}
-  - component: {fileID: 2157417440899984630}
   m_Layer: 0
   m_Name: Picture(1) (1)
   m_TagString: InteractObject
@@ -41088,19 +40877,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &2157417440899984630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6339967866052227877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1416937405598568683}
 --- !u!1 &6339967866055691318
 GameObject:
   m_ObjectHideFlags: 0
@@ -41112,7 +40888,6 @@ GameObject:
   - component: {fileID: 6339967866055691313}
   - component: {fileID: 6339967864918849726}
   - component: {fileID: 4158546314309041208}
-  - component: {fileID: 9096118161603711681}
   m_Layer: 0
   m_Name: paint
   m_TagString: InteractObject
@@ -41167,19 +40942,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &9096118161603711681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6339967866055691318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform: {fileID: 1881205951839918172}
 --- !u!1 &6339967866055890540
 GameObject:
   m_ObjectHideFlags: 0
@@ -42435,6 +42197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6286540389441652379}
     m_Modifications:
+    - target: {fileID: 2363628055661643079, guid: 96cb1c75704ae7742bb946bdcb2065c7, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 90e499a480a753a409677f9af6e02293, type: 2}
     - target: {fileID: 2363628057496522930, guid: 96cb1c75704ae7742bb946bdcb2065c7, type: 3}
       propertyPath: m_RootOrder
       value: 6

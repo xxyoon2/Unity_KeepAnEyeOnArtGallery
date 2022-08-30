@@ -3,101 +3,181 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public struct MoveableObject
+{
+    public GameObject Name;
+    public int RoomNum;
+    public bool IsActive;
+    public bool IsUndeadLive;
+    public int ModifiedOption;
+}
+
 public class GameManager : SingletonBehavior<GameManager>
 {
-    // 오브젝트 관련
-    public UnityEvent CanUpdateAnomaly = new UnityEvent();
-    public UnityEvent<GameObject> AnomalyFix = new UnityEvent<GameObject>();
-
-    // CCTV 관련
+#region CCTV 관련
     public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
 
-    // UI 관련
+    public void CameraIndexTest(int index)
+    {
+        ShowCamInfo.Invoke(index);
+    }
+
+#endregion
+
+#region UI 관련
+    public UnityEvent CanUpdateAnomaly = new UnityEvent();
     public UnityEvent NotifyTextChange = new UnityEvent();
 
-    // Undead 관련
-    public UnityEvent<int> SpawnUndead = new UnityEvent<int>();
-
-
     public bool IsPlayerWatchingCCTV = false;
-
-    private float _elapsedTime;
-    private int _undeadCooltime = 40;
-    
-    
-    public int SpawnRoom;
-    private bool _startCountdown = false;
-    private int _anomalyCooltime = 30;
-
-    public GameObject UndeadPrefab;
-    public GameObject[] UndeadSpawners;
-
-    void Start()
-    {
-        int spawnerCount = UndeadSpawners.Length;
-        Debug.Log($"{UndeadSpawners.Length}");
-        for (int i = 0; i < spawnerCount; ++i)
-        {
-            GameObject undead = Instantiate<GameObject>(UndeadPrefab);
-            UndeadSpawners[i].GetComponent<UndeadSpawner>().Init(undead);
-            Debug.Log("우가!!!!");
-        }
-    }
-
-
-    public void UpdateRayTarget(GameObject target)
-    {
-        AnomalyFix.Invoke(target);
-    }
 
     public void UpdateNotifyText()
     {
         NotifyTextChange.Invoke();
     }
+
+#endregion
+
+#region Object 변화 관련
+    // 오브젝트 변화 주는 이벤트
+    public UnityEvent<GameObject> ChangeObjectPosition = new UnityEvent<GameObject>();
+    public UnityEvent<GameObject> ChangeObjectRotation = new UnityEvent<GameObject>();
     
-    public void CameraIndexTest(int index)
+    // 오브젝트 고치는 이벤트
+    public UnityEvent<GameObject, int> AnomalyFix = new UnityEvent<GameObject, int>();
+
+    // 오브젝트 관리 관련
+    public GameObject Showrooms;
+    public MoveableObject[] Objects = new MoveableObject[18];
+
+    public int ObjectTotalCount = 0;    // 오브젝트 개수
+    public int ActiveObjectCount = 0;   // 활성화된 오브젝트 개수
+
+    public int result;
+
+    private void UpdateAnomaly()
     {
-        ShowCamInfo.Invoke(index);
+        int targetObj = SelectRandomObj();
+
+        switch (Random.Range(0, 2))
+        {
+            // 위치 이동
+            case 0:
+                ChangeObjectPosition.Invoke(Objects[targetObj].Name);
+                Objects[result].ModifiedOption = 0;
+                break;
+            // 회전
+            case 1:
+                ChangeObjectRotation.Invoke(Objects[targetObj].Name);
+                Objects[result].ModifiedOption = 1;
+                break;
+        }
+
+        ++ActiveObjectCount;
     }
-    
+
+    private int SelectRandomObj()
+    {
+        result = -1;
+        while(result == -1)
+        {
+            int randomObject = Random.Range(0, ObjectTotalCount);   // 랜덤 오브젝트 설정
+            if (Objects[randomObject].IsActive == false)
+            {
+                Objects[randomObject].IsActive = true;
+                result = randomObject;
+            }
+        }
+        Debug.Log($"{Objects[result].Name}변경. {ActiveObjectCount}개의 오브젝트 활성화 됨");
+
+        return result;
+    }
+
+    public void UpdateRayTarget(GameObject target)
+    {
+        findAndObject(target);
+    }
+
+    private int findAndObject(GameObject target)
+    {
+        for (int i = 0; i < ObjectTotalCount; ++i)
+        {
+            if (target.name == Objects[i].Name.name)
+            {
+                if (Objects[i].IsActive)
+                {
+                    AnomalyFix.Invoke(target, i);
+
+                    if (Objects[i].IsUndeadLive)
+                    {
+                        RemoveUndead.Invoke();
+                    }
+
+                    Objects[i].IsActive = false;
+                    Objects[i].IsUndeadLive = false;
+                    --ActiveObjectCount;
+
+                    return i;
+                }
+            }
+        }
+
+        return -1;
+    }
+
+#endregion
+
+#region Undead 관련
+    public UnityEvent<int> SpawnUndead = new UnityEvent<int>();
+    public UnityEvent RemoveUndead = new UnityEvent();
+
+    private void spawnUndead()
+    {
+        Objects[result].IsUndeadLive = true;
+        SpawnUndead.Invoke(Objects[result].RoomNum);
+    }
+
+#endregion
+
+    void Start()
+    {
+        // 오브젝트 배열 생성
+        int roomCount = Showrooms.transform.childCount;
+        for (int i = 0; i < roomCount; ++i)
+        {
+            GameObject room = Showrooms.transform.GetChild(i).gameObject;
+            
+            int objectCount = room.transform.childCount;
+            for (int j = ObjectTotalCount; j < ObjectTotalCount + objectCount; ++j)
+            {
+                GameObject obj = room.transform.GetChild(j - ObjectTotalCount).gameObject;
+                Objects[j].Name = obj;
+                Objects[j].IsActive = false;
+                Objects[j].RoomNum = i;
+                Objects[j].IsUndeadLive = false;
+                Objects[j].ModifiedOption = -1;
+            }
+            ObjectTotalCount += objectCount;
+
+        }
+    }
+
+    private float _elapsedTime;
+    private int _anomalyCooltime = 20;
 
     void Update()
     {
         _elapsedTime += Time.deltaTime;
 
-        if (!_startCountdown && _elapsedTime > _anomalyCooltime)
-        {
-            _startCountdown = true;
-
-            CanUpdateAnomaly.Invoke();
-        }
-
-        if (_startCountdown && _elapsedTime >= _undeadCooltime)
+        // 시간이 업데이트 될 때마다 오브젝트 변화사항도 하나씩 추가됨
+        if (_elapsedTime >= _anomalyCooltime)
         {
             _elapsedTime = 0f;
-            SpawnUndead.Invoke(SpawnRoom);
-            _startCountdown = false;
+            UpdateAnomaly();    // 오브젝트 변화
+            spawnUndead();      // 언데드 소환
+            Objects[result].IsUndeadLive = true;
+
+            // 시간 업데이트
+            CanUpdateAnomaly.Invoke();
         }
     }
-
-    
-
-    private void spawnUndead()
-    {
-        // TO DO : 만약 모든 스포너가 활성화 되어 있다면?
-
-        int randomIndex = Random.Range(0, UndeadSpawners.Length);
-        while (true)
-        {
-            if (UndeadSpawners[randomIndex].GetComponent<UndeadSpawner>().IsActive == false)
-            {
-                break;
-            }
-
-            randomIndex = Random.Range(0, UndeadSpawners.Length);
-        }
-
-        UndeadSpawners[randomIndex].GetComponent<UndeadSpawner>().Spawn();
-    }
-
 }

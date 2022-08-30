@@ -10,6 +10,7 @@ public class Undead : MonoBehaviour
     public Vector3 targetPos;
     public float _moveSpeed = 2f;
     public float rotationSpeed = 2f;
+    public bool IsFindEnemy = false;
 
     // 적 탐지 관련
     public GameObject Target;
@@ -22,16 +23,14 @@ public class Undead : MonoBehaviour
         Eye = transform.GetComponentInChildren<Camera>();
     }
 
-    void Die()
-    {
-        Destroy(gameObject);
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             _animator.SetTrigger(AnimID.Attack);
+            Debug.Log("다...닿았다!!!!!!!!!!!!!!!!!!!!");
+
+            IsFindEnemy = true;
         }
     }
 

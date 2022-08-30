@@ -935,7 +935,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4467757482891228}
   - component: {fileID: 111670102475343736}
-  - component: {fileID: 2734395572434132322}
   - component: {fileID: 397966748}
   - component: {fileID: 397966751}
   - component: {fileID: 397966754}
@@ -990,20 +989,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
---- !u!136 &2734395572434132322
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309486516299566}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1
-  m_Height: 3
-  m_Direction: 1
-  m_Center: {x: 0, y: 2, z: 0.5}
 --- !u!95 &397966748
 Animator:
   serializedVersion: 4
@@ -1050,7 +1035,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1309486516299566}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1.2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -2658,14 +2643,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613088410276587071}
-  m_LocalRotation: {x: 0.21105006, y: -0.29709932, z: 0.051013675, w: 0.929832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.00036239624, y: 3.2298822, z: 1.1613102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4467757482891228}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 6.98, y: 13.862, z: -61.816}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8009668392619953459
 Camera:
   m_ObjectHideFlags: 0
@@ -2690,8 +2675,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 20
-  field of view: 130.4
+  far clip plane: 50
+  field of view: 78.9
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

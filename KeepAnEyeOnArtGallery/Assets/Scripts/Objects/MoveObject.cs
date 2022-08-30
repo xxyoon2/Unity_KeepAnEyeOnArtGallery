@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    //public List<GameObject> ModifiedObjectsPos = new List<GameObject>();
-    //public List<GameObject> ModifiedObjectsRot = new List<GameObject>();
-
-    //private GameObject[] _moveableObjects;
-
     void Awake()
     {
         GameManager.Instance.ChangeObjectPosition.RemoveListener(ChangePosition);
@@ -30,62 +25,4 @@ public class MoveObject : MonoBehaviour
     {
         targetObj.transform.rotation *= Quaternion.Euler(0, 0, 20);
     }
-
-    
-    /*
-    void Awake()
-    {
-        // RoomA, RoomB, RoomC 오브젝트를 받아옴
-        _moveableObjects = new GameObject[_roomCount];
-        for (int i = 0; i < _roomCount; ++i)
-        {
-            _moveableObjects[i] = transform.GetChild(i).gameObject;
-        }
-        GameManager.Instance.CanUpdateAnomaly.RemoveListener(UpdateAnomaly);
-        GameManager.Instance.CanUpdateAnomaly.AddListener(UpdateAnomaly);
-    }
-
-    private void UpdateAnomaly()
-    {
-
-        GameObject targetObj = SelectRandomObj();
-
-        switch (Random.Range(0, 2))
-        {
-             case 0:
-                ChangeObjectPosition(targetObj);
-                break;
-            case 1:
-                ChangeObjectRotation(targetObj);
-                break;
-        }
-    }
-
-    private GameObject SelectRandomObj()
-    {
-        GameObject result = null;
-        while(result == null || ModifiedObjectsPos.Exists(x => x == result) || ModifiedObjectsRot.Exists(x => x == result))
-        {
-            int roomNum = Random.Range(0, 100) % 3; // 방 랜덤 뽑기
-            int moveableObjectsInThisRoom = _moveableObjects[roomNum].transform.childCount; // 랜덤으로 뽑은 방의 자식오브젝트 숫자
-            int indexNum = Random.Range(0, moveableObjectsInThisRoom);
-            
-            GameManager.Instance.SpawnRoom = roomNum;
-            
-            result = _moveableObjects[roomNum].transform.GetChild(indexNum).gameObject;
-
-            _overlapCount++;
-            if(_overlapCount >= 10)
-            {
-                _overlapCount = 0;
-                return result;
-            }
-        }
-        Debug.Log($"{result.name}변경.");
-
-        return result;
-    }
-
-    */
-
 }

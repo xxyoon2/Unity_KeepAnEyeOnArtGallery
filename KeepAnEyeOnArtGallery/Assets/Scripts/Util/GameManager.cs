@@ -14,6 +14,30 @@ public struct MoveableObject
 
 public class GameManager : SingletonBehavior<GameManager>
 {
+#region CCTV 관련
+    public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
+
+    public void CameraIndexTest(int index)
+    {
+        ShowCamInfo.Invoke(index);
+    }
+
+#endregion
+
+#region UI 관련
+    public UnityEvent CanUpdateAnomaly = new UnityEvent();
+    public UnityEvent NotifyTextChange = new UnityEvent();
+
+    public bool IsPlayerWatchingCCTV = false;
+
+    public void UpdateNotifyText()
+    {
+        NotifyTextChange.Invoke();
+    }
+
+#endregion
+
+#region Object 변화 관련
     // 오브젝트 변화 주는 이벤트
     public UnityEvent<GameObject> ChangeObjectPosition = new UnityEvent<GameObject>();
     public UnityEvent<GameObject> ChangeObjectRotation = new UnityEvent<GameObject>();
@@ -30,47 +54,6 @@ public class GameManager : SingletonBehavior<GameManager>
 
     public int result;
 
-    void Start()
-    {
-        // 오브젝트 배열 생성
-        int roomCount = Showrooms.transform.childCount;
-        for (int i = 0; i < roomCount; ++i)
-        {
-            GameObject room = Showrooms.transform.GetChild(i).gameObject;
-            
-            int objectCount = room.transform.childCount;
-            for (int j = ObjectTotalCount; j < ObjectTotalCount + objectCount; ++j)
-            {
-                GameObject obj = room.transform.GetChild(j - ObjectTotalCount).gameObject;
-                Objects[j].Name = obj;
-                Objects[j].IsActive = false;
-                Objects[j].RoomNum = i;
-                Objects[j].IsUndeadLive = false;
-                Objects[j].ModifiedOption = -1;
-            }
-            ObjectTotalCount += objectCount;
-
-        }
-    }
-    
-    private float _elapsedTime;
-    private int _anomalyCooltime = 30;
-    void Update()
-    {
-        _elapsedTime += Time.deltaTime;
-
-        // 시간이 업데이트 될 때마다 오브젝트 변화사항도 하나씩 추가됨
-        if (_elapsedTime >= _anomalyCooltime)
-        {
-            _elapsedTime = 0f;
-            UpdateAnomaly();    // 오브젝트 변화
-            //spawnUndead();      // 언데드 소환
-
-            // 시간 업데이트
-            CanUpdateAnomaly.Invoke();
-        }
-    }
-    
     private void UpdateAnomaly()
     {
         int targetObj = SelectRandomObj();
@@ -109,16 +92,6 @@ public class GameManager : SingletonBehavior<GameManager>
         return result;
     }
 
-    public UnityEvent<int> SpawnUndead = new UnityEvent<int>();
-
-
-    private void spawnUndead()
-    {
-        Objects[result].IsUndeadLive = true;
-        SpawnUndead.Invoke(Objects[result].RoomNum);
-    }
-
-
     public void UpdateRayTarget(GameObject target)
     {
         findAndObject(target);
@@ -132,10 +105,17 @@ public class GameManager : SingletonBehavior<GameManager>
             {
                 if (Objects[i].IsActive)
                 {
-                    Debug.Log("고쳤당^^");
                     AnomalyFix.Invoke(target, i);
+
+                    if (Objects[i].IsUndeadLive)
+                    {
+                        RemoveUndead.Invoke();
+                    }
+
                     Objects[i].IsActive = false;
+                    Objects[i].IsUndeadLive = false;
                     --ActiveObjectCount;
+
                     return i;
                 }
             }
@@ -144,27 +124,60 @@ public class GameManager : SingletonBehavior<GameManager>
         return -1;
     }
 
+#endregion
 
-    // CCTV 관련
-    public UnityEvent<int> ShowCamInfo = new UnityEvent<int>();
+#region Undead 관련
+    public UnityEvent<int> SpawnUndead = new UnityEvent<int>();
+    public UnityEvent RemoveUndead = new UnityEvent();
 
-    public void CameraIndexTest(int index)
+    private void spawnUndead()
     {
-        ShowCamInfo.Invoke(index);
+        Objects[result].IsUndeadLive = true;
+        SpawnUndead.Invoke(Objects[result].RoomNum);
     }
 
-    // UI 관련
-    public UnityEvent CanUpdateAnomaly = new UnityEvent();
-    public UnityEvent NotifyTextChange = new UnityEvent();
+#endregion
 
-    public bool IsPlayerWatchingCCTV = false;
-    
-
-    public void UpdateNotifyText()
+    void Start()
     {
-        NotifyTextChange.Invoke();
-    }
-     
-    
+        // 오브젝트 배열 생성
+        int roomCount = Showrooms.transform.childCount;
+        for (int i = 0; i < roomCount; ++i)
+        {
+            GameObject room = Showrooms.transform.GetChild(i).gameObject;
+            
+            int objectCount = room.transform.childCount;
+            for (int j = ObjectTotalCount; j < ObjectTotalCount + objectCount; ++j)
+            {
+                GameObject obj = room.transform.GetChild(j - ObjectTotalCount).gameObject;
+                Objects[j].Name = obj;
+                Objects[j].IsActive = false;
+                Objects[j].RoomNum = i;
+                Objects[j].IsUndeadLive = false;
+                Objects[j].ModifiedOption = -1;
+            }
+            ObjectTotalCount += objectCount;
 
+        }
+    }
+
+    private float _elapsedTime;
+    private int _anomalyCooltime = 10;
+
+    void Update()
+    {
+        _elapsedTime += Time.deltaTime;
+
+        // 시간이 업데이트 될 때마다 오브젝트 변화사항도 하나씩 추가됨
+        if (_elapsedTime >= _anomalyCooltime)
+        {
+            _elapsedTime = 0f;
+            UpdateAnomaly();    // 오브젝트 변화
+            spawnUndead();      // 언데드 소환
+            Objects[result].IsUndeadLive = true;
+
+            // 시간 업데이트
+            CanUpdateAnomaly.Invoke();
+        }
+    }
 }

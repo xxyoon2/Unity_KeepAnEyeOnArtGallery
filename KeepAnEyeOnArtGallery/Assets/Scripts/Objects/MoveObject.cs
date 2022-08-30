@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    public List<GameObject> ModifiedObjectsPos = new List<GameObject>();
-    public List<GameObject> ModifiedObjectsRot = new List<GameObject>();
+    //public List<GameObject> ModifiedObjectsPos = new List<GameObject>();
+    //public List<GameObject> ModifiedObjectsRot = new List<GameObject>();
 
-    private GameObject[] _moveableObjects;
+    //private GameObject[] _moveableObjects;
 
     void Awake()
     {
@@ -23,19 +23,17 @@ public class MoveObject : MonoBehaviour
         Vector3 changedPos = targetObj.transform.position;
         changedPos.y += 1;
         targetObj.transform.position = changedPos;
-        ModifiedObjectsPos.Add(targetObj);
+        //ModifiedObjectsPos.Add(targetObj);
         GameManager.Instance.ActiveObjectCount++;
-        string last = ModifiedObjectsPos[ModifiedObjectsPos.Count - 1].name;
-        Debug.Log($"위치 리스트에 들어감: {last}");
+        //string last = ModifiedObjectsPos[ModifiedObjectsPos.Count - 1].name;
     }
 
     private void ChangeRotation(GameObject targetObj)
     {
         targetObj.transform.rotation *= Quaternion.Euler(0, 0, 20);
-        ModifiedObjectsRot.Add(targetObj);
+        //ModifiedObjectsRot.Add(targetObj);
         GameManager.Instance.ActiveObjectCount++;
-        string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
-        Debug.Log($"회전 리스트에 들어감: {last}");
+        //string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
     }
 
     

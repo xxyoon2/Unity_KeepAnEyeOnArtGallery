@@ -70,7 +70,9 @@ public class PlayerRotate : MonoBehaviour
     {
         _movement.ChangePlayerState(PlayerState.IDLE);
         GameManager.Instance.UpdateNotifyText();
+
         yield return new WaitForSeconds(3f);
+
         _movement.ChangePlayerState(PlayerState.MOVE);
         GameManager.Instance.UpdateRayTarget(hit.transform.gameObject);
         GameManager.Instance.UpdateNotifyText();

@@ -4,6 +4,40 @@ using UnityEngine;
 
 public class FixObject : MonoBehaviour
 {
+    void Start()
+    {
+        GameManager.Instance.AnomalyFix.RemoveListener(FindTargetInList);
+        GameManager.Instance.AnomalyFix.AddListener(FindTargetInList);
+    }
+
+    private void FindTargetInList(int index)
+    {
+        if (GameManager.Instance.Objects[index].ModifiedOption == 0)
+        {
+            Vector3 fixedPos = GameManager.Instance.Objects[index].Name.transform.position;
+            fixedPos.y -= 1;
+            GameManager.Instance.Objects[index].Name.transform.position = fixedPos;
+
+            GameManager.Instance.ActiveObjectCount--;
+
+            Debug.Log($"{GameManager.Instance.Objects[index].Name} 와우");
+
+            return;
+        }
+
+        if (GameManager.Instance.Objects[index].ModifiedOption == 1)
+        {
+            GameManager.Instance.Objects[index].Name.transform.rotation *= Quaternion.Euler(0, 0, -20);
+
+            GameManager.Instance.ActiveObjectCount--;
+            
+            Debug.Log($"{GameManager.Instance.Objects[index].Name} 웨우");
+
+            return;
+        }
+    }
+
+    /*
     private MoveObject _move;
     void Start()
     {
@@ -27,6 +61,7 @@ public class FixObject : MonoBehaviour
                 return;
             }
         }
+
         for (int j = _move.ModifiedObjectsRot.Count - 1; j >= 0; j--)
         {
             if (_move.ModifiedObjectsRot[j].name == hitObj.name)
@@ -38,6 +73,8 @@ public class FixObject : MonoBehaviour
                 return;
             }
         }
+
         Debug.Log($"{hitObj.name} 안고쳐짐");
     }
+    */
 }

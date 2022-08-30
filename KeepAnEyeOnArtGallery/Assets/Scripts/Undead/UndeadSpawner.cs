@@ -27,6 +27,7 @@ public class UndeadSpawner : MonoBehaviour
     public void Spawn(int undeadNum)
     {
         GameObject undead = Instantiate<GameObject>(UndeadPrefab);
+
         int index = GameManager.Instance.ActiveObjectCount;
         _undead[index] = undead;
 

@@ -18,22 +18,17 @@ public class MoveObject : MonoBehaviour
         GameManager.Instance.ChangeObjectRotation.RemoveListener(ChangeRotation);
         GameManager.Instance.ChangeObjectRotation.AddListener(ChangeRotation);
     }
+
     private void ChangePosition(GameObject targetObj)
     {
         Vector3 changedPos = targetObj.transform.position;
         changedPos.y += 1;
         targetObj.transform.position = changedPos;
-        //ModifiedObjectsPos.Add(targetObj);
-        GameManager.Instance.ActiveObjectCount++;
-        //string last = ModifiedObjectsPos[ModifiedObjectsPos.Count - 1].name;
     }
 
     private void ChangeRotation(GameObject targetObj)
     {
         targetObj.transform.rotation *= Quaternion.Euler(0, 0, 20);
-        //ModifiedObjectsRot.Add(targetObj);
-        GameManager.Instance.ActiveObjectCount++;
-        //string last = ModifiedObjectsRot[ModifiedObjectsRot.Count - 1].name;
     }
 
     

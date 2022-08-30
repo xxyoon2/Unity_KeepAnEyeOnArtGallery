@@ -17,7 +17,6 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"{_isInside} {_isPlayerHere}");
         if (_isPlayerHere)
         {
             if (Player.GetComponent<PlayerController>().CanInteract)
@@ -40,7 +39,6 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("왜 안돼?");
             _isPlayerHere = true;
         }
     }

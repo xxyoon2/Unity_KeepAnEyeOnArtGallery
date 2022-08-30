@@ -1281,6 +1281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6286540388516115730}
   - component: {fileID: 6286540388516115729}
+  - component: {fileID: 380557391898876970}
   - component: {fileID: 6742472871765735888}
   m_Layer: 0
   m_Name: MoveableObjects
@@ -1319,8 +1320,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8527f7a02016ed94ca8ecfd04d37e95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModifiedObjectsPos: []
-  ModifiedObjectsRot: []
+--- !u!114 &380557391898876970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286540388516115731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4500407de52229d43a78f6b965fdd5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6742472871765735888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4180,7 +4191,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6286540388842224128}
-  - component: {fileID: 1419760746837472693}
   m_Layer: 0
   m_Name: RoomBMoveable
   m_TagString: InteractObject
@@ -4209,21 +4219,6 @@ Transform:
   m_Father: {fileID: 6286540388516115730}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1419760746837472693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286540388842224129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb33a5283b87d1445a59db5d3fe7c20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnTransform:
-  - {fileID: 0}
-  UndeadPrefab: {fileID: 0}
 --- !u!1 &6286540388846007309
 GameObject:
   m_ObjectHideFlags: 0

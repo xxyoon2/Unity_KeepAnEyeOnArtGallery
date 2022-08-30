@@ -23,8 +23,7 @@ public class PlayerRotate : MonoBehaviour
     }
 
     void Update()
-    {   
-        Debug.Log($"{_movement.WhatStats()}");
+    {
         if (_movement.WhatStats() == PlayerState.MOVE)
         {
             ShotRay();

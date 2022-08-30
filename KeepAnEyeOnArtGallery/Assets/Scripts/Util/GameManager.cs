@@ -19,7 +19,7 @@ public class GameManager : SingletonBehavior<GameManager>
     public UnityEvent<GameObject> ChangeObjectRotation = new UnityEvent<GameObject>();
     
     // 오브젝트 고치는 이벤트
-    public UnityEvent<int> AnomalyFix = new UnityEvent<int>();
+    public UnityEvent<GameObject, int> AnomalyFix = new UnityEvent<GameObject, int>();
 
     // 오브젝트 관리 관련
     public GameObject Showrooms;
@@ -48,13 +48,13 @@ public class GameManager : SingletonBehavior<GameManager>
                 Objects[j].IsUndeadLive = false;
                 Objects[j].ModifiedOption = -1;
             }
-
             ObjectTotalCount += objectCount;
 
         }
     }
     
     private float _elapsedTime;
+    private int _anomalyCooltime = 30;
     void Update()
     {
         _elapsedTime += Time.deltaTime;
@@ -88,6 +88,8 @@ public class GameManager : SingletonBehavior<GameManager>
                 Objects[result].ModifiedOption = 1;
                 break;
         }
+
+        ++ActiveObjectCount;
     }
 
     private int SelectRandomObj()
@@ -96,13 +98,10 @@ public class GameManager : SingletonBehavior<GameManager>
         while(result == -1)
         {
             int randomObject = Random.Range(0, ObjectTotalCount);   // 랜덤 오브젝트 설정
-            Debug.Log($"{randomObject}");
             if (Objects[randomObject].IsActive == false)
             {
                 Objects[randomObject].IsActive = true;
                 result = randomObject;
-
-                ++ActiveObjectCount;
             }
         }
         Debug.Log($"{Objects[result].Name}변경. {ActiveObjectCount}개의 오브젝트 활성화 됨");
@@ -111,9 +110,7 @@ public class GameManager : SingletonBehavior<GameManager>
     }
 
     public UnityEvent<int> SpawnUndead = new UnityEvent<int>();
-    // 언데드 관련
-    //public GameObject UndeadPrefab;
-    //public GameObject[] UndeadSpawners;
+
 
     private void spawnUndead()
     {
@@ -121,22 +118,24 @@ public class GameManager : SingletonBehavior<GameManager>
         SpawnUndead.Invoke(Objects[result].RoomNum);
     }
 
+
     public void UpdateRayTarget(GameObject target)
     {
-        Debug.Log($"{target}");
-        findObject(target);
+        findAndObject(target);
     }
 
-    private int findObject(GameObject target)
+    private int findAndObject(GameObject target)
     {
         for (int i = 0; i < ObjectTotalCount; ++i)
         {
-            if (target == Objects[i].Name)
+            if (target.name == Objects[i].Name.name)
             {
                 if (Objects[i].IsActive)
                 {
-                    AnomalyFix.Invoke(i);
+                    Debug.Log("고쳤당^^");
+                    AnomalyFix.Invoke(target, i);
                     Objects[i].IsActive = false;
+                    --ActiveObjectCount;
                     return i;
                 }
             }
@@ -159,7 +158,7 @@ public class GameManager : SingletonBehavior<GameManager>
     public UnityEvent NotifyTextChange = new UnityEvent();
 
     public bool IsPlayerWatchingCCTV = false;
-    private int _anomalyCooltime = 5;
+    
 
     public void UpdateNotifyText()
     {

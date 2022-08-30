@@ -4,39 +4,47 @@ using UnityEngine;
 
 public class FixObject : MonoBehaviour
 {
+    private GameObject _target;
+
     void Start()
     {
         GameManager.Instance.AnomalyFix.RemoveListener(FindTargetInList);
         GameManager.Instance.AnomalyFix.AddListener(FindTargetInList);
     }
 
-    private void FindTargetInList(int index)
+    private void FindTargetInList(GameObject target, int index)
     {
-        if (GameManager.Instance.Objects[index].ModifiedOption == 0)
+        _target = target;
+
+        switch (GameManager.Instance.Objects[index].ModifiedOption)
         {
-            Vector3 fixedPos = GameManager.Instance.Objects[index].Name.transform.position;
-            fixedPos.y -= 1;
-            GameManager.Instance.Objects[index].Name.transform.position = fixedPos;
-
-            GameManager.Instance.ActiveObjectCount--;
-
-            Debug.Log($"{GameManager.Instance.Objects[index].Name} 와우");
-
-            return;
-        }
-
-        if (GameManager.Instance.Objects[index].ModifiedOption == 1)
-        {
-            GameManager.Instance.Objects[index].Name.transform.rotation *= Quaternion.Euler(0, 0, -20);
-
-            GameManager.Instance.ActiveObjectCount--;
+            case 0 :
+                FixPosition();
+                break;
+            case 1 :
+                FixRotation();
+                break;
+            default :
+                break;
             
-            Debug.Log($"{GameManager.Instance.Objects[index].Name} 웨우");
-
-            return;
         }
     }
 
+    private void FixPosition()
+    {
+        Vector3 fixedPos = _target.transform.position;
+        fixedPos.y -= 1;
+        _target.transform.position = fixedPos;
+
+        Debug.Log($"{_target} 와우");
+    }
+
+    private void FixRotation()
+    {
+        _target.transform.rotation *= Quaternion.Euler(0, 0, -20); 
+        Debug.Log($"{_target} 와우");
+    }
+    
     /*
     private MoveObject _move;
     void Start()

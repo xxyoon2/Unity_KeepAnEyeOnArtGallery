@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 6286540388486373597}
   - component: {fileID: 2836512338408931221}
   m_Layer: 0
-  m_Name: VASO GRECO-Circle
+  m_Name: B08_VASO GRECO-Circle
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2782,7 +2782,7 @@ GameObject:
   - component: {fileID: 6286540388696545920}
   - component: {fileID: 4086806743777238903}
   m_Layer: 0
-  m_Name: ee-exported
+  m_Name: B06_ee-exported
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3585,7 +3585,7 @@ GameObject:
   - component: {fileID: 6286540389098493372}
   - component: {fileID: 8117078373202672601}
   m_Layer: 0
-  m_Name: frame
+  m_Name: A01_frame
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4314,7 +4314,7 @@ GameObject:
   - component: {fileID: 6286540389608756104}
   - component: {fileID: 4482066901636033163}
   m_Layer: 0
-  m_Name: manequim
+  m_Name: C14_manequim
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5588,7 +5588,7 @@ GameObject:
   - component: {fileID: 6286540389542967423}
   - component: {fileID: 7675699209626631232}
   m_Layer: 0
-  m_Name: frame 01
+  m_Name: A02_frame 01
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7454,7 +7454,7 @@ GameObject:
   - component: {fileID: 6286540388659884725}
   - component: {fileID: 4283202394675837288}
   m_Layer: 0
-  m_Name: Picture(1)
+  m_Name: B09_Picture(1)
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10024,7 +10024,7 @@ GameObject:
   - component: {fileID: 6286540389037876932}
   - component: {fileID: 701544978364605240}
   m_Layer: 0
-  m_Name: apollo
+  m_Name: B11_apollo
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10172,7 +10172,7 @@ GameObject:
   - component: {fileID: 6286540390062600782}
   - component: {fileID: 1211330191037911880}
   m_Layer: 0
-  m_Name: Manequim de madeira masculino low poly (1)
+  m_Name: C12_Manequim de madeira masculino low poly (1)
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12161,7 +12161,7 @@ GameObject:
   - component: {fileID: 6286540389814361159}
   - component: {fileID: 1983510424746696685}
   m_Layer: 0
-  m_Name: MainStatue
+  m_Name: A05_MainStatue
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13237,7 +13237,7 @@ GameObject:
   - component: {fileID: 6286540389396372884}
   - component: {fileID: 1072460917656801183}
   m_Layer: 0
-  m_Name: paint3
+  m_Name: C18_paint3
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13489,7 +13489,7 @@ GameObject:
   - component: {fileID: 6286540389517306932}
   - component: {fileID: 5292832447830550128}
   m_Layer: 0
-  m_Name: paint2
+  m_Name: C17_paint2
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13640,7 +13640,7 @@ GameObject:
   - component: {fileID: 6286540389290567032}
   - component: {fileID: 3889879342763847686}
   m_Layer: 0
-  m_Name: Books
+  m_Name: C13_Books
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20224,7 +20224,7 @@ GameObject:
   - component: {fileID: 6339967864762847659}
   - component: {fileID: 5410756351973241433}
   m_Layer: 0
-  m_Name: plant2
+  m_Name: C16_plant2
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24136,7 +24136,7 @@ GameObject:
   - component: {fileID: 6339967864740873577}
   - component: {fileID: 3802243012353849515}
   m_Layer: 0
-  m_Name: Obraz01
+  m_Name: A03_Obraz01
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30511,7 +30511,7 @@ GameObject:
   - component: {fileID: 6339967865304842244}
   - component: {fileID: 4748159745347205586}
   m_Layer: 0
-  m_Name: GreekStatue_LOD0
+  m_Name: A04_GreekStatue_LOD0
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36100,7 +36100,7 @@ GameObject:
   - component: {fileID: 6339967864071225561}
   - component: {fileID: 5441811100902549440}
   m_Layer: 0
-  m_Name: Painting_with_frame2
+  m_Name: B07_Painting_with_frame2
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40824,7 +40824,7 @@ GameObject:
   - component: {fileID: 6339967865658705784}
   - component: {fileID: 7205535437480228066}
   m_Layer: 0
-  m_Name: Picture(1) (1)
+  m_Name: B10_Picture(1) (1)
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40889,7 +40889,7 @@ GameObject:
   - component: {fileID: 6339967864918849726}
   - component: {fileID: 4158546314309041208}
   m_Layer: 0
-  m_Name: paint
+  m_Name: C15_paint
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

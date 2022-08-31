@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 998807898967513182}
   - component: {fileID: 7990558433950197148}
   m_Layer: 0
-  m_Name: Obraz01
+  m_Name: A03_Obraz01
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3116,7 +3116,7 @@ GameObject:
   - component: {fileID: 998807900791888738}
   - component: {fileID: 3487952769407377245}
   m_Layer: 0
-  m_Name: frame 01
+  m_Name: A02_frame 01
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9426,7 +9426,7 @@ GameObject:
   - component: {fileID: 998807899513852328}
   - component: {fileID: 7030893836307405429}
   m_Layer: 0
-  m_Name: Picture(1)
+  m_Name: B09_Picture(1)
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10737,7 +10737,7 @@ GameObject:
   - component: {fileID: 998807899544238493}
   - component: {fileID: 7085706235434253418}
   m_Layer: 0
-  m_Name: ee-exported
+  m_Name: B06_ee-exported
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13555,7 +13555,7 @@ GameObject:
   - component: {fileID: 998807899704067008}
   - component: {fileID: 9061081519299697800}
   m_Layer: 0
-  m_Name: VASO GRECO-Circle
+  m_Name: B08_VASO GRECO-Circle
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14007,7 +14007,7 @@ GameObject:
   - component: {fileID: 998807899004292252}
   - component: {fileID: 1240376026578038638}
   m_Layer: 0
-  m_Name: plant2
+  m_Name: C16_plant2
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14464,8 +14464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8527f7a02016ed94ca8ecfd04d37e95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModifiedObjectsPos: []
-  ModifiedObjectsRot: []
 --- !u!1 &998807899742926421
 GameObject:
   m_ObjectHideFlags: 0
@@ -15956,7 +15954,7 @@ GameObject:
   - component: {fileID: 998807900725047445}
   - component: {fileID: 7264795802518309270}
   m_Layer: 0
-  m_Name: manequim
+  m_Name: C14_manequim
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19778,7 +19776,7 @@ GameObject:
   - component: {fileID: 998807899139208865}
   - component: {fileID: 3046573638042474692}
   m_Layer: 0
-  m_Name: frame
+  m_Name: A01_frame
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20497,7 +20495,7 @@ GameObject:
   - component: {fileID: 998807899256147753}
   - component: {fileID: 1410143740417181037}
   m_Layer: 0
-  m_Name: paint2
+  m_Name: C17_paint2
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21431,7 +21429,7 @@ GameObject:
   - component: {fileID: 998807899311095433}
   - component: {fileID: 6052865210568092802}
   m_Layer: 0
-  m_Name: paint3
+  m_Name: C18_paint3
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23095,6 +23093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCamera: {fileID: 0}
+  CCTVPanel: {fileID: 0}
 --- !u!65 &998807900208817918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24629,7 +24628,7 @@ GameObject:
   - component: {fileID: 998807899129292169}
   - component: {fileID: 7176048983493828879}
   m_Layer: 0
-  m_Name: paint
+  m_Name: C15_paint
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25174,7 +25173,7 @@ GameObject:
   - component: {fileID: 998807900403997263}
   - component: {fileID: 4170149763052399061}
   m_Layer: 0
-  m_Name: Picture(1) (1)
+  m_Name: B10_Picture(1) (1)
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29634,7 +29633,7 @@ GameObject:
   - component: {fileID: 998807899906907630}
   - component: {fileID: 1271526983360543479}
   m_Layer: 0
-  m_Name: Painting_with_frame2
+  m_Name: B07_Painting_with_frame2
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30382,7 +30381,7 @@ GameObject:
   - component: {fileID: 998807899433600613}
   - component: {fileID: 8005603484760462107}
   m_Layer: 0
-  m_Name: Books
+  m_Name: C13_Books
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31142,7 +31141,7 @@ GameObject:
   - component: {fileID: 998807899220788697}
   - component: {fileID: 6007342461405806629}
   m_Layer: 0
-  m_Name: apollo
+  m_Name: B11_apollo
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32261,7 +32260,7 @@ GameObject:
   - component: {fileID: 998807900622593331}
   - component: {fileID: 2000925830950102245}
   m_Layer: 0
-  m_Name: GreekStatue_LOD0
+  m_Name: A04_GreekStatue_LOD0
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32459,7 +32458,7 @@ GameObject:
   - component: {fileID: 998807900875182419}
   - component: {fileID: 5345138576303730773}
   m_Layer: 0
-  m_Name: Manequim de madeira masculino low poly (1)
+  m_Name: C12_Manequim de madeira masculino low poly (1)
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36827,7 +36826,7 @@ GameObject:
   - component: {fileID: 998807901039542106}
   - component: {fileID: 4712143361318386928}
   m_Layer: 0
-  m_Name: MainStatue
+  m_Name: A05_MainStatue
   m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

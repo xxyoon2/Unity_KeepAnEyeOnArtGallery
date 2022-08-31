@@ -19,7 +19,7 @@ public class Door : MonoBehaviour
     {
         if (_isPlayerHere)
         {
-            if (Player.GetComponent<PlayerController>().CanInteract)
+            if (Player.GetComponent<PlayerController>().CanCCTVOn)
             {
                 _isInside = !_isInside;
                 int index = Convert.ToInt32(_isInside);

@@ -71,9 +71,11 @@ public class PlayerMovement : MonoBehaviour
         {
             case PlayerState.IDLE : 
                 _moveSpeed = 0f;
+                _controller.rotSpeed = 0f;
                 break;
             case PlayerState.MOVE : 
                 _moveSpeed = 5f;
+                _controller.rotSpeed = 200f;
                 break;
             case PlayerState.DIE : 
                 _moveSpeed = 0f;

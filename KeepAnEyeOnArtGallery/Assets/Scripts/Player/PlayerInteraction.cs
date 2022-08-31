@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRotate : MonoBehaviour
+public class PlayerInteraction : MonoBehaviour
 {
     private PlayerController _controller;
     private PlayerMovement _movement;

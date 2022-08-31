@@ -224,6 +224,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1184094670984844, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
     - target: {fileID: 229762336511659029, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
       propertyPath: CCTVPanel
       value: 
@@ -232,6 +236,82 @@ PrefabInstance:
       propertyPath: PlayerCamera
       value: 
       objectReference: {fileID: 699417268}
+    - target: {fileID: 1398377635285200679, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3957513455802935542, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388457538148, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388540878059, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388622321570, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388719593403, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388757915518, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388801766805, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388804158716, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388882381909, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388882853827, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540388988708944, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389000068893, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389095347867, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389140255212, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389141960504, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389233894419, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389339383023, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389408351135, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
     - target: {fileID: 6286540389441652379, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -280,17 +360,132 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map9
       objectReference: {fileID: 0}
+    - target: {fileID: 6286540389559132741, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389628340262, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389669457447, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389785999507, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389795269077, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389831775447, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389836466934, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389875007565, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389895711278, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540389999024976, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540390049983054, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540390178904793, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540390185854318, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540390202833461, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540390349052078, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540390446760078, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540390548327071, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286540390549638135, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339967864066139950, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339967864286317091, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339967864460766558, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339967864581963378, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339967865109173298, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339967865707931460, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339967865732193556, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339967865984742266, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698378403551532578, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6827214543951221624, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183192978342461867, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183192979846373328, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
     - target: {fileID: 8694826552040256049, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1420480903}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
---- !u!1 &237250899 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6286540388516115731, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
-  m_PrefabInstance: {fileID: 237250898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &699417268 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8441118383208389115, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
@@ -498,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 4307504348999698161, guid: edeb955cf4723cb4b8b5cc1c9d8d6d7c, type: 3}
       propertyPath: Showrooms
       value: 
-      objectReference: {fileID: 237250899}
+      objectReference: {fileID: 0}
     - target: {fileID: 4307504348999698162, guid: edeb955cf4723cb4b8b5cc1c9d8d6d7c, type: 3}
       propertyPath: m_RootOrder
       value: 3

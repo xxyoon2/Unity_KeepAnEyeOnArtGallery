@@ -40,10 +40,11 @@ public class PlayerRotate : MonoBehaviour
         {
             _hitObject = hit.transform.gameObject;
 
-            if (_hitObject.tag == "InteractObject")
+            if (_hitObject.tag == "InteractObject" || _hitObject.tag == "FixableObject")
             {
                 _hitObject.GetComponent<Outline>().enabled = true;
                 FixNotifyText.SetActive(true);
+                //GameManager.Instance.UpdateNotifyText(_hitObject.tag);
             }
             else
             {
@@ -53,10 +54,11 @@ public class PlayerRotate : MonoBehaviour
 
         if (_prevHitObject != null && _prevHitObject != _hitObject)
         {
-            if (_prevHitObject.tag == "InteractObject")
+            if (_prevHitObject.tag == "InteractObject" || _prevHitObject.tag == "FixableObject")
             {
                 _prevHitObject.GetComponent<Outline>().enabled = false;
             }
+            GameManager.Instance.UpdateNotifyText(_hitObject.tag);
         }
 
         if (_controller.CanInteract)
@@ -68,12 +70,11 @@ public class PlayerRotate : MonoBehaviour
     IEnumerator FixingState()
     {
         _movement.ChangePlayerState(PlayerState.IDLE);
-        GameManager.Instance.UpdateNotifyText();
+        GameManager.Instance.UpdateNotifyText("Fixing");
 
         yield return new WaitForSeconds(3f);
 
         _movement.ChangePlayerState(PlayerState.MOVE);
         GameManager.Instance.UpdateRayTarget(hit.transform.gameObject);
-        GameManager.Instance.UpdateNotifyText();
     }
 }

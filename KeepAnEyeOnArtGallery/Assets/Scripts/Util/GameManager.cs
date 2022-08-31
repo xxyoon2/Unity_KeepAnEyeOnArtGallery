@@ -27,13 +27,13 @@ public class GameManager : SingletonBehavior<GameManager>
 
 #region UI 관련
     public UnityEvent CanUpdateAnomaly = new UnityEvent();
-    public UnityEvent NotifyTextChange = new UnityEvent();
+    public UnityEvent<string> NotifyTextChange = new UnityEvent<string>();
 
     public bool IsPlayerWatchingCCTV = false;
 
-    public void UpdateNotifyText()
+    public void UpdateNotifyText(string hitObjInfo)
     {
-        NotifyTextChange.Invoke();
+        NotifyTextChange.Invoke(hitObjInfo);
     }
 
 #endregion
@@ -116,12 +116,12 @@ public class GameManager : SingletonBehavior<GameManager>
                     Objects[i].IsActive = false;
                     Objects[i].IsUndeadLive = false;
                     --ActiveObjectCount;
-
+                    GameManager.Instance.UpdateNotifyText("FixCompleted");
                     return i;
                 }
             }
         }
-
+        GameManager.Instance.UpdateNotifyText("FixFailed");
         return -1;
     }
 

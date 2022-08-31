@@ -38583,6 +38583,62 @@ PrefabInstance:
       propertyPath: SpawnTransform.Array.data[2]
       value: 
       objectReference: {fileID: 1881205951839918172}
+    - target: {fileID: 1106395691691997459, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106395692186446419, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106395692731860280, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106395692735478315, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106395692951521305, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106395693360231959, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899923159184972, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899923288351953, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899923597103420, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899923673514422, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899923825152237, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899923884346396, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899924036349087, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899924061181634, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
     - target: {fileID: 1123899924090913550, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
       propertyPath: m_Name
       value: MoveableObjects
@@ -38630,6 +38686,34 @@ PrefabInstance:
     - target: {fileID: 1123899924090913551, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899924366724320, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899924463818517, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899924528791755, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899924792408570, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899924803108706, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899925065670229, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123899925116659755, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}
+      propertyPath: m_TagString
+      value: FixableObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b42d9637a4f3df348b437c7a2eb2bd37, type: 3}

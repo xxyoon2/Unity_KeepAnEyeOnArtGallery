@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Prologue : MonoBehaviour
 {
     private TextMeshProUGUI _ui;
     private List<DialogueRecord> _dialogueRecords;
     private int _currentDialogueIndex = 1;
+    private bool _isPrologueOver = false;
 
     void Awake()
     {
         _ui = GetComponent<TextMeshProUGUI>();
+        _isPrologueOver = false;
     }
 
     private void Start()
@@ -22,12 +25,24 @@ public class Prologue : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(_isPrologueOver)
+        {
+            if(Input.GetKeyUp(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("TitleScene");
+            }
+            if(Input.GetKeyUp(KeyCode.Space))
+            {
+                SceneManager.LoadScene("InGame");
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             ++_currentDialogueIndex;
             if( _currentDialogueIndex >= _dialogueRecords.Count )
             { 
                 _ui.text = "tap Space to start / tap Esc to Title Scene";
+                _isPrologueOver = true;
                 _currentDialogueIndex = _dialogueRecords.Count;
             }
             _ui.text = _dialogueRecords[_currentDialogueIndex].Text;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public struct MoveableObject
 {
@@ -141,6 +142,7 @@ public class GameManager : SingletonBehavior<GameManager>
     void Start()
     {
         // 오브젝트 배열 생성
+        Showrooms = GameObject.Find("MoveableObjects");
         int roomCount = Showrooms.transform.childCount;
         for (int i = 0; i < roomCount; ++i)
         {
@@ -179,5 +181,10 @@ public class GameManager : SingletonBehavior<GameManager>
             // 시간 업데이트
             CanUpdateAnomaly.Invoke();
         }
+    }
+
+    public void OnGameEnd()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }

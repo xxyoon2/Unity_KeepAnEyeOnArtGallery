@@ -9,7 +9,11 @@ public class SceneChange : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene("test");
+            SceneManager.LoadScene("Prologue");
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("TitleScene");
         }
     }
 }

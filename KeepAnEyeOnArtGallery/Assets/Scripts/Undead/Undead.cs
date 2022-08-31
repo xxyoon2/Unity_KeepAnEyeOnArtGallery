@@ -31,6 +31,7 @@ public class Undead : MonoBehaviour
             Debug.Log("다...닿았다!!!!!!!!!!!!!!!!!!!!");
 
             IsFindEnemy = true;
+            GameManager.Instance.OnGameEnd();
         }
     }
 

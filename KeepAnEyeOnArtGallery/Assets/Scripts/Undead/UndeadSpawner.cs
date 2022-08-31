@@ -38,6 +38,7 @@ public class UndeadSpawner : MonoBehaviour
         if (_undeadCount > 2)
         {
             Debug.Log("님죽음ㅅㄱ");
+            GameManager.Instance.OnGameEnd();
         }
 
         _undead[_undeadCount].transform.position = SpawnTransform[undeadSpawnPos].position;

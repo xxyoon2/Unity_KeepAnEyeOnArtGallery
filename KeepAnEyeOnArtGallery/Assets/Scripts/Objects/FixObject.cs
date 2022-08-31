@@ -35,13 +35,10 @@ public class FixObject : MonoBehaviour
         Vector3 fixedPos = _target.transform.position;
         fixedPos.y -= 1;
         _target.transform.position = fixedPos;
-
-        Debug.Log($"{_target} 와우");
     }
 
     private void FixRotation()
     {
-        _target.transform.rotation *= Quaternion.Euler(0, 0, -20); 
-        Debug.Log($"{_target} 와우");
+        _target.transform.rotation *= Quaternion.Euler(0, 0, -20);
     }
 }

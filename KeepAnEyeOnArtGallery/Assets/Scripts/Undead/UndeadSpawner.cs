@@ -28,23 +28,19 @@ public class UndeadSpawner : MonoBehaviour
     }
     */
 
-    public void Spawn(int undeadNum)
+    public void Spawn(int undeadSpawnPos)
     {
         GameObject undead = Instantiate<GameObject>(UndeadPrefab);
 
         ++_undeadCount;
+        _undead[_undeadCount] = undead;
         
         if (_undeadCount > 2)
         {
             Debug.Log("님죽음ㅅㄱ");
         }
 
-        _undead[_undeadCount] = undead;
-
-
-        Debug.Assert(GameManager.Instance.Objects[undeadNum].IsActive == false);
-
-        _undead[_undeadCount].transform.position = SpawnTransform[undeadNum].position;
+        _undead[_undeadCount].transform.position = SpawnTransform[undeadSpawnPos].position;
 
         Debug.Log($"{_undead[_undeadCount]}를 {_undead[_undeadCount].transform.position}에 소환했습니다.");
         //StartCoroutine(spawnHelper(undeadNum));        

@@ -41,8 +41,6 @@ public class UndeadMoveState : StateMachineBehaviour
             {
                 _isFindEnemy = false;
             }
-            
-            /*
             else
             {
                 // 오브젝트가 활성화되어있지 않다면 false 반환
@@ -58,9 +56,8 @@ public class UndeadMoveState : StateMachineBehaviour
                 _isFindEnemy = GeometryUtility.TestPlanesAABB(eyePlanes, targetBounds);
 
             }
-            */
 
-            if (Undead.IsFindEnemy)
+            if (_isFindEnemy)
             {
                 navMeshAgent.destination = Undead.Target.transform.position;
                 Undead.GetComponent<Animator>().SetBool(AnimID.FindEnemy, true);

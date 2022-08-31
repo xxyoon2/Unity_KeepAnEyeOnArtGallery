@@ -7,6 +7,7 @@ public class MoveObject : MonoBehaviour
 {
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         GameManager.Instance.ChangeObjectPosition.RemoveListener(ChangePosition);
         GameManager.Instance.ChangeObjectPosition.AddListener(ChangePosition);
 

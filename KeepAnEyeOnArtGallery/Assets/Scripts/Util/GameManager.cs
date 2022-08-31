@@ -157,6 +157,7 @@ public class GameManager : SingletonBehavior<GameManager>
                 Objects[j].RoomNum = i;
                 Objects[j].IsUndeadLive = false;
                 Objects[j].ModifiedOption = -1;
+                Debug.Log($"{Objects[j].Name}티비");
             }
             ObjectTotalCount += objectCount;
 

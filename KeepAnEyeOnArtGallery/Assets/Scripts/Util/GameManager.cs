@@ -71,7 +71,7 @@ public class GameManager : SingletonBehavior<GameManager>
                 Objects[result].ModifiedOption = 1;
                 break;
         }
-
+        
         ++ActiveObjectCount;
     }
 
@@ -84,6 +84,7 @@ public class GameManager : SingletonBehavior<GameManager>
             if (Objects[randomObject].IsActive == false)
             {
                 Objects[randomObject].IsActive = true;
+                Debug.Log($"{Objects[randomObject].IsActive}");
                 result = randomObject;
             }
         }
@@ -101,7 +102,7 @@ public class GameManager : SingletonBehavior<GameManager>
     {
         for (int i = 0; i < ObjectTotalCount; ++i)
         {
-            if (target.name == Objects[i].Name.name)
+            if (target == Objects[i].Name)
             {
                 if (Objects[i].IsActive)
                 {
@@ -110,10 +111,10 @@ public class GameManager : SingletonBehavior<GameManager>
                     if (Objects[i].IsUndeadLive)
                     {
                         RemoveUndead.Invoke();
+                        Objects[i].IsUndeadLive = false;
                     }
 
                     Objects[i].IsActive = false;
-                    Objects[i].IsUndeadLive = false;
                     --ActiveObjectCount;
 
                     return i;
@@ -174,7 +175,6 @@ public class GameManager : SingletonBehavior<GameManager>
             _elapsedTime = 0f;
             UpdateAnomaly();    // 오브젝트 변화
             spawnUndead();      // 언데드 소환
-            Objects[result].IsUndeadLive = true;
 
             // 시간 업데이트
             CanUpdateAnomaly.Invoke();

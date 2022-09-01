@@ -5,11 +5,11 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
-    smallestHole: 0.25
+    smallestOccluder: 5.36
+    smallestHole: 0.76
     backfaceThreshold: 100
   m_SceneGUID: 538ada8ef90ece14f820a18d28dae41d
-  m_OcclusionCullingData: {fileID: 36300000, guid: 5205dadd006afae49bc97c0fb7875501, type: 2}
+  m_OcclusionCullingData: {fileID: 36300000, guid: c4f7dd8a6b374da419a845a73f47ded4, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -498,11 +498,6 @@ PrefabInstance:
       objectReference: {fileID: 1420480903}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
---- !u!1 &237250899 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3989979024670041693, guid: c8264377b2bcc664b81a23f3af174590, type: 3}
-  m_PrefabInstance: {fileID: 237250898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &699417268 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8441118383208389115, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
@@ -523,7 +518,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b08430ee63af7454292b5d983e41586e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -809,9 +804,21 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 4307504348999698161, guid: edeb955cf4723cb4b8b5cc1c9d8d6d7c, type: 3}
+      propertyPath: TimeBell
+      value: 
+      objectReference: {fileID: 8300000, guid: cb51bf9c598575d41b05a418f8b12e8c, type: 3}
+    - target: {fileID: 4307504348999698161, guid: edeb955cf4723cb4b8b5cc1c9d8d6d7c, type: 3}
       propertyPath: Showrooms
       value: 
-      objectReference: {fileID: 237250899}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307504348999698161, guid: edeb955cf4723cb4b8b5cc1c9d8d6d7c, type: 3}
+      propertyPath: SpawnBell
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f1c14d9b62ee3249bcb3da22c748037, type: 3}
+    - target: {fileID: 4307504348999698161, guid: edeb955cf4723cb4b8b5cc1c9d8d6d7c, type: 3}
+      propertyPath: WrongAnswer
+      value: 
+      objectReference: {fileID: 8300000, guid: b08430ee63af7454292b5d983e41586e, type: 3}
     - target: {fileID: 4307504348999698162, guid: edeb955cf4723cb4b8b5cc1c9d8d6d7c, type: 3}
       propertyPath: m_RootOrder
       value: 3

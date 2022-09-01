@@ -99,6 +99,9 @@ public class GameManager : SingletonBehavior<GameManager>
         findAndObject(target);
     }
 
+    private AudioSource _audioSource;
+    public AudioClip WrongAnswer;
+    
     private int findAndObject(GameObject target)
     {
         for (int i = 0; i < ObjectTotalCount; ++i)
@@ -122,7 +125,11 @@ public class GameManager : SingletonBehavior<GameManager>
                 }
             }
         }
+        
         GameManager.Instance.UpdateNotifyText("FixFailed");
+        
+        _audioSource.PlayOneShot(WrongAnswer);
+
         return -1;
     }
 
@@ -142,6 +149,8 @@ public class GameManager : SingletonBehavior<GameManager>
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
+
         // 오브젝트 배열 생성
         Showrooms = GameObject.Find("MoveableObjects");
         int roomCount = Showrooms.transform.childCount;
@@ -167,10 +176,11 @@ public class GameManager : SingletonBehavior<GameManager>
     }
 
     private float _elapsedTime;
-    private int _anomalyCooltime = 30;
+    private int _anomalyCooltime = 40;
 
     public int Hour = 0;
     public int Minute = 0;
+    public AudioClip TimeBell;
     void Update()
     {
         _elapsedTime += Time.deltaTime;
@@ -185,11 +195,15 @@ public class GameManager : SingletonBehavior<GameManager>
             {
                 Minute = 0;
                 Hour++;
+
+                _audioSource.PlayOneShot(TimeBell);
             }
+
             CanUpdateTime.Invoke(Hour, Minute);
         }
     }
 
+    public AudioClip SpawnBell;
     IEnumerator GameUpdate()
     {
         yield return new WaitForSeconds(30f);
@@ -198,17 +212,27 @@ public class GameManager : SingletonBehavior<GameManager>
         {
             UpdateAnomaly();    // 오브젝트 변화
             int num = result;
+            bool isAnomalyFixed = false;
         
             yield return new WaitForSeconds(20f);
 
-            Debug.Log($"{num}이었는데");
-            if (Objects[num].IsActive)
+            for (int i = 0; i < 3; ++i)
             {
-                Debug.Log($"{num}입니다");
-                spawnUndead();  // 언데드 소환
-                Objects[num].IsUndeadLive = true;
-
+                if (Objects[num].IsActive)
+                {
+                    _audioSource.PlayOneShot(SpawnBell);
+                    yield return new WaitForSeconds(3.3f);
+                }
+                else
+                {
+                    isAnomalyFixed = true;
+                    break;
+                }
+               
             }
+            
+            if(isAnomalyFixed == false) spawnUndead();  // 언데드 소환
+            Objects[num].IsUndeadLive = true;
 
             yield return null;
         }

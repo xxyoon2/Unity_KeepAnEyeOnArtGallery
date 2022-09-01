@@ -42,7 +42,10 @@ public class PlayerInteraction : MonoBehaviour
 
             if (_hitObject.tag == "InteractObject" || _hitObject.tag == "FixableObject")
             {
-                _hitObject.GetComponent<Outline>().enabled = true;
+                if(_hitObject.GetComponent<Outline>() != null)
+                {
+                    _hitObject.GetComponent<Outline>().enabled = true;
+                }
                 FixNotifyText.SetActive(true);
                 //GameManager.Instance.UpdateNotifyText(_hitObject.tag);
             }
@@ -56,7 +59,10 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (_prevHitObject.tag == "InteractObject" || _prevHitObject.tag == "FixableObject")
             {
-                _prevHitObject.GetComponent<Outline>().enabled = false;
+                if (_prevHitObject.GetComponent<Outline>() != null)
+                {
+                    _prevHitObject.GetComponent<Outline>().enabled = false;
+                }
             }
             GameManager.Instance.UpdateNotifyText(_hitObject.tag);
         }

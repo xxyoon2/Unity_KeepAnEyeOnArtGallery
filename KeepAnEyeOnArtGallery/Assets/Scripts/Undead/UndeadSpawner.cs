@@ -63,6 +63,10 @@ public class UndeadSpawner : MonoBehaviour
 
     public void Deactive()
     {
-        Destroy(_undead[_undeadCount--]);
+        if(_undeadCount >= 0)
+        {
+            Destroy(_undead[_undeadCount]);
+            _undeadCount--;
+        }
     }
 }

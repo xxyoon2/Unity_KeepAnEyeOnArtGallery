@@ -99,6 +99,9 @@ public class GameManager : SingletonBehavior<GameManager>
         findAndObject(target);
     }
 
+    private AudioSource _audioSource;
+    public AudioClip WrongAnswer;
+    
     private int findAndObject(GameObject target)
     {
         for (int i = 0; i < ObjectTotalCount; ++i)
@@ -124,8 +127,8 @@ public class GameManager : SingletonBehavior<GameManager>
         }
         
         GameManager.Instance.UpdateNotifyText("FixFailed");
-        AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.Play();
+        
+        _audioSource.PlayOneShot(WrongAnswer);
 
         return -1;
     }
@@ -146,6 +149,8 @@ public class GameManager : SingletonBehavior<GameManager>
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
+
         // 오브젝트 배열 생성
         Showrooms = GameObject.Find("MoveableObjects");
         int roomCount = Showrooms.transform.childCount;
@@ -194,6 +199,7 @@ public class GameManager : SingletonBehavior<GameManager>
         }
     }
 
+    public AudioClip SpawnBell;
     IEnumerator GameUpdate()
     {
         yield return new WaitForSeconds(30f);
@@ -203,15 +209,17 @@ public class GameManager : SingletonBehavior<GameManager>
             UpdateAnomaly();    // 오브젝트 변화
             int num = result;
         
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(10f);
 
-            Debug.Log($"{num}이었는데");
             if (Objects[num].IsActive)
             {
-                Debug.Log($"{num}입니다");
+                for (int i = 0; i < 3; ++i)
+                {
+                    _audioSource.PlayOneShot(SpawnBell);
+                    yield return new WaitForSeconds(3.3f);
+                }
                 spawnUndead();  // 언데드 소환
                 Objects[num].IsUndeadLive = true;
-
             }
 
             yield return null;

@@ -27,13 +27,13 @@ public class Prologue : MonoBehaviour
     {
         if(_isPrologueOver)
         {
-            if(Input.GetKeyUp(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                SceneManager.LoadScene("TitleScene");
+                Application.Quit();
             }
-            if(Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space))
             {
-                SceneManager.LoadScene("InGame");
+                SceneManager.LoadScene("UndeadUpgrade");
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space))
@@ -41,9 +41,8 @@ public class Prologue : MonoBehaviour
             ++_currentDialogueIndex;
             if( _currentDialogueIndex >= _dialogueRecords.Count )
             { 
-                _ui.text = "tap Space to start / tap Esc to Title Scene";
+                _ui.text = "tap Space to start / tap Esc to Quit";
                 _isPrologueOver = true;
-                _currentDialogueIndex = _dialogueRecords.Count;
             }
             _ui.text = _dialogueRecords[_currentDialogueIndex].Text;
         }

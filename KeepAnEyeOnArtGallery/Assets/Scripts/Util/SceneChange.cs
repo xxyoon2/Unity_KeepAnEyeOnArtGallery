@@ -11,9 +11,9 @@ public class SceneChange : MonoBehaviour
         {
             SceneManager.LoadScene("Prologue");
         }
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("TitleScene");
+            Application.Quit();
         }
     }
 }

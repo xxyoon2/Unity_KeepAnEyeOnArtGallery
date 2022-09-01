@@ -6,23 +6,19 @@ using TMPro;
 public class TimeText : MonoBehaviour
 {
     private TextMeshProUGUI _ui;
-    private int _hour = 0;
-    private int _minute = 0;
     void Start()
     {
         _ui = GetComponent<TextMeshProUGUI>();
-        GameManager.Instance.CanUpdateAnomaly.RemoveListener(UpdateText);
-        GameManager.Instance.CanUpdateAnomaly.AddListener(UpdateText);
+        GameManager.Instance.CanUpdateTime.RemoveListener(UpdateText);
+        GameManager.Instance.CanUpdateTime.AddListener(UpdateText);
     }
 
-    void UpdateText()
+    void UpdateText(int hour, int minute)
     {
-        _minute++;
-        if(_minute >= 6)
+        if(hour >= 6)
         {
-            _minute = 0;
-            _hour++;
+            GameManager.Instance.GameClear();
         }
-        _ui.text = $"0{_hour}:{_minute}0 AM";
+        _ui.text = $"0{hour}:{minute}0 AM";
     }
 }

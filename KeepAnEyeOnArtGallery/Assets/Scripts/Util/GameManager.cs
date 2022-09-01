@@ -122,7 +122,11 @@ public class GameManager : SingletonBehavior<GameManager>
                 }
             }
         }
+        
         GameManager.Instance.UpdateNotifyText("FixFailed");
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+
         return -1;
     }
 

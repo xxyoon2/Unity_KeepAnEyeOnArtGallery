@@ -5,9 +5,11 @@ using UnityEngine;
 public class FixObject : MonoBehaviour
 {
     private GameObject _target;
+    private AudioSource _audioSource;
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         GameManager.Instance.AnomalyFix.RemoveListener(FindTargetInList);
         GameManager.Instance.AnomalyFix.AddListener(FindTargetInList);
     }
@@ -26,8 +28,9 @@ public class FixObject : MonoBehaviour
                 break;
             default :
                 break;
-            
         }
+
+        _audioSource.Play();
     }
 
     private void FixPosition()

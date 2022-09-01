@@ -26,7 +26,7 @@ public class GameManager : SingletonBehavior<GameManager>
 #endregion
 
 #region UI 관련
-    public UnityEvent CanUpdateAnomaly = new UnityEvent();
+    public UnityEvent<int, int> CanUpdateTime = new UnityEvent<int, int>();
     public UnityEvent<string> NotifyTextChange = new UnityEvent<string>();
 
     public bool IsPlayerWatchingCCTV = false;
@@ -169,6 +169,8 @@ public class GameManager : SingletonBehavior<GameManager>
     private float _elapsedTime;
     private int _anomalyCooltime = 30;
 
+    private int _hour = 0;
+    private int _minute = 0;
     void Update()
     {
         _elapsedTime += Time.deltaTime;
@@ -178,7 +180,13 @@ public class GameManager : SingletonBehavior<GameManager>
         {
             // 시간 업데이트
             _elapsedTime = 0f;
-            CanUpdateAnomaly.Invoke();
+            _minute++;
+            if (_minute >= 6)
+            {
+                _minute = 0;
+                _hour++;
+            }
+            CanUpdateTime.Invoke(_hour, _minute);
         }
     }
 

@@ -7511,7 +7511,7 @@ MonoBehaviour:
   DoorWarpPosition:
   - {fileID: 796701697484368141}
   - {fileID: 6415971161132782676}
-  Player: {fileID: 0}
+  Player: {fileID: 8441118382702228831, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
 --- !u!65 &5753348516056079847
 BoxCollider:
   m_ObjectHideFlags: 0

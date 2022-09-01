@@ -964,7 +964,6 @@ Transform:
   - {fileID: 4106753120879232}
   - {fileID: 4321781794078794}
   - {fileID: 630523216769975956}
-  - {fileID: 3627774584162807792}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1024,6 +1023,7 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   _moveSpeed: 2
   rotationSpeed: 2
+  IsFindEnemy: 0
   Target: {fileID: 8441118382702228831, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
   Eye: {fileID: 8009668392619953459}
 --- !u!195 &397966754
@@ -1534,6 +1534,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4219721143711250}
+  - {fileID: 3627774584162807792}
   m_Father: {fileID: 4747738370259854}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 22.169333, y: -90.74537, z: 68.171005}
@@ -2643,13 +2644,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613088410276587071}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00036239624, y: 3.2298822, z: 1.1613102}
+  m_LocalRotation: {x: 0.041715313, y: -0.48465064, z: 0.4969022, w: -0.7186528}
+  m_LocalPosition: {x: 0.2579997, y: -0.10299957, z: -0.09400052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4467757482891228}
-  m_RootOrder: 6
+  m_Father: {fileID: 4256849742946796}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8009668392619953459
 Camera:
@@ -2675,8 +2676,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 50
-  field of view: 78.9
+  far clip plane: 40.55
+  field of view: 144.1
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

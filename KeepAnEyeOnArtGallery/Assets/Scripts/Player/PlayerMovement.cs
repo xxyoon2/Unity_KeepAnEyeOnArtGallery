@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _moveSpeed = 5f;
     
     public bool _isPlayerInSaveZone = true;
+    public int uga = 3;
 
     private PlayerController _controller;
     private Rigidbody _rigidbody;

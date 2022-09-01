@@ -86,6 +86,7 @@ public class GameManager : SingletonBehavior<GameManager>
             {
                 Objects[randomObject].IsActive = true;
                 result = randomObject;
+                Debug.Log($"저는{result}입니다");
             }
         }
         Debug.Log($"{Objects[result].Name}변경. {ActiveObjectCount}개의 오브젝트 활성화 됨");
@@ -157,15 +158,16 @@ public class GameManager : SingletonBehavior<GameManager>
                 Objects[j].RoomNum = i;
                 Objects[j].IsUndeadLive = false;
                 Objects[j].ModifiedOption = -1;
-                Debug.Log($"{Objects[j].Name}티비");
             }
+            
             ObjectTotalCount += objectCount;
-
         }
+
+        StartCoroutine("GameUpdate");
     }
 
     private float _elapsedTime;
-    private int _anomalyCooltime = 20;
+    private int _anomalyCooltime = 30;
 
     void Update()
     {
@@ -174,18 +176,40 @@ public class GameManager : SingletonBehavior<GameManager>
         // 시간이 업데이트 될 때마다 오브젝트 변화사항도 하나씩 추가됨
         if (_elapsedTime >= _anomalyCooltime)
         {
-            _elapsedTime = 0f;
-            UpdateAnomaly();    // 오브젝트 변화
-            spawnUndead();      // 언데드 소환
-            Objects[result].IsUndeadLive = true;
-
             // 시간 업데이트
+            _elapsedTime = 0f;
             CanUpdateAnomaly.Invoke();
         }
     }
 
+    IEnumerator GameUpdate()
+    {
+        yield return new WaitForSeconds(30f);
+
+        while (true)
+        {
+            UpdateAnomaly();    // 오브젝트 변화
+            int num = result;
+        
+            yield return new WaitForSeconds(20f);
+
+            Debug.Log($"{num}이었는데");
+            if (Objects[num].IsActive)
+            {
+                Debug.Log($"{num}입니다");
+                spawnUndead();  // 언데드 소환
+                Objects[num].IsUndeadLive = true;
+
+            }
+
+            yield return null;
+        }
+        
+    }
+
     public void OnGameEnd()
     {
+        StopCoroutine("GameUpdate");
         SceneManager.LoadScene("GameOver");
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2847867024688718713}
   m_Layer: 0
   m_Name: Plant2
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 4778315574506622656}
   m_Layer: 0
   m_Name: Paint500
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 1095856423598690127}
   m_Layer: 0
   m_Name: Plant5
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 6286540389232291713}
   m_Layer: 0
   m_Name: plant2
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1135,7 +1135,7 @@ GameObject:
   - component: {fileID: 6351288361193277917}
   m_Layer: 0
   m_Name: GreekStatue (4)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1645,7 +1645,7 @@ GameObject:
   - component: {fileID: 277885262192773892}
   m_Layer: 0
   m_Name: frame 01 (2)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2607,7 +2607,7 @@ GameObject:
   - component: {fileID: 4002687532760156877}
   m_Layer: 0
   m_Name: Foto_met_frame_01
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3043,7 +3043,7 @@ GameObject:
   - component: {fileID: 6412612964225551259}
   m_Layer: 0
   m_Name: Obraz01
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3211,7 +3211,7 @@ GameObject:
   - component: {fileID: 3211456832341441639}
   m_Layer: 0
   m_Name: model (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3326,7 +3326,7 @@ GameObject:
   - component: {fileID: 703324306231657108}
   m_Layer: 0
   m_Name: GreekStatue (5)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3836,7 +3836,7 @@ GameObject:
   - component: {fileID: 4817263849883089274}
   m_Layer: 0
   m_Name: Painting_with_frame2
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3902,7 +3902,7 @@ GameObject:
   - component: {fileID: 1370787134002144417}
   m_Layer: 0
   m_Name: GreekStatue
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4711,7 +4711,7 @@ GameObject:
   - component: {fileID: 5554194614607531011}
   m_Layer: 0
   m_Name: Picture(2) (2)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4777,7 +4777,7 @@ GameObject:
   - component: {fileID: 5497020802520764884}
   m_Layer: 0
   m_Name: plant2 (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5413,7 +5413,7 @@ GameObject:
   - component: {fileID: 4297740727974176636}
   m_Layer: 0
   m_Name: GreekStatue (2)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5727,7 +5727,7 @@ GameObject:
   - component: {fileID: 6647227217555359897}
   m_Layer: 0
   m_Name: plant_338_fbx_corona
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5795,7 +5795,7 @@ GameObject:
   - component: {fileID: 6286540390419043087}
   m_Layer: 0
   m_Name: paint
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6212,7 +6212,7 @@ GameObject:
   - component: {fileID: 5020880524083963340}
   m_Layer: 0
   m_Name: cadre_lowpoly
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6813,7 +6813,7 @@ GameObject:
   - component: {fileID: 5048942312918481237}
   m_Layer: 0
   m_Name: Plant3
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7225,7 +7225,7 @@ GameObject:
   - component: {fileID: 6286540389408351134}
   m_Layer: 0
   m_Name: pictures
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8083,7 +8083,7 @@ GameObject:
   - component: {fileID: 7512079798799758107}
   m_Layer: 0
   m_Name: paint (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8532,7 +8532,7 @@ GameObject:
   - component: {fileID: 1465827189110569849}
   m_Layer: 0
   m_Name: Vase (1)
-  m_TagString: Untagged
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -8935,7 +8935,7 @@ GameObject:
   - component: {fileID: 2638313795818119045}
   m_Layer: 0
   m_Name: books
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9493,7 +9493,7 @@ GameObject:
   - component: {fileID: 7136213319957561674}
   m_Layer: 0
   m_Name: manequim (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9609,7 +9609,7 @@ GameObject:
   - component: {fileID: 6286540390531336762}
   m_Layer: 0
   m_Name: manequim (2)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10021,7 +10021,7 @@ GameObject:
   - component: {fileID: 4919366625720449313}
   m_Layer: 0
   m_Name: GreekStatue (6)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10169,7 +10169,7 @@ GameObject:
   - component: {fileID: 8032592699447241276}
   m_Layer: 0
   m_Name: old_wooden_stool
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10571,7 +10571,7 @@ GameObject:
   - component: {fileID: 8752146114570505803}
   m_Layer: 0
   m_Name: model
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10686,7 +10686,7 @@ GameObject:
   - component: {fileID: 880785925542834720}
   m_Layer: 0
   m_Name: Picture(2) (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11054,7 +11054,7 @@ GameObject:
   - component: {fileID: 6947461259535293807}
   m_Layer: 0
   m_Name: frame 01 (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11392,7 +11392,7 @@ GameObject:
   - component: {fileID: 370953985458467626}
   m_Layer: 0
   m_Name: GreekStatue (3)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11912,7 +11912,7 @@ GameObject:
   - component: {fileID: 8045802156104999287}
   m_Layer: 0
   m_Name: box_lp
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12080,7 +12080,7 @@ GameObject:
   - component: {fileID: 7683243989931101603}
   m_Layer: 0
   m_Name: End-Table_Modern
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12146,7 +12146,7 @@ GameObject:
   - component: {fileID: 4551422960951496485}
   m_Layer: 0
   m_Name: Picture(2)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12446,7 +12446,7 @@ GameObject:
   - component: {fileID: 6286540390349052077}
   m_Layer: 0
   m_Name: Statue
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12535,7 +12535,7 @@ GameObject:
   - component: {fileID: 6286540390446760076}
   m_Layer: 0
   m_Name: Shelf without Crates
-  m_TagString: Untagged
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12948,7 +12948,7 @@ GameObject:
   - component: {fileID: 8919053056137442313}
   m_Layer: 0
   m_Name: frame 01 (3)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13014,7 +13014,7 @@ GameObject:
   - component: {fileID: 379459704573044932}
   m_Layer: 0
   m_Name: Mirror
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14644,7 +14644,7 @@ GameObject:
   - component: {fileID: 6339967864066139944}
   m_Layer: 0
   m_Name: Carpet 10
-  m_TagString: Untagged
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17416,7 +17416,7 @@ GameObject:
   - component: {fileID: 9043674477882050631}
   m_Layer: 0
   m_Name: plant2
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19296,7 +19296,7 @@ GameObject:
   - component: {fileID: 1109668790243123155}
   m_Layer: 0
   m_Name: Obraz01 (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20642,7 +20642,7 @@ GameObject:
   - component: {fileID: 7530577954287544987}
   m_Layer: 0
   m_Name: plant_338_fbx_corona
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26219,7 +26219,7 @@ GameObject:
   - component: {fileID: 5748687690263144834}
   m_Layer: 0
   m_Name: Vase
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -33513,7 +33513,7 @@ GameObject:
   - component: {fileID: 190067121439749666}
   m_Layer: 0
   m_Name: paint (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34003,7 +34003,7 @@ GameObject:
   - component: {fileID: 6412788596233127856}
   m_Layer: 0
   m_Name: Radio
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36527,7 +36527,7 @@ GameObject:
   - component: {fileID: 6339967865984742261}
   m_Layer: 0
   m_Name: Interior
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37485,7 +37485,7 @@ GameObject:
   - component: {fileID: 7835216050048663020}
   m_Layer: 0
   m_Name: Plant4
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37582,7 +37582,7 @@ GameObject:
   - component: {fileID: 5671655284224860304}
   m_Layer: 0
   m_Name: Plant1
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37846,7 +37846,7 @@ GameObject:
   - component: {fileID: 4266475894651679526}
   m_Layer: 0
   m_Name: Obraz01 (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38425,7 +38425,7 @@ GameObject:
   - component: {fileID: 6317688911925794839}
   m_Layer: 0
   m_Name: Picture(1) (1)
-  m_TagString: InteractObject
+  m_TagString: FixableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

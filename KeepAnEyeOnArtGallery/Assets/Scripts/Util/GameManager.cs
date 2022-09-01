@@ -169,8 +169,8 @@ public class GameManager : SingletonBehavior<GameManager>
     private float _elapsedTime;
     private int _anomalyCooltime = 30;
 
-    private int _hour = 0;
-    private int _minute = 0;
+    public int Hour = 0;
+    public int Minute = 0;
     void Update()
     {
         _elapsedTime += Time.deltaTime;
@@ -180,13 +180,13 @@ public class GameManager : SingletonBehavior<GameManager>
         {
             // 시간 업데이트
             _elapsedTime = 0f;
-            _minute++;
-            if (_minute >= 6)
+            Minute++;
+            if (Minute >= 6)
             {
-                _minute = 0;
-                _hour++;
+                Minute = 0;
+                Hour++;
             }
-            CanUpdateTime.Invoke(_hour, _minute);
+            CanUpdateTime.Invoke(Hour, Minute);
         }
     }
 

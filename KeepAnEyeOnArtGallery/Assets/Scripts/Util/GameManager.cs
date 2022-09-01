@@ -188,4 +188,9 @@ public class GameManager : SingletonBehavior<GameManager>
     {
         SceneManager.LoadScene("GameOver");
     }
+
+    public void GameClear()
+    {
+        SceneManager.LoadScene("GameClear");
+    }
 }

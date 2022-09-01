@@ -176,10 +176,11 @@ public class GameManager : SingletonBehavior<GameManager>
     }
 
     private float _elapsedTime;
-    private int _anomalyCooltime = 30;
+    private int _anomalyCooltime = 40;
 
     public int Hour = 0;
     public int Minute = 0;
+    public AudioClip TimeBell;
     void Update()
     {
         _elapsedTime += Time.deltaTime;
@@ -194,7 +195,10 @@ public class GameManager : SingletonBehavior<GameManager>
             {
                 Minute = 0;
                 Hour++;
+
+                _audioSource.PlayOneShot(TimeBell);
             }
+
             CanUpdateTime.Invoke(Hour, Minute);
         }
     }
@@ -208,19 +212,27 @@ public class GameManager : SingletonBehavior<GameManager>
         {
             UpdateAnomaly();    // 오브젝트 변화
             int num = result;
+            bool isAnomalyFixed = false;
         
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(20f);
 
-            if (Objects[num].IsActive)
+            for (int i = 0; i < 3; ++i)
             {
-                for (int i = 0; i < 3; ++i)
+                if (Objects[num].IsActive)
                 {
                     _audioSource.PlayOneShot(SpawnBell);
                     yield return new WaitForSeconds(3.3f);
                 }
-                spawnUndead();  // 언데드 소환
-                Objects[num].IsUndeadLive = true;
+                else
+                {
+                    isAnomalyFixed = true;
+                    break;
+                }
+               
             }
+            
+            if(isAnomalyFixed == false) spawnUndead();  // 언데드 소환
+            Objects[num].IsUndeadLive = true;
 
             yield return null;
         }

@@ -33,7 +33,7 @@ public class Prologue : MonoBehaviour
             }
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                SceneManager.LoadScene("InGame");
+                SceneManager.LoadScene("UndeadUpgrade");
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space))

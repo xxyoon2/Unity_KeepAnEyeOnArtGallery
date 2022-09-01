@@ -23,6 +23,10 @@ public class TimeText : MonoBehaviour
             _minute = 0;
             _hour++;
         }
+        if(_hour >= 6)
+        {
+            GameManager.Instance.GameClear();
+        }
         _ui.text = $"0{_hour}:{_minute}0 AM";
     }
 }

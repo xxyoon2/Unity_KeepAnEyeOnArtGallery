@@ -212,4 +212,9 @@ public class GameManager : SingletonBehavior<GameManager>
         StopCoroutine("GameUpdate");
         SceneManager.LoadScene("GameOver");
     }
+
+    public void GameClear()
+    {
+        SceneManager.LoadScene("GameClear");
+    }
 }

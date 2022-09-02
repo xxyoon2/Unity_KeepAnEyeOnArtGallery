@@ -67,7 +67,7 @@ public class PlayerInteraction : MonoBehaviour
             GameManager.Instance.UpdateNotifyText(_hitObject.tag);
         }
 
-        if (_controller.CanInteract)
+        if (_controller.CanInteract && _hitObject.tag == "FixableObject")
         {
             StartCoroutine(FixingState());
         }

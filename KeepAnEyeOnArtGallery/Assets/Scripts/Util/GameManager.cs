@@ -176,7 +176,7 @@ public class GameManager : SingletonBehavior<GameManager>
     }
 
     private float _elapsedTime;
-    private int _anomalyCooltime = 30;
+    private int _anomalyCooltime = 25;
 
     public int Hour = 0;
     public int Minute = 0;

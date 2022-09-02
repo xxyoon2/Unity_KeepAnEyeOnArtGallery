@@ -48,7 +48,7 @@ public class GameManager : SingletonBehavior<GameManager>
 
     // 오브젝트 관리 관련
     public GameObject Showrooms;
-    public MoveableObject[] Objects = new MoveableObject[18];
+    public MoveableObject[] Objects = new MoveableObject[23];
 
     public int ObjectTotalCount = 0;    // 오브젝트 개수
     public int ActiveObjectCount = 0;   // 활성화된 오브젝트 개수

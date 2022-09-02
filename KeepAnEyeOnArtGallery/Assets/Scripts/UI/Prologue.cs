@@ -31,22 +31,19 @@ public class Prologue : MonoBehaviour
 
     void Update()
     {
-        if(_isPrologueOver)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Application.Quit();
-            }
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                SceneManager.LoadScene("InGame");
-            }
+            Application.Quit();
+        }
+        if (_isPrologueOver && Input.GetKeyUp(KeyCode.Space))
+        {
+            SceneManager.LoadScene(2);
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             ++_currentDialogueIndex;
-            if( _currentDialogueIndex >= _dialogueRecords.Count )
-            { 
+            if (_currentDialogueIndex >= _dialogueRecords.Count)
+            {
                 _ui.text = "tap Space to start / tap Esc to Quit";
                 _isPrologueOver = true;
             }

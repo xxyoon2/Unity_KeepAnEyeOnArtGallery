@@ -18,7 +18,8 @@ public class ScoreText : MonoBehaviour
         int _hour = GameManager.Instance.Hour;
         int _minute = GameManager.Instance.Minute;
         int _anomalyCount = GameManager.Instance.ActiveObjectCount;
-        _ui.text = $"Your Survived Time: 0{_hour}:{_minute}0 \nUnresolved Anomaly: {_anomalyCount}";
+        int _fixedAnomalyCount = GameManager.Instance.FixObjCount;
+        _ui.text = $"Your Survived Time: 0{_hour}:{_minute}0 \nFixed Anomaly Count: {_fixedAnomalyCount} \nUnresolved Anomaly: {_anomalyCount}";
     }
 
 }

@@ -53,6 +53,7 @@ public class GameManager : SingletonBehavior<GameManager>
     public int ObjectTotalCount = 0;    // 오브젝트 개수
     public int ActiveObjectCount = 0;   // 활성화된 오브젝트 개수
 
+    public int FixObjCount = 0;
     public int result;
 
     private void UpdateAnomaly()

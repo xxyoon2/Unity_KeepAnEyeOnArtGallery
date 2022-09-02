@@ -30,6 +30,7 @@ public class FixObject : MonoBehaviour
                 break;
         }
 
+        GameManager.Instance.FixObjCount++;
         _audioSource.Play();
     }
 

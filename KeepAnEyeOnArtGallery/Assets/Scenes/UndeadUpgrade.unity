@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: be7dd242e10f9fc4d94e11d378c9e191, type: 2}
 --- !u!1001 &364302271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -289,6 +289,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 397966751, guid: 36162ca0c6113f744b350e63fd0229bc, type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1656666843}
     - target: {fileID: 1309486516299566, guid: 36162ca0c6113f744b350e63fd0229bc, type: 3}
       propertyPath: m_Name
       value: Undead 1
@@ -346,6 +350,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 326741135375063492, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
+      propertyPath: _isPlayerInSaveZone
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8441118382702228817, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
       propertyPath: FixNotifyText
       value: 
@@ -356,15 +364,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8441118382702228828, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.96
       objectReference: {fileID: 0}
     - target: {fileID: 8441118382702228828, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.123
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 8441118382702228828, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 17.51
       objectReference: {fileID: 0}
     - target: {fileID: 8441118382702228828, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
       propertyPath: m_LocalRotation.w
@@ -400,3 +408,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
+--- !u!1 &1656666843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8441118382702228831, guid: e1164c3a40754f0448f44d7df1a38c75, type: 3}
+  m_PrefabInstance: {fileID: 1100816110}
+  m_PrefabAsset: {fileID: 0}

@@ -12,10 +12,9 @@ public enum PlayerState
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerState _pState;
-    [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] public float _moveSpeed = 5f;
     
-    public bool _isPlayerInSaveZone = true;
-    public int uga = 3;
+    public bool InSafeZone { get; private set; } = true;
 
     private PlayerController _controller;
     private Rigidbody _rigidbody;
@@ -41,7 +40,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag == "SafeZone")
         {
-            _isPlayerInSaveZone = true;
+            InSafeZone = true;
+            Debug.Log($"들어왔음 : {InSafeZone}");
         }
     }
 
@@ -50,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
         // layer 쓰세요.
         if (other.tag == "SafeZone")
         {
-            _isPlayerInSaveZone = false;
+            InSafeZone = false;
+            Debug.Log($"나감 : {InSafeZone}");
         }
     }
 

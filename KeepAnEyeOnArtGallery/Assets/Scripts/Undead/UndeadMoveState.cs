@@ -17,9 +17,6 @@ public class UndeadMoveState : StateMachineBehaviour
         Undead = animator.GetComponent<Undead>();
         navMeshAgent = animator.GetComponent<NavMeshAgent>();
         
-        // 이동할 포지션 설정
-        Transform target = Undead.Target.transform;
-
         // 언데드는 멈추지 않아요
         navMeshAgent.isStopped = false;
 

@@ -34,6 +34,9 @@ public class FixNotify : MonoBehaviour
             case "FixFailed":
                 _ui.text = "There is nothing to fix on this object...";
                 break;
+            case "TargetExit":
+                _ui.text = "";
+                break;
 
 
         }

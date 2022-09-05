@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray.origin, ray.direction, out hit))
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, 5))
         {
             _hitObject = hit.transform.gameObject;
 
@@ -47,24 +47,28 @@ public class PlayerInteraction : MonoBehaviour
                     _hitObject.GetComponent<Outline>().enabled = true;
                 }
                 FixNotifyText.SetActive(true);
-                //GameManager.Instance.UpdateNotifyText(_hitObject.tag);
+                GameManager.Instance.UpdateNotifyText(_hitObject.tag);
             }
             else
             {
                 FixNotifyText.SetActive(false);
             }
         }
+        else
+        {
+            _hitObject = null;
+        }
 
         if (_prevHitObject != null && _prevHitObject != _hitObject)
         {
-            if (_prevHitObject.tag == "InteractObject" || _prevHitObject.tag == "FixableObject")
+            if (_prevHitObject != null || _prevHitObject.tag == "InteractObject" || _prevHitObject.tag == "FixableObject")
             {
                 if (_prevHitObject.GetComponent<Outline>() != null)
                 {
                     _prevHitObject.GetComponent<Outline>().enabled = false;
                 }
             }
-            GameManager.Instance.UpdateNotifyText(_hitObject.tag);
+            GameManager.Instance.UpdateNotifyText("TargetExit");
         }
 
         if (_controller.CanInteract && _hitObject.tag == "FixableObject")
